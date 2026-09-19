@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Europe Trip">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#c2410c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1813" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAClklEQVR42u3du3GDQBiFUeQhdAvqw6li1esGHKkPN+LAmRDmMXgf3POFHgUeceZndwBx+bq9D9Kr3nwFgkNwCA7BITgEh+AQHIJDcEhwCA7BITgEh+AQHIJDcAgOCQ7BITgEh+AQHIJDcAgOwSGNvoJG+vj8nv7xcb9W/JcufrylTRYtEIGjaRZ1iVhz9CFjx+fhSJFRxQcc3cgo7wMOwXGKsVF4eMAhOM4yNkoODzgEh+AQHIJDcAgOHXZltcwVWjgEx4mGR7EbO+AoXfnbMuBIkVHyfjA4yICDDDi6k7HmkD/u1yo3oLv7vBUZnlsho5UD77RCBhxkwEEGHGTAQQYcZHQqAw4y4CADDjLgIAMOMuAgAw4y4CDjLDLgIAMOMuAgAw4y4CADDjLgIKO/vFLjNYLfA58sY/BowrDrWbQEGemTY98jiiEyotccZMBxZFEyck8r07HxdOAXP2By5I6EQApwzO5aF8V09HNNcAgOwSE4BEdXe5O5lebKdSscWfuXzL3JtMQLb660mRyHybDmIMPYeG4kA4t0HIv3dNmbRE+Ov2cDDaFrjrmxAUQ6DjLgIAOO/9+46vw4wh85gYMMOMiAgww4yICDDDjIgIMMOMjQaXCQAQcZcJABBxlwkAEHGXCQAQcZ6g0HGXBsjox0HG4ShoMMOMjop7FBBItvLFCZKv94iyffTY5jWJARseYgA44jIyPitOKNBSbH/pGAQigObyyAQ3AIDsEhVcXhjQVw7N+/2Ju0U50Lb5sOv7FhzSE4Ng4DYyPutLLm/IJFOg57EzhkzSE4BIfgkOAQHIJDcAgOwSE4BIfgEBwSHIJDcAgOwSE4BIfgEByCQ4JDcAgOwSE4BIfgEByCQ3AIDl+B5voBFmw/BK7HMFIAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAUUlEQVR42u3PMQ0AMAgAMNiNKayjbCo4SFoHzemKy14cJyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgILDvA1ZJAY/h2imEAAAAAElFTkSuQmCC">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkV1cm9wZSBUcmlwIDIwMjYiLCAic2hvcnRfbmFtZSI6ICJFdXJvcGUgVHJpcCIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAic3RhcnRfdXJsIjogIi4iLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjZmFmNmVmIiwgInRoZW1lX2NvbG9yIjogIiNjMjQxMGMifQ==">
+<title>Europe Trip 2026 · Copenhagen to Vienna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6ef; --surface:#ffffff; --surface-2:#f4eee3; --border:rgba(60,40,20,.12);
+  --ink:#2b241c; --dim:#6f665a; --faint:#a39a8c;
+  --terra:#c2410c; --terra-dim:#f7e2d6; --sage:#5f7a2e; --sage-dim:#e8eeda;
+  --teal:#0f6e75; --teal-dim:#dff0ee; --gold:#a07314; --gold-dim:#f6ecd4;
+  --wine:#8c2f39; --wine-dim:#f3dfe1; --slate:#4a5b78; --slate-dim:#e2e8f1;
+  --booked:#5f7a2e; --tobook:#b45309; --night:#6d28d9; --night-dim:#ece4fb;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1c1813; --surface:#252018; --surface-2:#2d271d; --border:rgba(255,240,220,.12);
+    --ink:#efe8dc; --dim:#b8ad9d; --faint:#877d6e; --terra:#e8662f; --terra-dim:#3a2415;
+    --sage:#93b35a; --sage-dim:#252c17; --teal:#4db3ba; --teal-dim:#122a2c; --gold:#d9a83f; --gold-dim:#2f2512;
+    --wine:#d97a85; --wine-dim:#301418; --slate:#8fa5c8; --slate-dim:#1b2130;
+    --night:#a78bfa; --night-dim:#241a38; --tobook:#d99a4e; --booked:#93b35a; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.6;
+  background-image:radial-gradient(ellipse 900px 400px at 10% -5%, rgba(194,65,12,.06), transparent),
+                   radial-gradient(ellipse 700px 400px at 95% 5%, rgba(15,110,117,.05), transparent);}
+h1,h2,h3,.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+a{color:var(--terra)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+
+header.hero{padding:44px 0 26px;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(194,65,12,.05), transparent 80%);}
+.hero .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:8px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);margin:0 0 6px;line-height:1.12}
+.hero .sub{color:var(--dim);font-size:1rem;max-width:760px}
+.meta-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);font-size:.75rem;color:var(--dim);font-weight:600}
+.chip b{color:var(--ink)}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:20px;font-size:.8rem;font-weight:700}
+.route .stop{padding:5px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--border)}
+.route .stop.dk{color:var(--terra)} .route .stop.pl{color:var(--wine)}
+.route .stop.sk{color:var(--slate)} .route .stop.si{color:var(--sage)}
+.route .stop.hr{color:var(--teal)} .route .stop.at{color:var(--gold)}
+.route .arrow{color:var(--faint);font-weight:400}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav .in{display:flex;gap:4px;padding:8px 18px;max-width:1060px;margin:0 auto}
+nav a{text-decoration:none;color:var(--dim);font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px}
+nav a:hover{background:var(--terra-dim);color:var(--terra)}
+
+section{padding:38px 0 10px}
+.sec-label{display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);font-weight:800;margin-bottom:6px}
+.sec-label::before{content:"";width:26px;height:2px;background:var(--terra);border-radius:2px}
+section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 4px}
+.lead{color:var(--dim);max-width:780px;margin:0 0 18px}
+
+.alert{background:linear-gradient(135deg,var(--terra-dim),var(--surface));border:1px solid rgba(194,65,12,.35);
+  border-left:4px solid var(--terra);border-radius:12px;padding:18px 20px;margin:0 0 18px}
+.alert h3{margin:0 0 6px;color:var(--terra);font-size:1.25rem}
+.alert p{margin:0 0 10px}
+.alert ul{margin:0;padding-left:18px}
+.alert li{margin:5px 0}
+.alert.gold{border-left-color:var(--gold);border-color:rgba(160,115,20,.4)}
+.alert.gold h3{color:var(--gold)}
+
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;min-width:0}
+.card h4{margin:0 0 4px;font-size:1rem;font-weight:700;font-family:"Plus Jakarta Sans",sans-serif}
+.card .big{font-family:"Instrument Serif",Georgia,serif;font-size:1.7rem;line-height:1.1;margin:2px 0}
+.card .mut{color:var(--dim);font-size:.84rem}
+.badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:999px}
+.b-booked{background:var(--sage-dim);color:var(--booked)}
+.b-tobook{background:var(--gold-dim);color:var(--tobook)}
+.b-go{background:var(--sage-dim);color:var(--sage)}
+.b-miss{background:var(--slate-dim);color:var(--slate)}
+.b-gem{background:var(--terra-dim);color:var(--terra)}
+.b-night{background:var(--night-dim);color:var(--night)}
+
+/* coverage filter */
+.filterbar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.fbtn{padding:7px 16px;border-radius:999px;border:1px solid var(--border);background:var(--surface);
+  font-size:.8rem;font-weight:700;color:var(--dim);cursor:pointer;font-family:inherit}
+.fbtn.active{background:var(--terra);color:#fff;border-color:var(--terra)}
+.cov-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--sage);
+  border-radius:10px;padding:12px 15px}
+.cov-card.miss{border-left-color:var(--faint);opacity:.88}
+.cov-card h4{margin:0 0 3px;font-size:.95rem}
+.cov-card .mut{font-size:.8rem;color:var(--dim)}
+.cov-card .ctry{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+/* day cards */
+.country-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 12px;flex-wrap:wrap}
+.country-head .flag-line{flex:1;height:1px;background:var(--border);min-width:30px}
+.country-head h3{margin:0;font-size:1.45rem}
+.country-head .nights{font-size:.78rem;color:var(--dim);font-weight:700}
+.day{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;
+  transition:box-shadow .2s}
+.day:hover{box-shadow:0 6px 24px rgba(60,40,20,.08)}
+.day-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--border);
+  background:var(--surface-2)}
+.day-num{font-family:"Instrument Serif",Georgia,serif;font-size:1.15rem;color:var(--terra);white-space:nowrap}
+.day-top h3{margin:0;font-size:1.08rem;font-weight:700;font-family:"Plus Jakarta Sans",sans-serif;flex:1;min-width:180px}
+.day-top .date{font-size:.72rem;color:var(--dim);font-weight:700;white-space:nowrap}
+.day-body{padding:14px 18px 16px}
+.slot{margin-bottom:10px}
+.slot .t{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.slot p{margin:2px 0 0}
+.eat{background:var(--sage-dim);border-radius:9px;padding:9px 13px;margin-top:10px;font-size:.86rem}
+.eat .t{color:var(--sage);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.tips{background:var(--teal-dim);border-radius:9px;padding:9px 13px;margin-top:8px;font-size:.84rem}
+.tips .t{color:var(--teal);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.gem{background:var(--terra-dim);border-radius:9px;padding:9px 13px;margin-top:8px;font-size:.84rem}
+.gem .t{color:var(--terra);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.nightbox{background:var(--night-dim);border-radius:9px;padding:9px 13px;margin-top:8px;font-size:.84rem}
+.nightbox .t{color:var(--night);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.choice{border:1px dashed var(--gold);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:.85rem;background:var(--surface)}
+.choice .t{color:var(--gold);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.move{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;padding:8px 12px;border-radius:9px;
+  background:var(--gold-dim);font-size:.86rem}
+.move .t{color:var(--gold);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.cost{display:inline-block;margin:2px 4px 2px 0;padding:2px 9px;border-radius:999px;background:var(--surface-2);
+  border:1px solid var(--border);font-size:.74rem;font-weight:700;color:var(--dim)}
+ul.tight{margin:4px 0;padding-left:18px}
+ul.tight li{margin:3px 0}
+
+/* tables */
+.tblwrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:620px}
+th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:left;
+  padding:11px 14px;border-bottom:2px solid var(--border);background:var(--surface-2)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:rgba(60,40,20,.025)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:13px 18px;font-weight:700;font-size:.95rem;list-style:none;display:flex;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary .dot{width:9px;height:9px;border-radius:50%;background:var(--terra);flex-shrink:0}
+summary .tag{margin-left:auto;font-size:.68rem;color:var(--faint);font-weight:700;white-space:nowrap}
+details[open] summary{border-bottom:1px solid var(--border);background:var(--surface-2)}
+details .body{padding:14px 18px}
+details .body p{margin-top:0}
+
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--border)}
+.check:last-child{border-bottom:none}
+.check input{margin-top:4px;accent-color:var(--terra);width:16px;height:16px;flex-shrink:0}
+
+footer{margin-top:50px;padding:26px 0 40px;border-top:1px solid var(--border);color:var(--dim);font-size:.8rem}
+.foot-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+footer h4{margin:0 0 6px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+footer a{word-break:break-all}
+.privacy{border:1px dashed var(--terra);border-radius:12px;padding:16px 18px;margin:18px 0;background:var(--surface)}
+@media (max-width:640px){
+  .day-top{gap:6px;padding:12px 14px}
+  .day-body{padding:12px 14px 14px}
+  section{padding:28px 0 6px}
+}
+
+/* iOS / touch enhancements */
+html{-webkit-text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:contain}
+@supports (padding:max(0px)){
+  nav .in{padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  nav a{padding:9px 15px;font-size:.82rem}
+  .fbtn{padding:10px 18px;font-size:.85rem}
+  summary{padding:15px 16px;font-size:1rem}
+  td,th{padding:9px 10px}
+  .tblwrap table{min-width:540px}
+}
+@media (hover:none){.day:hover{box-shadow:none}}
+#iostip{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:99;
+  background:var(--ink);color:var(--bg);border-radius:14px;padding:14px 16px;display:none;
+  box-shadow:0 8px 30px rgba(0,0,0,.35);font-size:.85rem;line-height:1.5}
+#iostip.show{display:block}
+#iostip button{margin-top:8px;margin-right:8px;background:var(--terra);color:#fff;border:none;
+  border-radius:8px;padding:9px 16px;font-weight:700;font-family:inherit;font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">18 days · 6 countries · v2 — the traveller-vibe upgrade</div>
+    <h1>Copenhagen → Zakopane → Krakow →<br>Slovakia · Slovenia · Croatia → Vienna</h1>
+    <p class="sub">Same skeleton as v1 — your booked flights and stays hold — now loaded with hidden gems, waterfall hikes, offbeat city finds, nightlife per city, group day-trip logic, relaxed café days, and a country-wise coverage filter showing exactly what you're seeing and what you're consciously skipping. Public transport only, every leg verified.</p>
+    <div class="meta-chips">
+      <span class="chip">Arrive <b>Copenhagen Sun 20 Sep ~7pm</b></span>
+      <span class="chip">Fly CPH→KRK <b>Wed 23 Sep</b></span>
+      <span class="chip">Zakopane <b>23–25 Sep</b></span>
+      <span class="chip">Depart <b>Vienna Wed 7 Oct</b></span>
+      <span class="chip">Diet <b>Vegetarian (eggs & dairy fine)</b></span>
+      <span class="chip">Transport <b>100% public</b></span>
+    </div>
+    <div class="route">
+      <span class="stop dk">Denmark</span><span class="arrow">→</span>
+      <span class="stop pl">Poland · Zakopane</span><span class="arrow">→</span>
+      <span class="stop pl">Krakow</span><span class="arrow">→</span>
+      <span class="stop sk">Slovakia</span><span class="arrow">→</span>
+      <span class="stop si">Slovenia</span><span class="arrow">→</span>
+      <span class="stop hr">Croatia</span><span class="arrow">→</span>
+      <span class="stop at">Austria</span>
+    </div>
+  </div>
+</header>
+
+<nav><div class="in">
+  <a href="#book">Book Now</a>
+  <a href="#coverage">Coverage Filter</a>
+  <a href="#itinerary">Itinerary</a>
+  <a href="#hikes">Hikes & Waterfalls</a>
+  <a href="#nightlife">Nightlife</a>
+  <a href="#food">Food</a>
+  <a href="#apps">Apps</a>
+  <a href="#transport">Transport</a>
+  <a href="#budget">Budget</a>
+  <a href="#practical">Practical</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ============ BOOK NOW ============ -->
+<section id="book">
+  <div class="sec-label">Act fast</div>
+  <h2>Still to book — trip starts tomorrow</h2>
+  <div class="alert">
+    <h3>Next few hours</h3>
+    <ul>
+      <li><b>Auschwitz-Birkenau timed pass</b> for Sun 27 (or Sat 26 if you swap) — free entry but the personalised pass from <a href="https://visit.auschwitz.org">visit.auschwitz.org</a> is mandatory; English guided tours (~130–150 PLN) sell out weeks ahead.</li>
+      <li><b>Krakow → Ljubljana overnight bus, Sun 27 Sep</b> — direct FlixBus N917, ~11.5–12h, from ~€45–50.</li>
+      <li><b>Ljubljana stay (5 nights), Zagreb (3), Vienna (2)</b> — see stay notes in the itinerary.</li>
+    </ul>
+  </div>
+  <div class="alert gold">
+    <h3>Next 2–3 days</h3>
+    <ul>
+      <li><b>Zagreb→Vienna EC train</b> (07:25→14:07, from €29.90) at <a href="https://www.oebb.at">oebb.at</a> — book via the ÖBB app or web; Sparschiene fares only climb.</li>
+      <li><b>Plitvice timed ticket for Sun 4 Oct</b> — €23 at <a href="https://ticketing.np-plitvicka-jezera.hr">ticketing.np-plitvicka-jezera.hr</a>.</li>
+      <li><b>Postojna</b> (~€30) or <b>Škocjan Caves</b> (~€23) ticket — see the Day 12 choice box.</li>
+      <li><b>Vintgar Gorge pass</b> (~€10–15, time-slotted, only at <a href="https://www.vintgar.si">vintgar.si</a>).</li>
+      <li><b>Wawel State Rooms</b> (Sat 26, 95 PLN, timed) — grounds + cathedral stay free if sold out.</li>
+      <li><b>Slovak cable cars</b> — Gopass app; buy 3+ days ahead to save up to €10.</li>
+      <li><b>Belianska Cave</b> (Fri 25, €15) — entries at fixed times (9:30/11:00/12:30/14:00), small groups, worth locking the 9:30 or 11:00 slot via the cave or Tatry region site if pre-booking is offered on the day.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COVERAGE FILTER ============ -->
+<section id="coverage">
+  <div class="sec-label">Country-wise</div>
+  <h2>What you're covering — and what you're skipping</h2>
+  <p class="lead">Filter by country. Green-bordered cards are in your itinerary (badges show where they slot in); grey cards are what you'll miss with 18 days and public transport — listed honestly so you can decide if anything is worth a re-shuffle, and so future-you knows exactly what to come back for.</p>
+  <div class="filterbar" id="filterbar">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="dk">Denmark</button>
+    <button class="fbtn" data-f="pl">Poland</button>
+    <button class="fbtn" data-f="sk">Slovakia</button>
+    <button class="fbtn" data-f="si">Slovenia</button>
+    <button class="fbtn" data-f="hr">Croatia</button>
+    <button class="fbtn" data-f="at">Austria</button>
+  </div>
+  <div class="grid g3" id="covgrid">
+
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Copenhagen classics</h4><div class="mut">Nyhavn, canal tour, Rosenborg, Christiansborg tower, Round Tower, Strøget, Christiania, Kronborg + Louisiana day trip, Reffen street food. Days 1–3.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>CopenHill rooftop</h4><div class="mut">Free rooftop hiking trail on a waste-to-energy plant with harbour views; ski slope optional (150 DKK/hr). Day 2 evening.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Nørrebro offbeat walk</h4><div class="mut">Jægersborggade street (Coffee Collective), Assistens Cemetery (H.C. Andersen, Kierkegaard), Superkilen park, sunset on Dronning Louises Bro. Day 2.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Cisternerne</h4><div class="mut">Dripstone cave art space in a former underground water reservoir — this season: Marina Abramović's "Seven Deaths". 120 DKK. Day 3 option.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Malmö (Sweden)</h4><div class="mut">35-min train — kept as the rain swap for Day 3, not a plan. Do it if Kronborg+Louisiana weather is foul.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Aarhus / Jutland</h4><div class="mut">ARoS rainbow museum etc. — needs 2+ days Denmark doesn't have. Tivoli proper (summer season ends 20 Sep; Halloween from 2 Oct). Bornholm island.</div></div>
+
+    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Zakopane & Tatra hikes</h4><div class="mut">Morskie Oko + Czarny Staw + Wodogrzmoty waterfalls (Day 5), Rusinowa Polana sunrise-meadow option, Gubałówka, Krupówki, Termy Chochołowskie, Wielka Krokiew ski jump, Siklawica waterfall option, Dolina Kościeliska alternative.</div></div>
+    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Krakow full spread</h4><div class="mut">Wawel, Old Town, Kazimierz + Father Bernatek bridge, Auschwitz (Day 8), Wieliczka as rain-swap — plus Zakrzówek lagoon, Kościuszko Mound, Nowa Huta or Tyniec options (Day 7).</div></div>
+    <div class="cov-card miss" data-c="pl"><div class="ctry">Poland · Skipping</div><h4>Warsaw, Gdansk, Białowieża</h4><div class="mut">All need 2–3 days each; wrong direction from Krakow. Dunajec River rafting (gorge border with Slovakia) — a summer classic, awkward by bus in late Sept.</div></div>
+
+    <div class="cov-card" data-c="sk"><div class="ctry">Slovakia · Going</div><h4>High Tatras day</h4><div class="mut">New direct cross-border bus: Belianska Cave, Ždiar folk village, Starý Smokovec, Skalnaté Pleso cable car (or Lomnický štít splurge). Day 6, Friday 25 Sep.</div></div>
+    <div class="cov-card miss" data-c="sk"><div class="ctry">Slovakia · Skipping</div><h4>Slovak Paradise, Levoča, Spiš, Bratislava</h4><div class="mut">Slovenský raj gorge-ladder hikes need an overnight in the east; Spiš Castle/Levoča are 2h+ from Poprad; Bratislava is off your Vienna line by 1h each way.</div></div>
+
+    <div class="cov-card" data-c="si"><div class="ctry">Slovenia · Going</div><h4>Julian Alps & Karst</h4><div class="mut">Bled + Vintgar, Bohinj + Mostnica Gorge & Slap Mostnica + Savica (Vogel cable car closed 21 Sep–end Nov), Postojna + Predjama (or wilder Škocjan), Velika Planina or Šmarna Gora sunrise, Ljubljana old town, Metelkova, Tivoli. Days 9–13.</div></div>
+    <div class="cov-card miss" data-c="si"><div class="ctry">Slovenia · Skipping</div><h4>Soča Valley & the coast</h4><div class="mut">Bovec/Kobarid emerald-river country is 3–4h each way by bus — a future trip with a car. Piran, Lake Jasna/Kranjska Gora (bus-able if you want one more swap), Logar Valley, Maribor.</div></div>
+
+    <div class="cov-card" data-c="hr"><div class="ctry">Croatia · Going</div><h4>Zagreb + Plitvice</h4><div class="mut">Upper Town, Dolac, funicular, noon cannon, Museum of Broken Relationships, Mirogoj, Rastoke watermill village en route, Plitvice full circuit, Samobor or Jarun options. Days 13–15.</div></div>
+    <div class="cov-card miss" data-c="hr"><div class="ctry">Croatia · Skipping</div><h4>The coast</h4><div class="mut">Rovinj, Zadar, Split, Dubrovnik — wrong season-crowd mix and 4h+ off your line; a separate trip. Krka NP (a Plitvice twin) skipped in favour of the original.</div></div>
+
+    <div class="cov-card" data-c="at"><div class="ctry">Austria · Going</div><h4>Vienna, properly</h4><div class="mut">Schönbrunn, Belvedere/Klimt, Prater + Zaha Hadid library, Café Sperl, a heuriger wine-tavern night (Sturm season!), Kahlenberg option. Days 16–18.</div></div>
+    <div class="cov-card miss" data-c="at"><div class="ctry">Austria · Skipping</div><h4>Salzburg, Hallstatt, Tyrol, Wachau</h4><div class="mut">All reachable from Vienna but each eats a full day-plus; with a Wed 7 Oct flight, none fit. Wachau (Danube valley, Melk Abbey) is the easiest future add-on from Vienna.</div></div>
+
+  </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<section id="itinerary">
+  <div class="sec-label">Day by day</div>
+  <h2>The itinerary</h2>
+  <p class="lead">Structure: big-hike days balanced with café-and-wander days, one group-friendly anchor per city, and every hidden gem marked as a Gem. Costs per person. Late-Sept/Oct mountain weather: 8–17°C days, cold nights, real rain risk — layers, waterproof shell, proper shoes.</p>
+
+  <!-- DENMARK -->
+  <div class="country-head"><h3>Denmark — Copenhagen</h3><span class="nights">3 nights · booked</span><span class="flag-line"></span></div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 1</span><h3>Arrival + Nyhavn by night</h3><span class="date">Sun 20 Sep</span></div>
+    <div class="day-body">
+      <div class="move"><span class="t">Arrive</span><span>~19:00 at Terminal 3. Metro M2 (24/7) to Kongens Nytorv, ~15 min, ~36 DKK — buy on the Rejsebillet app or a machine (see the Apps section: DOT Tickets is retired, Rejsebillet is the new one).</span></div>
+      <div class="slot"><span class="t">Evening</span><p>Drop bags, walk <b>Kongens Nytorv → Nyhavn → Amalienborg</b>. Optional: <b>Tivoli</b> tonight is your only chance this trip (summer season ends today; Halloween season reopens 2 Oct) — 2 min from Central Station, ~150–275 DKK.</p></div>
+      <div class="eat"><span class="t">Eat</span><b>RizRaz</b> all-veg buffet (185 DKK, till midnight) — zero-effort first night.</div>
+      <div class="nightbox"><span class="t">Night</span>Sunday is a quiet night in Copenhagen — Kødbyen (Meatpacking) is closed Sun–Wed. One easy round: <b>Eiffel Bar</b> (Christianshavn, beer 45–55 DKK, open till 3am) or call it and save the legs.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 2</span><h3>Classics + Nørrebro offbeat + CopenHill</h3><span class="date">Mon 21 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p><b>GRØD</b> porridge at Torvehallerne (79–99 DKK), then <b>Rosenborg Castle</b> (140 DKK) + King's Garden, Strøget, <b>Round Tower</b> (50–60 DKK), <b>Christiansborg tower</b> (free — best panorama in the city).</p></div>
+      <div class="slot"><span class="t">Midday</span><p><b>Canal tour</b> from Nyhavn/Ved Stranden (Stromma from 169 DKK, ~135 DKK online early-bird).</p></div>
+      <div class="slot"><span class="t">Afternoon — the offbeat block</span><p>Metro to Nørrebro for the locals' strip: <b>Jægersborggade</b> (Coffee Collective filter 50–65 DKK, ceramics, natural wine), <b>Assistens Cemetery</b> — free, park-like, H.C. Andersen & Kierkegaard's graves, open to 22:00 in Sept — and <b>Superkilen</b>, the BIG-designed red-green-black park with 100+ objects from residents' home countries. Sunset on <b>Dronning Louises Bro</b> by the lakes is the local evening ritual.</p></div>
+      <div class="slot"><span class="t">Late option</span><p><b>CopenHill</b> — the rooftop hiking trail on the Amager Bakke waste-to-energy plant. Free access to roof + trails (Mon–Fri to 19:00 in late Sept); dry-slope skiing 150 DKK/hr if the group fancies skiing in Denmark. Short metro+bus from the centre (route it in Rejseplanen).</p></div>
+      <div class="eat"><span class="t">Eat</span>Dinner at <b>Reffen</b> street-food market (harbour bus 91/992 from Nyhavn, ~15 min; mains 80–130 DKK). Or <b>POW Vegan Pizzeria</b> / <b>Souls</b> if the weather turns.</div>
+      <div class="nightbox"><span class="t">Night</span>Monday: <b>Mikkeller & Friends</b> (Nørrebro, 40 taps) or <b>Mikkeller Bar Viktoriagade</b> (Vesterbro, to 23:00, beers ~65 DKK). Cheap-and-cheerful: <b>Escobar</b> (Blågårdsgade, daily till 2am).</div>
+      <div class="tips"><span class="t">Tip</span>Copenhagen Card 72h (1,039 DKK) still pays off with Tivoli + canal + castles + Louisiana; otherwise City Pass + singles. Monday closures: Glyptotek, Louisiana, Morgenstedet, Designmuseum.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 3</span><h3>Day trip: Kronborg + Louisiana (+ Cisternerne option)</h3><span class="date">Tue 22 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p>Kystbanen coastal train (~45 min, ~60 DKK each way, Copenhagen Card covers it) to <b>Helsingør</b>: <b>Kronborg Castle</b> — Hamlet's Elsinore, UNESCO, the casemates and Holger the Dane (135–150 DKK). 2–3 hours.</p></div>
+      <div class="slot"><span class="t">Afternoon</span><p>Two stops south to Humlebæk for <b>Louisiana Museum</b> (145 DKK, open Tue–Sun) — Giacometti galleries over the Øresund. Give it 3 hours.</p></div>
+      <div class="slot"><span class="t">If museums are more your thing</span><p>Swap Louisiana for <b>Cisternerne</b> in Frederiksberg — a dragonfly-dripping underground reservoir turned art cave, this season Marina Abramović's "Seven Deaths" (120 DKK, Tue–Sun, 5-min walk from Valby station) — then a slow harbour afternoon instead.</p></div>
+      <div class="slot"><span class="t">Evening</span><p>Back by ~19:00, pack. Splurge dinner: <b>Bistro Lupa</b> (Michelin Green Star plant-based, ~€70, open Tue) or <b>MADENITALY</b> vegan Italian.</p></div>
+      <div class="tips"><span class="t">Rain swap</span>Malmö — 35–40 min Øresund train (~210 DKK return), free old town, cheaper lunches around Möllan. Carry your passport (Swedish ID checks at Hyllie).</div>
+    </div>
+  </div>
+
+  <!-- POLAND -->
+  <div class="country-head"><h3>Poland — Zakopane & Krakow</h3><span class="nights">2 + 2 nights · booked</span><span class="flag-line"></span></div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 4</span><h3>Fly to Krakow, straight to Zakopane</h3><span class="date">Wed 23 Sep</span></div>
+    <div class="day-body">
+      <div class="move"><span class="t">Move</span><span>Morning flight CPH→KRK (~1h35). SKA1 train terminal→Kraków Główny (17–20 min, 20 PLN), then MDA bus (Bosacka 18) to Zakopane — 2h–2h30, 25–45 PLN (FlixBus/Szwagropol/Majer, ~74/day), or PKP train, 30–65 PLN, jam-proof.</span></div>
+      <div class="slot"><span class="t">Afternoon + evening</span><p><b>Krupówki</b> promenade + grilled <b>oscypek</b> with cranberry (vegetarian, regional). If clear: <b>Gubałówka funicular</b> for the sunset Tatra panorama (44–49 PLN return).</p></div>
+      <div class="eat"><span class="t">Eat</span><b>Bistro LAS</b> (top-ranked vegan kitchen, 20–40 PLN mains) or <b>Bistro Schronisko Krupówki "Vege"</b> right on the promenade.</div>
+      <div class="nightbox"><span class="t">Night</span>Zakopane après-hike pubs cluster on and around Krupówki — regional highland vibe, cheap beer, live folk music most evenings. Grab the group, follow the noise.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 5</span><h3>Morskie Oko — the big Tatra day</h3><span class="date">Thu 24 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Early</span><p>"Morskie Oko" minibuses from Zakopane bus station (ul. Jagiellońska), from ~06:00, every ~20 min, 15 PLN cash. Park entry 11 PLN.</p></div>
+      <div class="slot"><span class="t">The hike</span><p>Paved 8–9 km climb to <b>Morskie Oko</b> (2–2.5h each way), passing the <b>Wodogrzmoty Mickiewicza waterfalls</b> at km 3 — 30–40 minutes in, viewpoints from the road and a stone bridge. Optional add-on: <b>Czarny Staw</b> (+2 km each way, wilder). From 2026 horse carts only cover the first 2.5 km to the falls.</p></div>
+      <div class="gem"><span class="t">Gem · alternative hike</span>If you'd rather avoid Morskie Oko's crowds, <b>Rusinowa Polana</b> — the sunrise meadow with the full High-Tatras panorama — starts from the same Palenica Białczańska trailhead (blue trail, ~50 min steep) or gentler from Wierch Poroniec (~1h). Park rules ban pre-dawn trail walking (Mar–Nov), so go at first light for morning mist instead. Both hikes share the same bus.</div>
+      <div class="slot"><span class="t">Evening</span><p>Recovery at <b>Termy Chochołowskie</b> — the 19:00 evening slot is 69 PLN for 3 hours of thermal pools (~15 km, taxi or Chochołów bus).</p></div>
+      <div class="eat"><span class="t">Eat</span><b>Kawiarnia Filiżanki</b> (4.8★, veg-friendly, 20–40 PLN) or <b>Szczypiorek</b> (vegetarian delivery — lazy group night in). Budget: <b>Bar Górski</b> milk-bar with labelled veg options.</div>
+      <div class="tips"><span class="t">Also in the area</span><b>Siklawica waterfall</b> via Dolina Strążyska (walkable from Krupówki, 1.5–2h round trip, ~9–11 PLN entry — best after rain; dry late-Sept can reduce it to a trickle) and <b>Wielka Krokiew</b> ski jump (free viewpoint, 20–30 min walk). If you want a full alternative valley day: <b>Dolina Kościeliska</b> — buses every 15–20 min to Kiry, flat canyon walk, Mroźna Cave, Smreczyński pond, 4–5h.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 6</span><h3>Slovakia day — Belianska Cave, Ždiar, cable car — then Krakow</h3><span class="date">Fri 25 Sep</span></div>
+    <div class="day-body">
+      <div class="move"><span class="t">Move</span><span>07:30 direct cross-border bus from Zakopane station toward Poprad (new line since Jan 2026, 4× daily; also the A15 at 06:32) — stops at Ždiar and Tatranská Kotlina en route to Starý Smokovec. ~€5. Passport in pocket.</span></div>
+      <div class="slot"><span class="t">Morning</span><p>Off at <b>Tatranská Kotlina</b>: 25-min educational-trail climb to <b>Belianska Cave</b> — the only show cave in the High Tatras, 70-min guided tour, 874 stairs, €15 (photo fees abolished 2026). Entries at 9:30 / 11:00 / 12:30 — target the first two. (Closed Mondays — Friday is fine.)</p></div>
+      <div class="slot"><span class="t">Midday</span><p>Bus/train along the Tatra electric railway to <b>Starý Smokovec</b>, the vintage spa town. Lunch, then the alpine hit:</p>
+        <ul class="tight">
+          <li><b>Budget — Hrebienok funicular</b> (€13 return) + waterfall walk.</li>
+          <li><b>Best value — Tatranská Lomnica → Skalnaté Pleso</b> cable car (€34 return): terraces, chamois, half the crowds of the Polish side.</li>
+          <li><b>Splurge — Lomnický štít</b> (2,634 m): €89, 50 minutes on the summit, pre-book in the Gopass app.</li>
+        </ul>
+      </div>
+      <div class="slot"><span class="t">Return</span><p>15:17 A15 back from Starý Smokovec → Zakopane 16:35 (backup: minibus to Łysa Polana + border walk + SAD bus, last ~18:15). Collect bags, evening bus to Krakow (2h–2h30, 25–45 PLN; FlixBus till ~23:45). Check in.</p></div>
+      <div class="gem"><span class="t">Gem</span><b>Ždiar</b> — the Goral folk village with black-wooded architecture — is a stop on the same A15 line (09:45 inbound / 15:45 outbound), so a 20-minute wander is nearly free if timings line up.</div>
+      <div class="eat"><span class="t">Eat</span>Late Krakow arrival: <b>Vegab</b> (vegan kebabs, Starowiślna) or <b>Glonojad</b> (canteen veg, till 22:00, 20–35 PLN).</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 7</span><h3>Krakow — classics + Zakrzówek + mound sunset + Kazimierz</h3><span class="date">Sat 26 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p><b>Wawel</b> (grounds + cathedral free; State Rooms 95 PLN if booked) → Rynek Główny, Cloth Hall, St Mary's (15 PLN), Floriańska Gate.</p></div>
+      <div class="slot"><span class="t">Midday — the local's Krakow</span><p>Tram 8/11/18/22 to <b>Zakrzówek</b> — a turquoise flooded limestone quarry with 30-m cliffs and a 2.3 km cliff-path loop (~40 min), free, with a view of Wawel across the water. (The lifeguarded swimming zone closes 7 Sep, but the walk and viewpoints are year-round.) Then tram out or walk back via the riverside.</p></div>
+      <div class="slot"><span class="t">Afternoon options — pick one</span>
+        <ul class="tight">
+          <li><b>Nowa Huta</b> (tram 4/10/16/22, ~20 min): the Stalinist showpiece suburb — Plac Centralny, Aleja Róż (wider than the Champs-Élysées), the Lord's Ark church built in defiance of the regime. DIY by tram or a ~90–150 PLN foundation walking tour.</li>
+          <li><b>Kazimierz deep-dive</b> instead: Szeroka, Remu'h synagogue, vintage shops, and pre-dinner drinks.</li>
+        </ul>
+      </div>
+      <div class="slot"><span class="t">Sunset</span><p><b>Kościuszko Mound</b> (bus 100/101) — the best panorama over the whole city, 34 PLN with fort exhibitions; open to 19:00.</p></div>
+      <div class="slot"><span class="t">Evening</span><p>Kazimierz: cross the <b>Father Bernatek footbridge</b> to Podgórze — ten gravity-defying bronze acrobats suspended over the deck, best at blue hour — then back for the night out (below).</p></div>
+      <div class="eat"><span class="t">Eat</span><b>Krowarzywa</b> vegan burgers (16–32 PLN), <b>Veganic</b> (Polish veg classics, weekend breakfast buffet 40 PLN), zapiekanka at <b>Plac Nowy</b> (12–18 PLN, ask for veg).</div>
+      <div class="nightbox"><span class="t">Night · Saturday is the big one</span>Start at <b>Plac Nowy</b> (draught 12–16 PLN, legal outdoor drinking, zapiekanka window till 2–3am) → <b>Alchemia</b> (candle-lit institution, cellar gigs, arrive before 20:00 for a table) → <b>Singer</b> (sewing-machine tables) or <b>Hevre</b> (1896 prayer-house cocktail bar) → <b>Prozak 2.0</b> club (3 dancefloors, ~10 PLN entry — check the week's events) or <b>Propaganda</b> till 4am. Between bars: <b>Pijalnia Wódki i Piwa</b> — communist-themed shot bars, vodka 5–7 PLN.</div>
+      <div class="tips"><span class="t">Swap logic</span>If Auschwitz is booked for Saturday instead of Sunday, invert this and the next day. Rain swap: <b>Wieliczka Salt Mine</b> (131–156 PLN, 17°C underground, book bilety.kopalnia.pl). Tyniec Abbey by riverside bike is the other half-day gem if the group prefers monastery-calm to communist-blocks.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 8</span><h3>Auschwitz-Birkenau — then the overnight bus west</h3><span class="date">Sun 27 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">All day</span><p>Lajkonik bus from MDA (~1.5h, ~20–22 PLN) or an all-in tour (150–250 PLN). Entry free with your pre-booked pass; guided English tour 130–150 PLN. Allow 7–9h door-to-door; free shuttle between camps; bags over 30×20×10 go in lockers.</p></div>
+      <div class="slot"><span class="t">Late afternoon</span><p>Back by ~17:00–18:00, dinner at <b>Glonojad</b>, collect bags.</p></div>
+      <div class="move"><span class="t">Overnight</span><span>~21:00–23:00 direct FlixBus N917 Krakow → Ljubljana, ~11.5–12h, from ~€45–50. Eye mask, warm layer.</span></div>
+    </div>
+  </div>
+
+  <!-- SLOVENIA -->
+  <div class="country-head"><h3>Slovenia — Ljubljana base</h3><span class="nights">5 nights · to book tonight</span><span class="flag-line"></span></div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 9</span><h3>Arrive Ljubljana — the relaxed day</h3><span class="date">Mon 28 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p>Bus station ~08:00–09:30, 10-min walk to the old town. Coffee + a proper slow breakfast — try the market colonnade or a riverside café. Then drift: <b>Prešeren Square → Triple Bridge → Dragon Bridge → Central Market</b>. Walk up to <b>Ljubljana Castle</b> on the free path (funicular €3.30 one-way; interior ticket optional); sunset drink on the terrace.</p></div>
+      <div class="slot"><span class="t">Afternoon</span><p><b>Metelkova</b> street-art squat in daylight, <b>Tivoli Park</b>, and café-hopping — Ljubljana's centre is one pedestrian zone built for exactly this day.</p></div>
+      <div class="eat"><span class="t">Eat</span><b>Gourmet Vegan</b> (€10–20) or budget <b>Radha Govinda</b> pay-by-weight buffet (~€8 a plate, Mon–Sat 11–18). Monday closures: Veganika, Bled's Public & Vegan Kitchen.</div>
+      <div class="nightbox"><span class="t">Night</span>Riverside: <b>Premier Pub</b> (Petkovškovo nabrežje 17, happy hour 17:00–19:00, spritzes €5–10) and <b>TOZD</b> (new address: Cankarjeva cesta 8 — older blogs point to the wrong street). Metelkova is quiet Sun–Wed unless there's a listed gig — check flyers.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 10</span><h3>Lake Bled + Vintgar Gorge</h3><span class="date">Tue 29 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p>Arriva bus (1h15, €6.30 one-way). Lake loop (free) + <b>Ojstrica / Mala Osojnica</b> free viewpoints — the postcard shot everyone else pays the castle for.</p></div>
+      <div class="slot"><span class="t">Midday</span><p><b>Vintgar Gorge</b> (4 km away; shuttle from the bus station): boardwalks over the emerald Radovna — online time-slotted pass only (~€10–15, vintgar.si). Early-October hours shorten — go before early afternoon.</p></div>
+      <div class="slot"><span class="t">Afternoon — pick</span><p>Bled Castle (€15–19) / pletna boat to the island (€15–20) / rowboat (€15–25/hr) / none of the above — the lake itself is free and the best of it.</p></div>
+      <div class="eat"><span class="t">Eat</span>Lunch at <b>Public & Vegan Kitchen</b> (open Tue–Sun 12–16 — vegan Bled cream cake). Then the original dairy <b>kremšnita at Hotel Park</b> (1953, vegetarian by definition).</div>
+      <div class="gem"><span class="t">Gem</span>If Bled feels too polished, the <b>Žirovnica Path of Cultural Heritage</b> is a bus stop on the same line — meadows, bee-house museums, and the clearest reflection view of the Karavanke wall, with nobody in the frame.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 11</span><h3>Bohinj + Mostnica Gorge + Slap Mostnica — the waterfall day</h3><span class="date">Wed 30 Sep</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p>Bus to Ribčev Laz at <b>Lake Bohinj</b> (~2–2.5h via Bled, €8–12). The wilder sister of Bled — the lake loop and St John's Church are free.</p></div>
+      <div class="slot"><span class="t">Midday — hidden gem hike</span><p>Flat 20–25-min walk to Stara Fužina, then <b>Mostnica Gorge</b> — a slot canyon the colour of green glass, "the Devil's Bridge" booth at the entry (€3 in October, cash). Gorge loop ~1.5h; push on through golden October beech forest to <b>Slap Mostnica</b> (21 m, via the Koča na Vojah hut) for a 3–3.5h / 12 km / 300 m total outing. Slippery after rain — real shoes.</p></div>
+      <div class="slot"><span class="t">Afternoon</span><p><b>Vogel cable car is closed 21 Sep – end Nov for maintenance</b> (a live-check catch from your other planner), so the alpine hit is the <b>Savica waterfall</b> (€3–4, 20-min stepped climb — the Triglav springs) — Mostnica already carries this day. The <b>panoramic boat</b> across the lake still runs (part of the €41 Bohinj Standard Package with the church), or loop the lake and claim a jetty.</p></div>
+      <div class="eat"><span class="t">Eat</span>Picnic from Ljubljana, or a gostilna plate of <b>štruklji</b> (rolled dumplings — many vegetarian variants). Back in Ljubljana: <b>Veganika</b> (open Wed evenings).</div>
+      <div class="tips"><span class="t">Weather swap</span>This is the flexible outdoor day — trade with Postojna/Škocjan (all-weather, 10°C) if Wednesday pours.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 12</span><h3>Cave day — the choice: Postojna vs Škocjan</h3><span class="date">Thu 1 Oct</span></div>
+    <div class="day-body">
+      <div class="choice"><span class="t">Choice A · Postojna + Predjama</span>The classic: 3.7 km underground train ride + walking galleries (~€30, postojnska-jama.eu; bus ~1h, €5 each way). Combo with cliff-perched <b>Predjama Castle</b> €42–45 — though the castle is 9 km from the station with few buses, so it works best as bus-to-cave + decide on the day (taxi share or skip).</div>
+      <div class="choice"><span class="t">Choice B · Škocjan Caves — the traveller pick</span>UNESCO since 1986, the Murmuring Cave canyon up to 146 m deep crossed on a vertigo bridge — ~100,000 visitors a year vs Postojna's ~700,000, groups capped small. ~€23 for a 1.5h guided tour (park-skocjanske-jame.si). Train Ljubljana→Divača ~1h (€5–8) + a marked 35–40-min walk from the station. Travellers who've done both mostly pick Škocjan if choosing one; doing Postojna Sunday-plus-Škocjan later in the week is overkill — pick your flavour.</div>
+      <div class="slot"><span class="t">Evening</span><p>Last full Ljubljana night — riverside drinks (beer €3–5), and <b>Gujžina</b> (vegetarian Slovenian cuisine, Mestni trg 19 — verify it has reopened) if you want the one proper Slovenian dinner.</p></div>
+      <div class="nightbox"><span class="t">Night</span><b>Kino Šiška</b> — check the gig list; the region's best indie venue, café with 90+ craft beers till 23:00. Otherwise riverside bars; Thursday is the city's student night, the liveliest of your Ljubljana stretch.</div>
+    </div>
+  </div>
+
+  <!-- CROATIA -->
+  <div class="country-head"><h3>Croatia — Zagreb + Plitvice</h3><span class="nights">3 nights · to book</span><span class="flag-line"></span></div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 13</span><h3>Sunrise hike or Velika Planina — then bus to Zagreb</h3><span class="date">Fri 2 Oct</span></div>
+    <div class="day-body">
+      <div class="choice"><span class="t">Option A · Šmarna Gora sunrise (relaxed)</span>Bus 8 from Bavarski dvor (first ~05:19) to Tacenski most; the "Path over the Roots" gets you up in 30–40 min (366 m). Herbal tea + miške (fried dough) at Ledinek Inn on top. Sunrise ~07:00 in early Oct — leave the centre ~05:30, back by 09:30 with the whole morning still intact.</div>
+      <div class="choice"><span class="t">Option B · Velika Planina (the big gem)</span>Train Ljubljana→Kamnik (~40 min, ~€3) + the cable car (€24–26 return, hourly 08:00–18:00 in the mid-season timetable) up to the herdsmen's village of timber huts. Shepherds have descended for the season by late Sept, but October brings the golden larches and empty trails. ⚠ The cable car has historically closed for autumn maintenance from mid-September — check velikaplanina.si before committing; if it's shut, default to Option A.</div>
+      <div class="move"><span class="t">Move</span><span>Afternoon FlixBus/Arriva Ljubljana→Zagreb, 2h15–2h30 with the border stop, €12–17. Passports handy.</span></div>
+      <div class="slot"><span class="t">Evening</span><p><b>Ban Jelačić Square</b> and dinner on <b>Tkalčićeva</b>.</p></div>
+      <div class="eat"><span class="t">Eat</span><b>BioMania</b> (Tkalčićeva 65, daily 12–23) — plant-based bistro right there.</div>
+      <div class="nightbox"><span class="t">Night · Friday</span>Tkalča bar terraces → <b>Mali Medo</b> (Medvedgrad brewery pub, 0.5l €3.90) → <b>Opatovina</b> craft-beer lane uphill → late: <b>Swanky Monkey Garden</b> rooftop (Ilica 50, Fri till 2am, veg-friendly kitchen).</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 14</span><h3>Zagreb — Upper Town, Dolac, Mirogoj</h3><span class="date">Sat 3 Oct</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p><b>Dolac Market</b> early (from 07:00 — the red-umbrella ritual), cathedral, <b>Stone Gate</b>, Upper Town, St Mark's tiled roof, <b>Museum of Broken Relationships</b> (€9, daily 09–21), noon <b>Grič cannon</b>, the 55-second funicular down (€0.66).</p></div>
+      <div class="slot"><span class="t">Afternoon options</span>
+        <ul class="tight">
+          <li><b>Mirogoj Cemetery</b> (bus 106) — the 500-metre arcade walls, free, to 20:00.</li>
+          <li><b>Sljeme cable car</b> (tram 8/14 + bus 15, or bus 140 direct; €16.59 return, daily to 19:00) — 1,032 m Medvednica summit above the city. ⚠ Annual service has historically started ~6–7 Oct — verify on zicarasljeme.hr; bus 140 is the fallback.</li>
+          <li><b>Samobor</b> — the Samoborček bus 155 (~30–40 min, €3–4.50): a baroque little town that locals claim as the original home of kremšnita (Kavana Livadić on the square). Rain or laziness: <b>Jarun</b> lake loop (tram 5/17), the locals' sunset stroll.</li>
+        </ul>
+      </div>
+      <div class="eat"><span class="t">Eat</span><b>Zrno Bio Bistro</b> (organic vegan, Sat open, mains €13.50–17.50) or <b>Vegehop</b> (25-year vegan institution, pad thai €14.60, daily).</div>
+      <div class="nightbox"><span class="t">Night · Saturday</span>Same spine as Friday, bigger: Tkalča terraces fill from 21:00, <b>Melin Jazz Bar</b> (Kožarska), <b>Swanky Monkey Garden</b> to close. If a club night is listed at Jarun's Gallery/Aquarius, that's the after-hours — dress code applies at Gallery.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 15</span><h3>Plitvice — with the Rastoke waterfall-village stop</h3><span class="date">Sun 4 Oct</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Early</span><p>06:45 FlixBus toward Plitvice (€14.50, 2h–2h45) — and here's the gem play: pick a departure that <b>stops at Slunj</b> (Brioni, AP Varaždin and Croatia Bus services do; check on Traveling.com/GetByBus and tell the driver). <b>Rastoke</b> — a village of watermills strung across a waterfall junction — is a 7–10-min walk from the Slunj stop; the public paths are free, the protected mill estate ~€5–6, 1–1.5h is plenty. Then hop the next bus ~30 min up the road to Plitvice Entrance 1.</p></div>
+      <div class="slot"><span class="t">In the park</span><p>€23 October ticket (timed, buy the day before at the official webshop; includes the Kozjak boat + panoramic train). Circuit: <b>Veliki Slap</b> → Lower Lakes canyon → boat → Upper Lakes → train. 5–6h. Slick boardwalks — decent shoes.</p></div>
+      <div class="slot"><span class="t">Evening</span><p>Return bus to Zagreb (know the time before you set off). Sunday dinner: <b>Vegehop</b> (daily 12–20) or <b>BioMania</b> (daily 12–23) — most of the rest closes Sundays.</p></div>
+      <div class="tips"><span class="t">Timing note</span>If the Rastoke stop means taking a slightly later arrival at Plitvice, it's worth it — Rastoke at 09:00 with nobody there is exactly the traveller-vibe you asked for; Plitvice after 10:00 is tour-bus hour regardless, so the order works.</div>
+    </div>
+  </div>
+
+  <!-- AUSTRIA -->
+  <div class="country-head"><h3>Austria — Vienna</h3><span class="nights">2 nights · to book</span><span class="flag-line"></span></div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 16</span><h3>Zagreb → Vienna — heuriger night</h3><span class="date">Mon 5 Oct</span></div>
+    <div class="day-body">
+      <div class="move"><span class="t">Move</span><span>EC "Croatia" train 07:25 → Vienna Hbf 14:07 (from €29.90, oebb.at — buy in the ÖBB app; pick up at a machine for this corridor). Scenic Semmering line, no catering car — buy picnic food in Zagreb the night before.</span></div>
+      <div class="slot"><span class="t">Afternoon</span><p>Innere Stadt loop: <b>St Stephen's</b> (nave free), Graben, Hofburg exteriors; coffee-and-cake at <b>Café Sperl</b> (Mon–Sat to 22:00 — small mocca €3.50, Melange €4.90, all cakes €5.40; the <i>Before Sunrise</i> phone scene was filmed here).</p></div>
+      <div class="slot"><span class="t">Evening — the Viennese gem</span><p>Heuriger night at <b>Mayer am Pfarrplatz</b> in Heiligenstadt (U4 + bus 38A or tram 37/D): Beethoven's old house, garden seating, house white €3.10 per ⅛l, live Schrammel music from 19:00 — and early October is <b>Sturm</b> season, the fizzy young wine that only exists for a few weeks. Open daily Apr–Oct, which matters because most heurigers close Mon–Wed. Dinner before or there (veg plates exist; ask).</p></div>
+      <div class="eat"><span class="t">Eat</span>Monday-proof dinner: <b>Swing Kitchen</b> (vegan burgers, daily) or <b>yamm!</b> buffet (daily). TIAN and most small restaurants close Sun–Mon.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 17</span><h3>Vienna — Schönbrunn, Klimt, Prater + Zaha Hadid</h3><span class="date">Tue 6 Oct</span></div>
+    <div class="day-body">
+      <div class="slot"><span class="t">Morning</span><p><b>Schönbrunn</b> first timed slot — full Palace Ticket €42 / State Apartments €28 / gardens free from 06:30. Official seller only: imperialtickets.com.</p></div>
+      <div class="slot"><span class="t">Afternoon</span><p><b>Belvedere Upper</b> (€23, daily) for Klimt's <i>The Kiss</i>; free gardens for the skyline shot. Option: <b>KunstHausWien / Hundertwasser</b> (€16, tram 1/O) if Hundertwasser's organic architecture calls.</p></div>
+      <div class="slot"><span class="t">Evening</span><p>Prater quarter: <b>Zaha Hadid Library</b> on the WU campus — free to enter, the ramp-canyon interior, and it's next door to the Prater, so pair it with the <b>Giant Ferris Wheel</b> (€14.50, to 22:45) for the city-at-dusk spin. Clear-sky alternative or add-on: <b>Kahlenberg</b> (U4 Heiligenstadt + bus 38A) for the Danube-and-vineyards view at golden hour.</p></div>
+      <div class="eat"><span class="t">Eat</span><b>Wrenkh</b> (vegetarian Austrian since 1982; lunch €17, mains €16–24) or the Michelin-Bib <b>TIAN Bistro am Spittelberg</b> (sharing menu €59). Departure-morning brunch: <b>Harvest Café-Bistrot</b> (weekdays from 09:00).</div>
+      <div class="nightbox"><span class="t">Night · Tuesday (quiet)</span><b>Krah Krah</b> (Bermuda Triangle's Austrian institution, beer €4–5) or the <b>Uni Alm "3€ Bar"</b> near Votiv Park — every drink ~€3, open till ~2am Tue. U-Bahn ends ~midnight on weekdays — time the last train.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-top"><span class="day-num">Day 18</span><h3>Departure day</h3><span class="date">Wed 7 Oct</span></div>
+    <div class="day-body">
+      <div class="move"><span class="t">Airport</span><span>ÖBB Railjet/REX from Hauptbahnhof direct to the airport, 15–18 min, ~€5.40 (2026 S-Bahn closure makes Wien Mitte useless — Day-16-style CAT "bus" is €14.90 if you're stuck). For a ~15:00 flight leave the centre ~11:15–11:45; 3h buffer if long-haul.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIKES ============ -->
+<section id="hikes">
+  <div class="sec-label">On foot</div>
+  <h2>Hikes & waterfalls — ranked</h2>
+  <p class="lead">Every hike below is reachable by public bus/train from your bases, ranked by wow-per-effort from the research. Park entries are per person per day; buy Tatras tickets at the gate or tpn.gov.pl.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Hike / waterfall</th><th>Where</th><th>Effort</th><th>Entry</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><b>Morskie Oko + Wodogrzmoty waterfalls</b></td><td>Zakopane, Day 5</td><td>8–9 km one-way, 2–2.5h, gentle 400 m</td><td class="num">11 PLN</td><td>The classic; waterfalls at km 3 on the paved road; Czarny Staw add-on +2 km</td></tr>
+      <tr><td><b>Rusinowa Polana</b> ★</td><td>Zakopane, Day 5 option</td><td>~50 min steep (from Palenica) / ~1h gentle (Wierch Poroniec)</td><td class="num">11 PLN</td><td>Full High-Tatras panorama from a meadow — biggest wow for least effort; go at first light (no pre-dawn trail access Mar–Nov)</td></tr>
+      <tr><td><b>Mostnica Gorge + Slap Mostnica</b> ★</td><td>Bohinj, Day 11</td><td>3–3.5h / 12 km / 300 m to the waterfall; gorge loop 1.5h</td><td class="num">€3 (Oct)</td><td>Slot canyon + 21 m fall; walk-in from the lake; slippery after rain</td></tr>
+      <tr><td><b>Velika Planina</b></td><td>Kamnik, Day 13</td><td>Cable car + easy plateau walks</td><td class="num">€24–26 + €3 train</td><td>Herdsmen's hut village; ⚠ verify autumn cable-car maintenance</td></tr>
+      <tr><td><b>Šmarna Gora</b></td><td>Ljubljana, Day 13</td><td>30–40 min, 366 m</td><td class="num">free</td><td>The city's sunrise mountain; bus 8 from 05:19; tea + miške on top</td></tr>
+      <tr><td><b>Siklawica waterfall</b></td><td>Zakopane, Day 5/6 option</td><td>1.5–2h round trip from Krupówki</td><td class="num">9–11 PLN</td><td>Twin 20-m drop under Giewont; best after rain</td></tr>
+      <tr><td><b>Dolina Kościeliska</b></td><td>Zakopane, alternative</td><td>Flat 5.5 km one-way (~1h40)</td><td class="num">11 PLN</td><td>Canyon + Mroźna Cave + pond; buses to Kiry every 15–20 min</td></tr>
+      <tr><td><b>Dolina Chochołowska</b></td><td>Zakopane, alternative</td><td>7.3 km one-way (~2h20)</td><td class="num">~10–11 PLN</td><td>The long quiet one — pick over Kościeliska only for the empty-meadow feel</td></tr>
+      <tr><td><b>Ojstrica / Mala Osojnica</b></td><td>Bled, Day 10</td><td>20–30 min each, steep</td><td class="num">free</td><td>The postcard viewpoints of the island church</td></tr>
+      <tr><td><b>Savica waterfall</b></td><td>Bohinj, Day 11</td><td>20-min stepped climb</td><td class="num">€3–4</td><td>Triglav's spring source; A-shaped fall, fenced viewpoint</td></tr>
+      <tr><td><b>Veliki Slap + Plitvice system</b></td><td>Plitvice, Day 15</td><td>5–6h circuit, mostly boardwalk</td><td class="num">€23</td><td>Croatia's tallest waterfall + 16 terraced lakes</td></tr>
+      <tr><td><b>Rastoke waterfalls</b></td><td>Slunj, Day 15</td><td>Flat village wander, 1–1.5h</td><td class="num">free (estate €5–6)</td><td>Watermill village — arrive at 09:00, have it to yourselves</td></tr>
+      <tr><td><b>CopenHill rooftop trail</b></td><td>Copenhagen, Day 2</td><td>Easy 30–45 min loops</td><td class="num">free</td><td>On a waste-to-energy plant; harbour view; ski slope optional</td></tr>
+    </tbody>
+  </table></div>
+  <p style="color:var(--dim);font-size:.85rem">★ = the two highest wow-per-effort picks from the research. Apps for these: Mapy.com (free, best trail rendering for Tatras/Slovenia; one offline country at a time on the free tier — download Poland before departure, swap later) and Organic Maps as the fully-free unlimited backup.</p>
+</section>
+
+<!-- ============ NIGHTLIFE ============ -->
+<section id="nightlife">
+  <div class="sec-label">After dark</div>
+  <h2>Nightlife, city by city</h2>
+  <p class="lead">Matched to the nights you're actually in each city. Beer prices are the local median so you can calibrate.</p>
+  <details open><summary><span class="dot"></span>Copenhagen — Sun & Mon<span class="tag">beer 50–75 DKK</span></summary>
+    <div class="body"><p>The Meatpacking District (Kødbyen) is a Thu–Sat scene and closed your two nights — the play is Nørrebro and Vesterbro: <b>Mikkeller & Friends</b> (Stefansgade, 40 taps), <b>Mikkeller Bar Viktoriagade</b> (Sun to 22:00, Mon to 23:00), <b>Escobar</b> (daily till 2am, rock/metal, cheap), <b>BRUS</b> brewpub (Sun till midnight; verify Monday). Budget: <b>Eiffel Bar</b>, Christianshavn, 45–55 DKK. Supermarket cans 15–22 DKK if the night moves to the lakes.</p></div>
+  </details>
+  <details open><summary><span class="dot"></span>Zakopane — Wed & Thu<span class="tag">regional vibe</span></summary>
+    <div class="body"><p>Après-hike pubs on and around Krupówki — highland music, cheap beer, early-morning wake-ups make it self-limiting. Ask your hosts for the night's live spot; it changes with the season.</p></div>
+  </details>
+  <details open><summary><span class="dot"></span>Krakow — Sat night + Sun late<span class="tag">beer 12–18 PLN</span></summary>
+    <div class="body"><p>Saturday is the big one: <b>Plac Nowy</b> terraces from 21:00 (draught 12–16 PLN, outdoor drinking legal, zapiekanka window till 2–3am) → <b>Alchemia</b> (arrive before 20:00 for a table; cellar gigs) → <b>Singer</b> or <b>Hevre</b> (prayer-house cocktail bar) → <b>Prozak 2.0</b> (~10 PLN entry — verify the week's events) or <b>Propaganda</b> (daily till 4am). Cheap fuel between stops: <b>Pijalnia Wódki i Piwa</b>, shots 5–7 PLN. Sunday after Auschwitz: Alchemia and Propaganda both stay open past 2am, quieter.</p></div>
+  </details>
+  <details open><summary><span class="dot"></span>Ljubljana — Sun–Thu<span class="tag">beer €3–4.50</span></summary>
+    <div class="body"><p>Riverside: <b>Premier Pub</b> (happy hour 17–19) and <b>TOZD</b> (Cankarjeva 8 — the old Gallusovo address on blogs is outdated). <b>Metelkova</b> is free to wander any night, but the clubs only come alive on listed event nights — check flyers; Thursday is the city's student night and your best bet. <b>Kino Šiška</b> for gigs (€4–30) and its 90-beer café.</p></div>
+  </details>
+  <details open><summary><span class="dot"></span>Zagreb — Fri & Sat<span class="tag">beer €3–5</span></summary>
+    <div class="body"><p>Tkalčićeva terraces → <b>Mali Medo</b> (brewery pub) → <b>Opatovina</b> craft lane → <b>Swanky Monkey Garden</b> rooftop (Fri–Sat to 2am, veg-friendly). Late: a listed club night at Jarun's <b>Gallery</b> (dress code, no trainers). Bars close ~2am weekends.</p></div>
+  </details>
+  <details open><summary><span class="dot"></span>Vienna — Mon & Tue<span class="tag">beer €4–5</span></summary>
+    <div class="body"><p>Monday: heuriger at Mayer am Pfarrplatz (live Schrammel from 19:00) doubles as the night out. Tuesday: <b>Krah Krah</b> (Bermuda Triangle) or <b>Uni Alm "3€ Bar"</b> (Votiv Park, ~€3 everything, till ~2am). U-Bahn ends ~midnight weekdays — don't miss the last train.</p></div>
+  </details>
+</section>
+
+<!-- ============ FOOD (unchanged from v1) ============ -->
+<section id="food">
+  <div class="sec-label">Vegetarian</div>
+  <h2>The food guide</h2>
+  <p class="lead">All fully vegetarian or vegan (dairy/eggs fine). Closure days already routed around in the itinerary.</p>
+  <details open><summary><span class="dot"></span>Copenhagen<span class="tag">3 days</span></summary>
+    <div class="body"><div class="tblwrap"><table>
+      <thead><tr><th>Place</th><th>Where / when</th><th>Price</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>RizRaz</b></td><td>Centre, till midnight</td><td class="num">145–185 DKK</td><td>All-veg buffet — arrival-night default</td></tr>
+        <tr><td><b>GRØD</b></td><td>Torvehallerne, from 7am</td><td class="num">79–99 DKK</td><td>Porridge bar; savoury bowls from 11</td></tr>
+        <tr><td><b>Morgenstedet</b></td><td>Christiania · closed Mon, cash, lunch</td><td class="num">80–120 DKK</td><td>Volunteer veg canteen since the 70s</td></tr>
+        <tr><td><b>Reffen</b></td><td>Refshaleøen, harbour bus</td><td class="num">80–130 DKK</td><td>35-stall street food, veg everywhere</td></tr>
+        <tr><td><b>POW Vegan Pizzeria</b></td><td>Nørrebro, daily 4–9pm</td><td class="num">100–200 DKK</td><td>"Best pizza in Copenhagen, vegan or not"</td></tr>
+        <tr><td><b>Ma'ed Ethiopian</b></td><td>Nørrebro</td><td class="num">under 100 DKK</td><td>Four-stew veg platter, huge and cheap</td></tr>
+        <tr><td><b>Foodie</b></td><td>Nørrebro</td><td class="num">55–70 DKK</td><td>Egyptian-style veg sandwiches — the cheapest real meal in town</td></tr>
+        <tr><td><b>Hija de Sanchez</b></td><td>Torvehallerne</td><td class="num">~90 DKK</td><td>Veg tacos at the food hall</td></tr>
+        <tr><td><b>Mother</b></td><td>Vesterbro</td><td class="num">~120 DKK</td><td>Wood-fired veggie pizzas</td></tr>
+        <tr><td><b>Bistro Lupa</b></td><td>Østerbro, Tue evening</td><td class="num">~€70</td><td>Michelin Green Star plant-based — the one nice dinner</td></tr>
+      </tbody></table></div>
+    <p><b>Cheap tier:</b> bakery breakfasts 40–60 DKK; 7-Eleven veg sandwiches 35–70 DKK; no tipping in Denmark.</p></div>
+  </details>
+  <details><summary><span class="dot"></span>Zakopane + Krakow<span class="tag">Poland</span></summary>
+    <div class="body"><div class="tblwrap"><table>
+      <thead><tr><th>Place</th><th>Where</th><th>Price</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Bistro LAS</b></td><td>Zakopane</td><td class="num">12–40 PLN</td><td>Top vegan kitchen in town</td></tr>
+        <tr><td><b>Bistro Schronisko "Vege"</b></td><td>Krupówki 34a</td><td class="num">20–40 PLN</td><td>Full vege menu on the promenade</td></tr>
+        <tr><td><b>Kawiarnia Filiżanki</b></td><td>Grunwaldzka 4A</td><td class="num">20–40 PLN</td><td>4.8★, broad veg menu</td></tr>
+        <tr><td><b>Bar Górski</b></td><td>Zakopane</td><td class="num">15–30 PLN</td><td>Milk-bar prices, labelled veg</td></tr>
+        <tr><td><b>Glonojad</b></td><td>Krakow, till 22:00</td><td class="num">20–35 PLN</td><td>Canteen veg institution</td></tr>
+        <tr><td><b>Krowarzywa</b></td><td>Krakow, Sławkowska 8</td><td class="num">16–32 PLN</td><td>Beloved vegan burgers</td></tr>
+        <tr><td><b>Vegab</b></td><td>Krakow, Starowiślna 8</td><td class="num">20–40 PLN</td><td>Vegan kebabs, late</td></tr>
+        <tr><td><b>Veganic</b></td><td>Krakow, Karmelicka 34</td><td class="num">30–50 PLN</td><td>Polish veg classics + weekend buffet</td></tr>
+        <tr><td><b>Plac Nowy zapiekanka</b></td><td>Kazimierz</td><td class="num">12–18 PLN</td><td>Krakow rite of passage — ask for veg</td></tr>
+      </tbody></table></div></div>
+  </details>
+  <details><summary><span class="dot"></span>Ljubljana + Bled<span class="tag">Slovenia</span></summary>
+    <div class="body"><div class="tblwrap"><table>
+      <thead><tr><th>Place</th><th>Where / when</th><th>Price</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Gourmet Vegan</b></td><td>Nazorjeva 3</td><td class="num">€10–20</td><td>Certified-organic all-vegan, reliable</td></tr>
+        <tr><td><b>Radha Govinda</b></td><td>Mon–Sat 11–18</td><td class="num">~€8</td><td>Pay-by-weight veg buffet — best budget in town</td></tr>
+        <tr><td><b>Gujžina</b></td><td>Mestni trg 19</td><td class="num">€17–34</td><td>Vegetarian Slovenian classics — verify reopened</td></tr>
+        <tr><td><b>Veganika</b></td><td>Gornji trg · closed Sun–Mon</td><td class="num">€10–20</td><td>All-vegan bistro, old town</td></tr>
+        <tr><td><b>Public & Vegan Kitchen</b></td><td>Bled, Tue–Sun 12–16</td><td class="num">€10–15</td><td>Vegan Bled cream cake — plan lunch here</td></tr>
+        <tr><td><b>kremšnita @ Hotel Park</b></td><td>Bled lakefront</td><td class="num">~€5</td><td>The 1953 original</td></tr>
+      </tbody></table></div>
+    <p><b>Everywhere:</b> "dnevno kosilo" set lunch €8–12. Tipping = rounding up.</p></div>
+  </details>
+  <details><summary><span class="dot"></span>Zagreb<span class="tag">Croatia</span></summary>
+    <div class="body"><div class="tblwrap"><table>
+      <thead><tr><th>Place</th><th>Where / when</th><th>Price</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Zrno Bio Bistro</b></td><td>Medulićeva 20 · closed Sun</td><td class="num">€7.50–17.50</td><td>Zagreb's #1-rated veg restaurant</td></tr>
+        <tr><td><b>Vegehop</b></td><td>Vlaška 79 · daily 12–20</td><td class="num">€5–14.60</td><td>25-year vegan institution — open Sundays</td></tr>
+        <tr><td><b>BioMania</b></td><td>Tkalčićeva 65 · daily 12–23</td><td class="num">€10–18</td><td>Plant-based bistro, every day incl. Sunday</td></tr>
+        <tr><td><b>Green Point</b></td><td>Varšavska 10 · closed Sun</td><td class="num">€8–12</td><td>Veg fast food off the main square</td></tr>
+        <tr><td><b>Nishta</b></td><td>Masarykova 11</td><td class="num">—</td><td>⚠ Closed since 2017 — don't plan around it</td></tr>
+      </tbody></table></div></div>
+  </details>
+  <details><summary><span class="dot"></span>Vienna<span class="tag">Austria</span></summary>
+    <div class="body"><div class="tblwrap"><table>
+      <thead><tr><th>Place</th><th>Where / when</th><th>Price</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Wrenkh</b></td><td>Bauernmarkt 10 · closed Sun</td><td class="num">€16–24</td><td>Vegetarian Austrian classics since 1982</td></tr>
+        <tr><td><b>TIAN Bistro</b></td><td>Schrankgasse 4 · Tue–Sat</td><td class="num">€59 menu</td><td>Michelin Bib Gourmand</td></tr>
+        <tr><td><b>Swing Kitchen</b></td><td>Schwedenplatz · daily</td><td class="num">€9.50–13</td><td>Vegan burgers — Monday-proof</td></tr>
+        <tr><td><b>yamm!</b></td><td>Universitätsring · daily</td><td class="num">€11–16</td><td>By-weight vegan buffet</td></tr>
+        <tr><td><b>Harvest Café-Bistrot</b></td><td>Karmeliterplatz · weekdays</td><td class="num">€8–16</td><td>Departure-morning brunch</td></tr>
+      </tbody></table></div></div>
+  </details>
+</section>
+
+<!-- ============ APPS ============ -->
+<section id="apps">
+  <div class="sec-label">Before you fly</div>
+  <h2>Apps to download tonight</h2>
+  <p class="lead">All verified current in 2025–26. Install while you still have home wifi; several need a card or an account. Set up Google Pay/Apple Pay on your phone — most of Europe's transit now taps it.</p>
+  <div class="grid g2">
+    <div class="card"><h4>The everywhere backbone</h4>
+      <p><b>FlixBus</b> (Krakow→Ljubljana, Ljubljana→Zagreb, Zagreb→Plitvice — offline tickets, no account needed to buy). <b>Google Maps</b> offline areas for all six countries (navigation only — no offline transit routing, keep data). <b>Organic Maps</b> as the fully-free offline backup. <b>Omio</b> only for comparing; it adds service fees — book with operators.</p></div>
+    <div class="card"><h4>Denmark — changed in 2025!</h4>
+      <p><b>Rejsebillet</b> — the new national ticket app (replaces the retiring DOT Tickets; needs phone number + payment card). <b>Rejsekort app</b> for tap-in/tap-out if you'll ride a lot. <b>Rejseplanen</b> — the journey planner, free, excellent. <b>Copenhagen Card City Guide</b> — the card is now 100% digital through this app.</p></div>
+    <div class="card"><h4>Poland</h4>
+      <p><b>jakdojade</b> — city transit in Krakow incl. trams and airport train tickets (card/BLIK/tap; also sells Koleje Małopolskie rail since 2025 — but NOT Zakopane buses). <b>e-podroznik</b> — the intercity-bus marketplace for Zakopane legs (no account to search, BLIK/card to buy). <b>Bolt</b> — Krakow taxis (rides 20–50 PLN, covers the airport). <b>PKP Intercity</b> — update it before paying (new payment processor since Aug 2026).</p></div>
+    <div class="card"><h4>Slovakia</h4>
+      <p><b>CP (cp.sk)</b> — the national planner, now sells ZSSK train tickets in-app. <b>IDeme vlakom</b> — ZSSK's app, covers the Tatra Electric Railway (single ~€4, 24h ~€6). <b>Gopass.travel</b> — Tatra cable cars; buy 3+ days ahead to save up to €10; online tickets are QR, not the plastic card.</p></div>
+    <div class="card"><h4>Slovenia</h4>
+      <p><b>Urbana card</b> (not an app — buy the €2 card at kiosks/Urbanomat machines; €1.50 rides with 90-min transfers; buses also tap contactless cards but without transfers). <b>Nomago InterCity</b> — intercity bus tickets, no booking fees. Arriva has no app — its site is ijpp.arriva.si. Consider the <b>Slovenia Ticket</b> day pass (€18, buses+trains nationwide).</p></div>
+    <div class="card"><h4>Croatia + Austria</h4>
+      <p>Croatia: <b>moj ZET</b> (Zagreb trams, QR validation, needs email registration), <b>Traveling.com</b> (ex-GetByBus, same platform for Plitvice/intercity), <b>Arriva Croatia</b> (~5% extra discount). Austria: <b>ÖBB</b> (buy your Zagreb→Vienna EC + airport trains here; no account needed), <b>WienMobil</b> (Vienna transit — registration required to buy tickets).</p></div>
+    <div class="card"><h4>Hiking</h4>
+      <p><b>Mapy.com</b> (ex-Mapy.cz) — best free trail rendering for the Tatras and Slovenia; free tier = one offline country at a time, so stage your downloads. <b>AllTrails</b> — offline maps need Plus ($36/yr); fine for reviews/QA without it. <b>Komoot</b> — acquired in 2025, new users effectively need Premium; skip unless you already have it. Weather: <b>Yr.no</b> or <b>Meteoblue</b> for mountain forecasts.</p></div>
+    <div class="card"><h4>Food, money, data</h4>
+      <p><b>HappyCow</b> — the vegetarian finder; free on Android since Dec 2025, one-time $4.99 on iOS, website free. <b>Wise</b> or <b>Revolut</b> for DKK/PLN/EUR (Wise's ~0.4–0.6% conversion beats Revolut's weekend markup on PLN). Data: <b>Airalo Eurolink</b> eSIM (one plan across all six countries) or <b>Nomad</b> for cheapest-per-GB.</p></div>
+  </div>
+</section>
+
+<!-- ============ TRANSPORT ============ -->
+<section id="transport">
+  <div class="sec-label">Live-checked</div>
+  <h2>Public-transport legs at a glance</h2>
+  <p class="lead">Every leg below is a bus, train or metro — no taxis required anywhere (Bolt in Krakow is the only optional convenience). ✻ = re-check the operator site the day before. The two 2026 upgrades that matter: the new Zakopane→Poprad cross-border bus line (4× daily) and Vienna's S-Bahn closure (airport = Railjet from Hbf).</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Leg</th><th>Option</th><th>Time</th><th>Cost</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><b>CPH airport → city</b></td><td>Metro M2 (24/7)</td><td class="num">~15 min</td><td class="num">~36 DKK</td><td>Every 4–6 min</td></tr>
+      <tr><td><b>CPH ↔ Kronborg/Louisiana</b></td><td>Kystbanen coastal train</td><td class="num">45 min</td><td class="num">~60 DKK</td><td>Copenhagen Card covers</td></tr>
+      <tr><td><b>CPH → Krakow</b></td><td>Booked flight</td><td class="num">1h35</td><td class="num">—</td><td>Ryanair/Norwegian/SAS nonstops</td></tr>
+      <tr><td><b>KRK airport → centre</b></td><td>SKA1 train</td><td class="num">17–20 min</td><td class="num">20 PLN</td><td>Covered walkway; every 30 min</td></tr>
+      <tr><td><b>Krakow ↔ Zakopane</b> ✻</td><td>MDA bus or PKP train</td><td class="num">2h–2h30</td><td class="num">25–45 PLN</td><td>~74 buses/day; train is jam-proof</td></tr>
+      <tr><td><b>Zakopane → Slovakia</b> ✻</td><td>07:30 cross-border bus (new 2026 line) or A15 06:32</td><td class="num">~40–80 min</td><td class="num">~€5</td><td>Stops Ždiar + Tatranská Kotlina; return A15 15:17 from Starý Smokovec</td></tr>
+      <tr><td><b>Zakopane → Krakow</b> ✻</td><td>Evening bus</td><td class="num">2h–2h30</td><td class="num">25–45 PLN</td><td>Pre-book; FlixBus till ~23:45</td></tr>
+      <tr><td><b>Krakow → Ljubljana</b> ✻</td><td>FlixBus N917 overnight</td><td class="num">11h30–12h50</td><td class="num">€45–50</td><td>No direct flight exists</td></tr>
+      <tr><td><b>Ljubljana day trips</b></td><td>Arriva buses (Bled/Bohinj) + train (Kamnik, Divača for Škocjan)</td><td class="num">40 min–2h30</td><td class="num">€3–12</td><td>Urbana card for city; Nomago/Arriva for intercity</td></tr>
+      <tr><td><b>Ljubljana → Zagreb</b> ✻</td><td>FlixBus/Arriva</td><td class="num">2h15–2h30</td><td class="num">€12–17</td><td>~18 daily; passports handy</td></tr>
+      <tr><td><b>Zagreb ↔ Slunj/Plitvice</b> ✻</td><td>FlixBus/Arriva/Brioni</td><td class="num">1h30–2h45</td><td class="num">€10–14.50</td><td>Pick a Slunj-stopping service for Rastoke; tell the driver Entrance 1</td></tr>
+      <tr><td><b>Zagreb → Vienna</b> ✻</td><td>EC "Croatia" train</td><td class="num">07:25→14:07</td><td class="num">€29.90+</td><td>Book ÖBB; scenic; no catering car</td></tr>
+      <tr><td><b>Vienna → airport</b></td><td>Railjet/REX from Hbf</td><td class="num">15–18 min</td><td class="num">~€5.40</td><td>S-Bahn closed 2026–27; CAT is now a bus</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget">
+  <div class="sec-label">Money</div>
+  <h2>Budget — the unbooked half</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Category</th><th>Covers</th><th>Low</th><th>High</th></tr></thead>
+    <tbody>
+      <tr><td><b>Stays (10 nights)</b></td><td>Ljubljana 5, Zagreb 3, Vienna 2 (couple share)</td><td class="num">€480</td><td class="num">€780</td></tr>
+      <tr><td><b>Intercity transport</b></td><td>Overnight bus, Ljubljana→Zagreb, Plitvice return, EC train, airport</td><td class="num">€120</td><td class="num">€155</td></tr>
+      <tr><td><b>Day-trip transport</b></td><td>Bled, Bohinj, caves, Velika Planina, Slovak buses</td><td class="num">€55</td><td class="num">€95</td></tr>
+      <tr><td><b>Activities + hikes</b></td><td>All entries incl. cable cars, Termy, caves, Plitvice, Vienna</td><td class="num">€230</td><td class="num">€350</td></tr>
+      <tr><td><b>Food & drink</b></td><td>€30–45/day × 18 days</td><td class="num">€540</td><td class="num">€810</td></tr>
+      <tr><td><b>Copenhagen extras</b></td><td>Entries/transport or the 72h card (~€140)</td><td class="num">€90</td><td class="num">€160</td></tr>
+      <tr><td><b>Local transit + misc</b></td><td>Metros, trams, lockers, apps</td><td class="num">€45</td><td class="num">€80</td></tr>
+      <tr><td><b>Total per person</b></td><td></td><td class="num"><b>€1,560</b></td><td class="num"><b>€2,430</b></td></tr>
+    </tbody>
+  </table></div>
+  <p style="color:var(--dim);font-size:.85rem">Realistic mid-point ~€1,900–2,000 per person. Biggest levers: Lomnický štít vs the €13–34 cable options, Bistro Lupa / TIAN dinners, and Vienna location. Rough rupee view at ₹100/€: ~₹1.6–2.4 lakh per person for the unbooked half (your other planner's whole-trip estimate for two: ~₹4.3 lakh all-in excluding flights) — update the rate before you go.</p>
+</section>
+
+<!-- ============ PRACTICAL ============ -->
+<section id="practical">
+  <div class="sec-label">Good to know</div>
+  <h2>Practical notes</h2>
+  <div class="grid g2">
+    <div class="card"><h4>Weather & packing</h4><p>Copenhagen 12–16°C + wind; Zakopane 8–16°C days / 4–7°C nights (summits 8–12°C colder); Slovenia mountains 14–17°C days, 5–9°C nights, sunset ~17:30; ~12 rainy days/month in the Oct mountains. Layers, waterproof shell, proper shoes, hat/gloves for cable cars, power bank for the long bus days.</p></div>
+    <div class="card"><h4>Documents & borders</h4><p>Schengen throughout, but active spot checks on the Sweden, Slovenia→Croatia and Austria borders — passport on every intercity bus/train. One Schengen visa covers all six countries; confirm its dates cover 20 Sep–7 Oct with buffer. Nothing sensitive from you went into any web search for this plan.</p></div>
+    <div class="card"><h4>Money</h4><p>DKK (Denmark), PLN (Poland), EUR elsewhere. Cards work nearly everywhere, but carry ~200–300 PLN cash for Zakopane minibuses, MDA drivers and milk bars, and small cash for Mostnica (€3) and Metelkova clubs.</p></div>
+    <div class="card"><h4>Vegetarian phrases</h4><p>"Jestem wegetarianinem/wegetarianką" (PL), "Jeg er vegetar" (DK), "Ich bin Vegetarier/in" (AT). Polish soups often hide meat broth — ask "na wywarze warzywnym?". If you're going strict no-egg (your other planner assumed that; you told me dairy & eggs are fine — pick one): "bez jajek" (PL), "brez jajc" (SI), "ohne Ei" (AT/DE), "uden æg" (DK). Egg hides in dumpling dough, breading, custard and Danish pastries. Oscypek is cheese — you're fine. Blitva (chard & potato) is the Croatian default side.</p></div>
+    <div class="card"><h4>What's still weather-flexible</h4><p>Day 3 (Louisiana ⇄ Malmö), Day 5 (Morskie Oko ⇄ Rusinowa), Day 7 (Nowa Huta ⇄ Wieliczka rain-swap), Day 11 (Bohinj ⇄ cave day), Day 13 (Velika Planina ⇄ Šmarna Gora). That's five built-in swap points — no day collapses in rain.</p></div>
+    <div class="card"><h4>Verify before you go (the five flags)</h4><p>Velika Planina cable-car maintenance window (velikaplanina.si); Sljeme cable-car service start (zicarasljeme.hr); Gujžina reopened (Google Maps); Prozak 2.0 Saturday event; Belianska Cave entry slots on the day. Every other ✻ leg: operator site the night before.</p></div>
+  </div>
+</section>
+
+</main>
+
+<details>
+  <summary><span class="dot"></span>Use this on iPhone & iPad (offline app)<span class="tag">iOS</span></summary>
+  <div class="body">
+    <p>This page is a self-contained web app — it works in Safari on iPhone and iPad, adapts to either screen size, and follows your system light/dark mode. To install it as a full-screen app that works offline:</p>
+    <ul class="tight">
+      <li>Put <b>index.html</b> and <b>sw.js</b> in one folder and host it — fastest free routes: <b>Netlify Drop</b> (drag the folder onto app.netlify.com/drop) or <b>GitHub Pages</b>. Any static host works.</li>
+      <li>Open the hosted link in Safari on your iPhone/iPad.</li>
+      <li>Tap <b>Share → Add to Home Screen</b>. It gets its own icon and launches full-screen like a native app, no browser chrome.</li>
+      <li>The service worker caches the whole page on first load — after that it opens with zero network. No hosting? The file also opens fine in any laptop browser as a plain .html.</li>
+    </ul>
+    <p>Tip: the country filter buttons, collapsible sections and day cards are all touch-friendly, and text sizes bump up automatically on phone screens.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="dot"></span>Alternative middle route — from your other planner<span class="tag">optional</span></summary>
+  <div class="body">
+    <p>Your other (Claude) planner shapes the middle differently: <b>Kraków → Bratislava</b> (1 night; direct FlixBus ~6h15) → Ljubljana (2N) → <b>Piran</b> (2N; coast, Strunjan cliffs, Sečovlje salt pans — direct Postojna→Piran bus ~1h45) → Bled (2N) → Vienna (direct train via Villach ~5h20). Its case: Bratislava is the cheapest city stop, and Piran already gives you the sea without Croatia's transit tax.</p>
+    <p>This planner keeps the shape you chose — Zagreb + Plitvice + Croatia — because the waterfalls + big-city nightlife fit your asks and the EC train to Vienna is one clean leg. If you'd rather have the sea than Plitvice: drop Zagreb/Plitvice nights, add Piran 2N, keep everything else. Both are defensible; only one can be true. Note Piran→Vienna adds a Ljubljana detour (~9h) versus Bled→Vienna direct (~5h20).</p>
+  </div>
+</details>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <h4>Official booking links</h4>
+      visit.auschwitz.org · flixbus.com · wawel.krakow.pl · tpn.gov.pl · chocholowskietermy.pl · gopass.travel · postojnska-jama.eu · park-skocjanske-jame.si · vintgar.si · velikaplanina.si · ticketing.np-plitvicka-jezera.hr · oebb.at · imperialtickets.com · belvedere.at · tivoli.dk · louisiana.dk · kongeligeslotte.dk · zicarasljeme.hr
+    </div>
+    <div>
+      <h4>How this was built</h4>
+      <p>v2 adds a dedicated offbeat/nightlife/apps research pass (Sept 2026) on top of the v1 base — blogs, Reddit-style threads and review aggregates. Prices verified against 2024–26 operator pages where possible; dynamic prices move — re-verify ✛-marked legs the day before.</p>
+    </div>
+    <div>
+      <h4>Caveats</h4>
+      <p>Velika Planina and Sljeme cable cars have autumn maintenance windows near your dates — both have listed fallbacks. Copenhagen's Tivoli summer season ends 20 Sep. Vienna's S-Bahn closure runs to Oct 2027. Komoot/AllTrails offline features now sit behind paywalls — Mapy.com is the free pick.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('#filterbar .fbtn');
+  var cards=document.querySelectorAll('#covgrid .cov-card');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var f=b.getAttribute('data-f');
+      cards.forEach(function(c){
+        c.style.display=(f==='all'||c.getAttribute('data-c')===f)?'':'none';
+      });
+    });
+  });
+})();
+</script>
+
+<div id="iostip" role="dialog" aria-label="Install tip"></div>
+<script>
+(function(){
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var standalone=window.navigator.standalone===true||(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches);
+  if(isIOS&&!standalone){
+    var t=document.getElementById('iostip');
+    var p=document.createElement('span');
+    p.textContent='Tip: tap the Share button, then \u201CAdd to Home Screen\u201D to install this as a full-screen app that works offline.';
+    var b=document.createElement('button');b.type='button';b.textContent='Got it';
+    b.onclick=function(){t.remove()};
+    t.appendChild(p);t.appendChild(b);t.classList.add('show');
+    setTimeout(function(){if(t.parentNode){t.classList.add('show')}},100);
+  }
+  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  }
+})();
+</script>
+</body>
+</html>
