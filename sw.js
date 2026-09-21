@@ -1,5 +1,5 @@
 // Europe Trip 2026 - offline cache
-var CACHE='europe-trip-v4';
+var CACHE='europe-trip-v7';
 self.addEventListener('install',function(e){
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(function(c){

@@ -126,8 +126,8 @@ section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 4px}
 .slot{margin-bottom:10px}
 .slot .t{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .slot p{margin:2px 0 0}
-.eat{background:var(--sage-dim);border-radius:9px;padding:9px 13px;margin-top:10px;font-size:.86rem}
-.eat .t{color:var(--sage);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
+.eat{background:transparent;border:1px dashed var(--border);border-radius:9px;padding:8px 12px;margin-top:10px;font-size:.8rem;color:var(--dim)}
+.eat .t{color:var(--faint);font-weight:800;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
 .tips{background:var(--teal-dim);border-radius:9px;padding:9px 13px;margin-top:8px;font-size:.84rem}
 .tips .t{color:var(--teal);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px}
 .gem{background:var(--terra-dim);border-radius:9px;padding:9px 13px;margin-top:8px;font-size:.84rem}
@@ -221,13 +221,31 @@ details details .body{padding:4px 16px 12px;font-size:.94rem}
   box-shadow:0 4px 16px rgba(60,40,20,.18);display:none}
 #backtop.show{display:block}
 section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+
+/* v6 layer: teasers, pron, cheat sheet, notes */
+.tease{display:block;font-weight:400;font-size:.8rem;color:var(--dim);margin-top:3px;line-height:1.35}
+.pron{display:inline-block;font-size:.68rem;font-weight:600;color:var(--faint);background:var(--surface-2);
+ border:1px solid var(--border);padding:0 6px;border-radius:6px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.pron-pill{display:inline-block;margin:3px 6px 3px 0;padding:4px 10px;border:1px solid var(--border);border-radius:999px;
+ background:var(--surface);font-size:.78rem;color:var(--dim)}
+.pron-pill b{color:var(--ink)}
+.cheat dt{font-weight:800;margin-top:12px}
+.cheat dd{margin:2px 0 0 0;color:var(--dim);font-size:.92rem}
+#notesbox{width:100%;min-height:130px;border:1px solid var(--border);border-radius:12px;padding:12px 14px;
+ font:inherit;font-size:.95rem;background:var(--surface);color:var(--ink);resize:vertical}
+#notesbox:focus{outline:2px solid var(--terra)}
+#notes-status{font-size:.75rem;color:var(--faint);margin-top:6px}
+
+/* v7: story images */
+.storyimg{display:block;width:100%;max-height:250px;object-fit:cover;border-radius:10px;margin:0 0 10px}
+.storyimg[hidden]{display:none}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
-    <div class="kicker">18 days · 6 countries · v2 — the traveller-vibe upgrade</div>
+    <div class="kicker">18 days · 6 countries · v7 — every country, the same depth</div>
     <h1>Copenhagen → Zakopane → Krakow →<br>Slovakia · Slovenia · Croatia → Vienna</h1>
     <p class="sub">Same skeleton as v1 — your booked flights and stays hold — now loaded with hidden gems, waterfall hikes, offbeat city finds, nightlife per city, group day-trip logic, relaxed café days, and a country-wise coverage filter showing exactly what you're seeing and what you're consciously skipping. Public transport only, every leg verified.</p>
     <div class="meta-chips">
@@ -252,8 +270,9 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
 
 <nav><div class="in">
   <a href="#book">Book Now</a>
-  <a href="#coverage">Coverage Filter</a>
   <a href="#itinerary">Itinerary</a>
+  <a href="#notes">Notes</a>
+  <a href="#coverage">Coverage Filter</a>
   <a href="#guide">Field Guide</a>
   <a href="#hikes">Hikes & Waterfalls</a>
   <a href="#nightlife">Nightlife</a>
@@ -271,7 +290,7 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
 <!-- ============ BOOK NOW ============ -->
 <section id="book">
   <div class="sec-label">Act fast</div>
-  <h2>Still to book — trip starts tomorrow</h2>
+  <h2>Still to book — day 2 of 18</h2>
   <div class="alert">
     <h3>Next few hours</h3>
     <ul>
@@ -294,56 +313,28 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
   </div>
 </section>
 
-<!-- ============ COVERAGE FILTER ============ -->
-<section id="coverage">
-  <div class="sec-label">Country-wise</div>
-  <h2>What you're covering — and what you're skipping</h2>
-  <p class="lead">Filter by country. Green-bordered cards are in your itinerary (badges show where they slot in); grey cards are what you'll miss with 18 days and public transport — listed honestly so you can decide if anything is worth a re-shuffle, and so future-you knows exactly what to come back for.</p>
-  <div class="filterbar" id="filterbar">
-    <button class="fbtn active" data-f="all">All</button>
-    <button class="fbtn" data-f="dk">Denmark</button>
-    <button class="fbtn" data-f="pl">Poland</button>
-    <button class="fbtn" data-f="sk">Slovakia</button>
-    <button class="fbtn" data-f="si">Slovenia</button>
-    <button class="fbtn" data-f="hr">Croatia</button>
-    <button class="fbtn" data-f="at">Austria</button>
-  </div>
-  <div class="grid g3" id="covgrid">
-
-    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Copenhagen — the actual list</h4><div class="mut">Nyhavn, Christiansborg tower, Rosenborg + King's Garden, Round Tower, Strøget, Christiania, Nørrebro (Superkilen / Jægersborggade / Assistens), CopenHill, Havneholmen, the cold-water jump (La Banchina or Islands Brygge), Reffen + Broens, bakery crawl. Days 1–3.</div></div>
-    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>CopenHill rooftop</h4><div class="mut">Free rooftop hiking trail on a waste-to-energy plant with harbour views; ski slope optional (150 DKK/hr). Day 2 evening.</div></div>
-    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Nørrebro offbeat walk</h4><div class="mut">Jægersborggade street (Coffee Collective), Assistens Cemetery (H.C. Andersen, Kierkegaard), Superkilen park, sunset on Dronning Louises Bro. Day 2.</div></div>
-    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Cisternerne</h4><div class="mut">Dripstone cave art space in a former underground water reservoir — this season: Marina Abramović's "Seven Deaths". 120 DKK. Day 3 option.</div></div>
-    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Kronborg + Louisiana</h4><div class="mut">The biggest conscious skip — our research called it "the best-value day" from Copenhagen: Hamlet's castle + a world-class modern-art museum on one coastal train. You chose the city instead; the 45-min train is there next time.</div></div>
-    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>The Forgotten Giants</h4><div class="mut">Thomas Dambo's six huge recycled-wood trolls hidden in woods around western Greater Copenhagen (Teddy Friendly, Sleep Louis, Hill Top Trine…). Each is an S-train + walk quest of 1–1.5h; the official map is on thomasdambo.com. A half-day for one or two — the classic "future trip" item.</div></div>
-    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Rubjerg Knude — the "buried castle"</h4><div class="mut">Not a castle: a lighthouse being swallowed by migrating sand dunes in far North Jutland, with a kaleidoscope staircase inside. ~5h from Copenhagen — a road-trip icon, not a train trip.</div></div>
-    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Malmö (Sweden)</h4><div class="mut">35-min Øresund train: fika culture + Lilla Torg old square — it was the rain-swap that never got used. Passport required (ID checks at Hyllie).</div></div>
-    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Beyond the capital</h4><div class="mut">Roskilde (Viking Ship Museum + royal cathedral, 25 min), ARoS Aarhus (rainbow rooftop), Odense (H.C. Andersen's birthplace), Møns Klint chalk cliffs, Bornholm island, Skagen (two seas collide), Ribe Viking town — whose Wadden Sea "Black Sun" starling murmurations peak exactly in late Sept/early Oct. You'd have hit it.</div></div>
-
-    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Zakopane & Tatra hikes</h4><div class="mut">Morskie Oko + Czarny Staw + Wodogrzmoty waterfalls (Day 5), Rusinowa Polana sunrise-meadow option, Gubałówka, Krupówki, Termy Chochołowskie, Wielka Krokiew ski jump, Siklawica waterfall option, Dolina Kościeliska alternative.</div></div>
-    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Krakow full spread</h4><div class="mut">Wawel, Old Town, Kazimierz + Father Bernatek bridge, Auschwitz (Day 8), Wieliczka as rain-swap — plus Zakrzówek lagoon, Kościuszko Mound, Nowa Huta or Tyniec options (Day 7).</div></div>
-    <div class="cov-card miss" data-c="pl"><div class="ctry">Poland · Skipping</div><h4>Warsaw, Gdansk, Białowieża</h4><div class="mut">All need 2–3 days each; wrong direction from Krakow. Dunajec River rafting (gorge border with Slovakia) — a summer classic, awkward by bus in late Sept.</div></div>
-
-    <div class="cov-card" data-c="sk"><div class="ctry">Slovakia · Going</div><h4>High Tatras day</h4><div class="mut">New direct cross-border bus: Belianska Cave, Ždiar folk village, Starý Smokovec, Skalnaté Pleso cable car (or Lomnický štít splurge). Day 6, Friday 25 Sep.</div></div>
-    <div class="cov-card miss" data-c="sk"><div class="ctry">Slovakia · Skipping</div><h4>Slovak Paradise, Levoča, Spiš, Bratislava</h4><div class="mut">Slovenský raj gorge-ladder hikes need an overnight in the east; Spiš Castle/Levoča are 2h+ from Poprad; Bratislava is off your Vienna line by 1h each way.</div></div>
-
-    <div class="cov-card" data-c="si"><div class="ctry">Slovenia · Going</div><h4>Julian Alps & Karst</h4><div class="mut">Bled + Vintgar, Bohinj + Mostnica Gorge & Slap Mostnica + Savica (Vogel cable car closed 21 Sep–end Nov), Postojna + Predjama (or wilder Škocjan), Velika Planina or Šmarna Gora sunrise, Ljubljana old town, Metelkova, Tivoli. Days 9–13.</div></div>
-    <div class="cov-card miss" data-c="si"><div class="ctry">Slovenia · Skipping</div><h4>Soča Valley & the coast</h4><div class="mut">Bovec/Kobarid emerald-river country is 3–4h each way by bus — a future trip with a car. Piran, Lake Jasna/Kranjska Gora (bus-able if you want one more swap), Logar Valley, Maribor.</div></div>
-
-    <div class="cov-card" data-c="hr"><div class="ctry">Croatia · Going</div><h4>Zagreb + Plitvice</h4><div class="mut">Upper Town, Dolac, funicular, noon cannon, Museum of Broken Relationships, Mirogoj, Rastoke watermill village en route, Plitvice full circuit, Samobor or Jarun options. Days 13–15.</div></div>
-    <div class="cov-card miss" data-c="hr"><div class="ctry">Croatia · Skipping</div><h4>The coast</h4><div class="mut">Rovinj, Zadar, Split, Dubrovnik — wrong season-crowd mix and 4h+ off your line; a separate trip. Krka NP (a Plitvice twin) skipped in favour of the original.</div></div>
-
-    <div class="cov-card" data-c="at"><div class="ctry">Austria · Going</div><h4>Vienna, properly</h4><div class="mut">Schönbrunn, Belvedere/Klimt, Prater + Zaha Hadid library, Café Sperl, a heuriger wine-tavern night (Sturm season!), Kahlenberg option. Days 16–18.</div></div>
-    <div class="cov-card miss" data-c="at"><div class="ctry">Austria · Skipping</div><h4>Salzburg, Hallstatt, Tyrol, Wachau</h4><div class="mut">All reachable from Vienna but each eats a full day-plus; with a Wed 7 Oct flight, none fit. Wachau (Danube valley, Melk Abbey) is the easiest future add-on from Vienna.</div></div>
-
-  </div>
-</section>
-
 <!-- ============ ITINERARY ============ -->
 <section id="itinerary">
   <div class="sec-label">Day by day</div>
   <h2>The itinerary</h2>
   <p class="lead">Structure: big-hike days balanced with café-and-wander days, one group-friendly anchor per city, and every hidden gem marked as a Gem. Costs per person. Late-Sept/Oct mountain weather: 8–17°C days, cold nights, real rain risk — layers, waterproof shell, proper shoes.</p>
+  <div class="alert"><h3>How to read this planner</h3><p><b>Day cards</b> (right here) are the plan — times, tickets, what's where. The <b>Field Guide</b> is the reading — every card shows its hook line, tap for the full story. The <b>Countries</b> section holds the deep history chapters (Denmark's empire, the monarchy, Yugoslavia…). The <b>Notes</b> tab is yours — type live updates that stay on your phone.</p></div>
+  <div class="card" style="margin:14px 0">
+    <h4>The route in one glance — the logic of the 18 days</h4>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Leg</th><th>When</th><th>How</th><th>Time</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>Copenhagen</b> 3N</td><td>20–23 Sep</td><td>—</td><td>—</td><td>Done ✓</td></tr>
+        <tr><td>→ <b>Zakopane</b> 2N</td><td>Wed 23</td><td>Fly CPH 06:00 → KRK 07:35, then MDA bus</td><td>1.5h + 2h</td><td>Flight booked; bus on the day</td></tr>
+        <tr><td>→ <b>Krakow</b> 2N</td><td>Fri 25 evening</td><td>Bus from Zakopane</td><td>2–2.5h</td><td>On the day</td></tr>
+        <tr><td>→ <b>Ljubljana</b> 5N</td><td>Sun 27 night</td><td>FlixBus N917 overnight</td><td>~11.5h</td><td>TO BOOK</td></tr>
+        <tr><td>→ <b>Zagreb</b> 3N</td><td>Fri 2 Oct</td><td>FlixBus</td><td>~2.5h</td><td>On the day</td></tr>
+        <tr><td>→ <b>Vienna</b> 2N</td><td>Mon 5</td><td>EC "Croatia" train 07:25→14:07</td><td>6.5h</td><td>TO BOOK (oebb.at)</td></tr>
+        <tr><td>→ Home</td><td>Wed 7 Oct</td><td>Flight from VIE</td><td>—</td><td>Booked ✓</td></tr>
+      </tbody>
+    </table></div>
+    <p class="mut" style="margin:8px 0 0"><b>Why it runs this way:</b> mountains come first while legs are fresh and weather is warmest; every intercity move eats an evening or an early morning — never full daylight; big-hike days (Morskie Oko, Bohinj) alternate with café-and-city days; the overnight bus saves a hotel night and a day; the arc ends with the slowest city (Vienna) so the trip decelerates instead of crashing.</p>
+  </div>
 
   <!-- DENMARK -->
   <div class="country-head"><h3>Denmark — Copenhagen</h3><span class="nights">3 nights · Hotel Bella Grande (20th) → Next House Hostel (21st–23rd)</span><span class="flag-line"></span></div>
@@ -352,45 +343,42 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
     <div class="day-top"><span class="day-num">Day 1</span><h3>Arrival — done ✓</h3><span class="date">Sun 20 Sep</span></div>
     <div class="day-body">
       <div class="move"><span class="t">Arrived</span><span>Landed ~19:00, checked into <b>Hotel Bella Grande</b> (Nørregade, city centre) by ~21:00 and saw <b>Tivoli from the outside</b> — which was the right call anyway: the summer season closed on the 20th and the gardens stay shut until the Halloween season opens 2 Oct.</span></div>
-      <div class="slot"><span class="t">Logistics</span><p>Tomorrow you check out with bags, drop them at <b>Next House Hostel</b> (by Central Station) on the way past ~10:00, and sleep there the next two nights.</p></div>
+      <div class="slot"><span class="t">Logistics</span><p>Done ✓ — Bella Grande checked out Mon morning; <b>Next House</b> (by Central Station) is home until the 04:00 alarm on Wed.</p></div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-top"><span class="day-num">Day 2</span><h3>Copenhagen full experience — your plan, sanity-checked</h3><span class="date">Mon 21 Sep</span></div>
+    <div class="day-top"><span class="day-num">Day 2</span><h3>Comedy tour + the old-town loop — as it happened</h3><span class="date">Mon 21 Sep</span></div>
     <div class="day-body">
-      <div class="move"><span class="t">Bags</span><span>Check out of Bella Grande with bags and go straight to breakfast in Nørrebro — drop the bags at <b>Next House</b> when you pass the Central Station at ~10:00 (they hold luggage before check-in), then pick up bikes at <b>Lucas Cykler</b> on Istedgade. No double-backing.</span></div>
-      <div class="slot"><span class="t">8:00–9:00 · Breakfast</span><p><b>Andersen & Maillard, Elmegade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Andersen%20%26%20Maillard%20Elmegade%20Copenhagen">Map</a> — the giant cinnamon buns you were thinking of are theirs (45–60 DKK). Corrections to your notes: <b>Hart Bageri</b> is the sourdough/bread legend (Frederiksberg), <b>Juno</b> (Østerbro) is the cardamom-bun one — skip Juno today, it's a detour with bags.</p></div>
-      <div class="slot"><span class="t">9:00–9:45 · Nørrebro walk</span><p><b>Superkilen</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Superkilen%20Copenhagen">Map</a> park → <b>Jægersborggade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=J%C3%A6gersborggade%20Copenhagen">Map</a> (Coffee Collective, ceramics, natural wine) → <b>Assistens Cemetery</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Assistens%20Cemetery%20Copenhagen">Map</a> gate — H.C. Andersen & Kierkegaard. All within 15 min of breakfast.</p></div>
-      <div class="slot"><span class="t">9:45–10:30 · Transfer</span><p>Bus 5C or M3 metro from Nørrebros Runddel to Central Station → drop bags at <b>Next House</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Next%20House%20Copenhagen">Map</a> → bikes at <b>Lucas Cykler</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Lucas%20Cykler%20Copenhagen">Map</a>. Your 130 DKK/2-day price is optimistic — expect ~100–150 DKK/day plus deposit; confirm in shop.</p></div>
-      <div class="slot"><span class="t">10:45–12:15 · Christiansborg</span><p><b>Christiansborg tower</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Christiansborg%20Tower%20Copenhagen">Map</a> — the viewing floor is <b>free</b> (lift; open daily ~10:00–20:00 in season). Skip the paid rooms if saving budget.</p></div>
-      <div class="slot"><span class="t">12:15–13:15 · Rosenborg + King's Garden</span><p><b>Rosenborg</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Rosenborg%20Castle%20Copenhagen">Map</a> — garden free; castle 140 DKK, open Mondays; crown jewels in the basement.</p></div>
-      <div class="slot"><span class="t">13:15–14:15 · Smørrebrød lunch</span><p><b>Aamanns 1921</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Aamanns%201921%20Copenhagen">Map</a> (2 min from Rosenborg — modern smørrebrød, ask for the vegetarian plates) or <b>Palægade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Restaurant%20Pal%C3%A6gade%20Copenhagen">Map</a>. Your "Norden"/"Smørrebrødopolis" — I couldn't verify these exist; check the name on Maps before walking.</p></div>
-      <div class="slot"><span class="t">14:15–15:30 · Nyhavn → Amalienborg → dome</span><p><b>Nyhavn</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Nyhavn%20Copenhagen">Map</a> photos, then 10 min north to <b>Marble Church dome</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Frederiks%20Kirke%20Copenhagen">Map</a> — climb it NOW (it closes ~16:00–16:30, ~20–30 DKK), not at 19:00 as in your draft: the evening slot would find it shut.</p></div>
-      <div class="slot"><span class="t">15:30–17:15 · Christiania</span><p>Bike to the gate and walk in — bikes aren't practical inside. <b>Christiania</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Freetown%20Christiania">Map</a>: no photos on Pusher Street; volunteer-run <b>Morgenstedet</b> for an afternoon veg plate if peckish.</p></div>
-      <div class="slot"><span class="t">17:15–19:00 · Strøget</span><p><b>Strøget</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Str%C3%B8get%20Copenhagen">Map</a> — lock the bikes, stroll the pedestrian spine back towards the station.</p></div>
-      <div class="slot"><span class="t">19:30 · Check in Next House</span><p>Dinner: <b>Broens Gadekøkken</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Broens%20Gadek%C3%B8kken">Map</a> street food on the water, or <b>Reffen</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Reffen%20Copenhagen">Map</a>. Cheap drinks after: <b>Jernbanecaféen</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Jernbanecaf%C3%A9en%20Copenhagen">Map</a> (the classic bodega by the station) or <b>Curfew</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Curfew%20Copenhagen">Map</a> (excellent natural-wine bar).</p></div>
-      <div class="tips"><span class="t">Fixes & flags</span>Harbour buses (991/992) are ordinary buses on water — free only with a Copenhagen Card or City Pass, otherwise a 2-zone ticket (~24 DKK). Monday closures: Glyptotek, Louisiana, Designmuseum. The 12:00 Amalienborg guard change you'll miss for Rosenborg — no great loss. Everything on this day is Monday-safe.</div>
-      <span class="cost">Bikes ~130–300 DKK</span><span class="cost">Rosenborg 140 DKK</span><span class="cost">Lunch 120–250 DKK</span><span class="cost">Dome ~20–30 DKK</span>
+      <div class="move"><span class="t">Done ✓</span><span>Breakfast at <b>Buka</b> bakery + a wander around the neighbourhood, then back to Bella Grande to check out. Bags are with you — <b>Next House</b> (Central Station side) holds them whenever you pass.</span></div>
+      <div class="slot"><span class="t">Comedy Walking Tour — booked</span><p><b>Guruwalk Comedy Walking Tour</b><a class="mlink" href="https://www.guruwalk.com/walks/39827-comedy-walking-tour">Link</a> — meets by the <b>Bishop Absalon statue, Højbro Plads</b> <span class="pron">HOY-bro</span><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=H%C3%B8jbro%20Plads%20Copenhagen">Map</a> — the 1902 bronze of the warrior-bishop who founded the city in 1167 (Bissen's statue; plinth frieze of the herring that made the town rich). The route does most of your missed-list by itself: Nikolaj Kunsthal (contemporary art in the old St. Nicholas church — the tower by the canal) → Strøget <span class="pron">STRAW-eh</span> → Magasin du Nord (the landmark department store) → Kongens Nytorv <span class="pron">KONG-ens NEW-tor</span> (the grand 1670 royal square — the baroque palace on its west side is Charlottenborg, today the Kunsthal art hall; the gilded corner is the Royal Theatre's old stage) → Hotel D'Angleterre (the 1755 grand hotel) → Nyhavn → Amalienborg (the King's four-palace residence — see the cheat sheet) → Marmorkirken (the dome) — and the morning slot ends on <b>Amalienborg Slotsplads for the 12:00 guard change</b>. Tip-based: budget ~100–150 DKK.</p></div>
+      <div class="slot"><span class="t">After the tour · The old-town loop — the rest of the missed list</span><p>What each one is, as you walk it:</p>
+      <p><b>Gammel Strand</b> <span class="pron">GAM-el STRAND</span><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Gammel%20Strand%20Copenhagen">Map</a> — "the old shore": for 500 years the canal here was lined with fishwives selling herring straight off the boats (the trade ended only in 1958). Look across the canal at the stacked glass block — <b>BLOX</b>, the Danish Architecture Centre — new money facing old. → <b>Magstræde</b> <span class="pron">MOWS-try-eh</span><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Magstr%C3%A6de%20Copenhagen">Map</a> — the crooked lane that survived both great fires (1728, 1795); most of "medieval Copenhagen" burned, this is the real thing — look for the iron wall anchors and low doorways. → <b>Nytorv</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Nytorv%20Copenhagen">Map</a> — "the new square" (1610s), where the domed Courthouse now faces what was the town's gallows square; the Strøget crossing here is the old east–west street axis. → <b>Regnbuepladsen</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Regnbuepladsen%20Copenhagen">Map</a> — "Rainbow Square", renamed in 2014 for the rainbow flag; deliberately the LGBT gathering spot right under City Hall's windows. → <b>Lurblæserne</b> <span class="pron">LOOR-bless-er-neh</span><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Lurbl%C3%A6serne%20Copenhagen">Map</a> — the two bronze men blowing <i>lurs</i>, curved Bronze Age horns from ~3,000 years ago (Denmark's national archaeological treasure); they face each other and can never finish the tune — the legend says when they do, the world ends. ~1–1.5h total, all flat. Tivoli stays shut till 2 Oct — the outside walk-past you already did is its whole story this trip.</p></div>
+      <div class="slot"><span class="t">Afternoon · Rosenborg + King's Garden</span><p><b>Rosenborg</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Rosenborg%20Castle%20Copenhagen">Map</a> — garden free, castle 140 DKK, open Mondays; the crown jewels and the three silver lions in the basement. Swap freely with Christiania if the weather or energy says so — both are daylight items.</p></div>
+      <div class="slot"><span class="t">Before dusk · Christiania</span><p><b>Christiania</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Freetown%20Christiania">Map</a> — walk in from Prinsessegade and give it a proper hour, not a drive-by (the full story is in the Field Guide): the <b>lake (Stadsgraven)</b> with <b>Green George</b>, Dambo's scrap-wood troll, on the bank; the <b>self-built dream houses</b> along the water; the <b>Grønne Genbrugshal</b> recycling hall; <b>Nemoland</b> café. Rules: walk slowly, no running, no photos on Pusher Street. Sunset from the ramparts by the little church on the way out.</p></div>
+      <div class="eat"><span class="t">In the area (not the priority — see the Food tab for the full list)</span>Aamanns 1921 / Palægade for veg smørrebrød near the old town; Morgenstedet inside Christiania for an afternoon plate; evening — Broens Gadekøkken street food on the water, and Jernbanecaféen bodega by the station for one cheap beer.</div>
+      <div class="tips"><span class="t">Fixes & flags</span>Christiansborg tower is <b>closed Mondays</b> — that's why it slid to tomorrow 10:00 sharp. The Nørrebro walk didn't happen today: it's now Day 3's 16:30 option — or the honest cut, since the old town is covered twice over.</div>
+      <span class="cost">Tour tip ~100–150 DKK</span><span class="cost">Rosenborg 140 DKK</span><span class="cost">Rest free</span>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-top"><span class="day-num">Day 3</span><h3>Unique sites + the cold-water jump</h3><span class="date">Tue 22 Sep</span></div>
+    <div class="day-top"><span class="day-num">Day 3</span><h3>Tower first, then CopenHill + the cold-water jump</h3><span class="date">Tue 22 Sep</span></div>
     <div class="day-body">
-      <div class="slot"><span class="t">8:00–9:00 · Breakfast</span><p><b>Andersen & Maillard, Viktoriagade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Andersen%20%26%20Maillard%20Viktoriagade%20Copenhagen">Map</a> (Vesterbro branch, 8-min walk from Next House) or <b>Hart Bageri</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Hart%20Bageri%20Copenhagen">Map</a> on Gammel Kongevej. Cardamom buns everywhere; coffee strong.</p></div>
-      <div class="slot"><span class="t">9:00–9:20 · Havneholmen</span><p>The <b>upside-down Metro carriage</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Havneholmen%20upside%20down%20metro%20Copenhagen">Map</a> art installation by Dybbølsbro — quirky, quick, exactly your 20 minutes.</p></div>
-      <div class="slot"><span class="t">10:00–10:45 · Rundetårn</span><p><b>Round Tower</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Rundet%C3%A5rn%20Copenhagen">Map</a> opens 10:00 (your 9:30 slot would've stood at a shut door) — the 209-m spiral ramp to the deck, 50–60 DKK.</p></div>
-      <div class="slot"><span class="t">11:00–12:30 · CopenHill</span><p><b>CopenHill</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=CopenHill%20Copenhagen">Map</a> opens <b>11:00 on weekdays</b> (your 10:15 was an hour early). Rooftop hiking trails free; the dry ski slope is 150 DKK/hr + a lift card if the group commits.</p></div>
-      <div class="slot"><span class="t">12:45–14:00 · Lunch at Reffen</span><p>5-min ride from CopenHill across the water — the market's outdoor season is in its final weeks. Veg options at most stalls, 80–130 DKK.</p></div>
-      <div class="slot"><span class="t">14:00–15:30 · The cold-water jump</span><p><b>La Banchina</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=La%20Banchina%20Copenhagen">Map</a> — the skinny jetty with sauna and natural wine at Refshaleøen (2 min from Reffen) — or the free <b>Islands Brygge Havnebad</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Islands%20Brygge%20Havnebad">Map</a> harbour baths. Towel, dip, dry, coffee. September harbour water ~14–16°C — officially "bracing."</p></div>
-      <div class="slot"><span class="t">15:30–16:30</span><p>Return bikes to Lucas Cykler, settle fully into Next House.</p></div>
-      <div class="slot"><span class="t">16:30–22:00</span><p>Shower, light dinner nearby, pack, sleep by 22:00 — the alarm tomorrow is ugly. Bonus if energy survives: <b>Konditaget Lüders</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Konditaget%20L%C3%BCders">Map</a>, the rooftop playground 24 m up a parking house in Nordhavn (M4 metro, 45-min round trip). The <b>Happiness Museum</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Happiness%20Museum%20Copenhagen">Map</a> is your quirky indoor filler — check open days.</p></div>
+      <div class="slot"><span class="t">08:30–09:30 · Breakfast</span><p><b>Andersen & Maillard, Viktoriagade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Andersen%20%26%20Maillard%20Viktoriagade%20Copenhagen">Map</a> (Vesterbro, 8 min from Next House) or <b>Hart Bageri</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Hart%20Bageri%20Copenhagen">Map</a>. Cardamom buns + strong coffee; done before the day starts.</p></div>
+      <div class="slot"><span class="t">09:30–09:50 · Havneholmen</span><p>The <b>upside-down Metro carriage</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Havneholmen%20upside%20down%20metro%20Copenhagen">Map</a> art installation by Dybbølsbro — quirky, quick, exactly your 20 minutes.</p></div>
+      <div class="slot"><span class="t">10:00–10:45 · Christiansborg tower — the Monday miss, rescheduled</span><p><b>Christiansborg tower</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Christiansborg%20Tower%20Copenhagen">Map</a> — opens <b>10:00</b>, free, lift to the viewing floor: the highest free view in the city, Sweden visible on a clear day. The building you're standing on IS the Danish parliament — the Folketing and the PM's office — and Absalon's 1167 fortress sits excavated in its basement. First thing, so nothing can push it.</p></div>
+      <div class="slot"><span class="t">10:45–11:45 · Rundetårn</span><p><b>Round Tower</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Rundet%C3%A5rn%20Copenhagen">Map</a> — opens 10:00; the 209-m spiral ramp to the deck, 50–60 DKK. Walk up Strøget to reach it.</p></div>
+      <div class="slot"><span class="t">12:00–13:15 · CopenHill</span><p><b>CopenHill</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=CopenHill%20Copenhagen">Map</a> — opens <b>11:00 weekdays</b>; rooftop hiking trails free, harbour views; the dry ski slope is 150 DKK/hr only if the group commits. Metro M4 + a short walk, or bus — Google Maps it live.</p></div>
+      <div class="eat"><span class="t">Lunch in the area</span>Reffen — 5 min from CopenHill across the water; veg at most stalls, final weeks of the outdoor season.</div>
+      <div class="slot"><span class="t">14:00–15:30 · The cold-water jump</span><p><b>La Banchina</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=La%20Banchina%20Copenhagen">Map</a> — the skinny jetty with sauna and natural wine at Refshaleøen, 2 min from Reffen — or the free <b>Islands Brygge Havnebad</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Islands%20Brygge%20Havnebad">Map</a>. Towel, dip, dry, coffee. September harbour water ~14–16°C — officially "bracing."</p></div>
+      <div class="slot"><span class="t">15:30–16:30</span><p>Back to Next House, settle in properly.</p></div>
+      <div class="slot"><span class="t">16:30–18:30 · Nørrebro — the one that got away</span><p><b>Superkilen</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Superkilen%20Copenhagen">Map</a> → <b>Jægersborggade</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=J%C3%A6gersborggade%20Copenhagen">Map</a> (Coffee Collective, ceramics) → <b>Assistens</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Assistens%20Cemetery%20Copenhagen">Map</a> (H.C. Andersen, Kierkegaard, Bohr). Bus 5C or M3 to Nørrebros Runddel. Low-energy version: 30 minutes at sunset on Dronning Louises Bro with something from Jægersborggade. Skipping it entirely is also fine — the 04:00 alarm is the real event tonight.</p></div>
+      <div class="slot"><span class="t">18:30–22:00 · Pack + early night</span><p>Tomorrow is the 04:00 alarm. Fillers if energy survives: <b>Konditaget Lüders</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Konditaget%20L%C3%BCders">Map</a>, the rooftop playground 24 m up a parking house in Nordhavn (M4, 45-min round trip) or the <b>Happiness Museum</b><a class="mlink" href="https://www.google.com/maps/search/?api=1&query=Happiness%20Museum%20Copenhagen">Map</a>.</p></div>
+      <div class="tips"><span class="t">Fixes & flags</span>Order matters today: tower (10:00) → Round Tower → CopenHill (11:00+) runs the geography west-to-east cleanly. Christiania/Rosenborg leftovers from Monday slot in wherever there's daylight to spare.</div>
+      <span class="cost">Rundetårn 50–60 DKK</span><span class="cost">Everything else free</span>
     </div>
   </div>
-
-  <!-- POLAND -->
-  <div class="country-head"><h3>Poland — Zakopane & Krakow</h3><span class="nights">2 + 2 nights · booked</span><span class="flag-line"></span></div>
 
   <div class="day">
     <div class="day-top"><span class="day-num">Day 4</span><h3>Fly to Krakow, straight to Zakopane</h3><span class="date">Wed 23 Sep</span></div>
@@ -579,134 +567,293 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
 </section>
 
 <!-- ============ HIKES ============ -->
+<section id="notes">
+  <div class="sec-label">Live notes</div>
+  <h2>Update it yourself — notes on the go</h2>
+  <p class="lead">Type plan changes, discoveries, ticket numbers here — it saves automatically within a second, works offline, and survives app updates. Two things to know: notes stay <b>on this device only</b> (they do not sync to your iPad or another browser — anything important, also message me), and keep opening the app at least weekly so iOS doesn't clean up idle storage. For real re-planning (new route, adjusted days, suggestions), message me — I fold it into the next version and you upload two files.</p>
+  <textarea id="notesbox" placeholder="e.g. Comedy tour ends at Amalienborg — grab lunch at Palægade after…"></textarea>
+  <div id="notes-status"></div>
+</section>
+
+<!-- ============ COVERAGE FILTER ============ -->
+<section id="coverage">
+  <div class="sec-label">Country-wise</div>
+  <h2>What you're covering — and what you're skipping</h2>
+  <p class="lead">Filter by country. Green-bordered cards are in your itinerary (badges show where they slot in); grey cards are what you'll miss with 18 days and public transport — listed honestly so you can decide if anything is worth a re-shuffle, and so future-you knows exactly what to come back for.</p>
+  <div class="filterbar" id="filterbar">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="dk">Denmark</button>
+    <button class="fbtn" data-f="pl">Poland</button>
+    <button class="fbtn" data-f="sk">Slovakia</button>
+    <button class="fbtn" data-f="si">Slovenia</button>
+    <button class="fbtn" data-f="hr">Croatia</button>
+    <button class="fbtn" data-f="at">Austria</button>
+  </div>
+  <div class="grid g3" id="covgrid">
+
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Copenhagen — the actual list</h4><div class="mut">Comedy walking tour (Absalon statue → Nyhavn → Amalienborg + 12:00 guard change → Marmorkirken) + old-town loop (Gammel Strand, Magstræde, Nytorv, Regnbuepladsen, Lurblæserne) on Day 2; Christiansborg tower, Round Tower, CopenHill, cold-water jump (La Banchina / Islands Brygge), Rosenborg, Christiania, Reffen + Broens, bakery crawl. Nørrebro = Day 3 option. Days 1–3.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>CopenHill rooftop</h4><div class="mut">Free rooftop hiking trail on a waste-to-energy plant with harbour views; ski slope optional (150 DKK/hr). Day 2 evening.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Nørrebro offbeat walk</h4><div class="mut">Jægersborggade street (Coffee Collective), Assistens Cemetery (H.C. Andersen, Kierkegaard), Superkilen park, sunset on Dronning Louises Bro. Slipped from Day 2 — Day 3's 16:30 option, sunset-on-the-bridge is the 30-min fallback.</div></div>
+    <div class="cov-card" data-c="dk"><div class="ctry">Denmark · Going</div><h4>Cisternerne</h4><div class="mut">Dripstone cave art space in a former underground water reservoir — this season: Marina Abramović's "Seven Deaths". 120 DKK. Day 3 option.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Kronborg + Louisiana</h4><div class="mut">The biggest conscious skip — our research called it "the best-value day" from Copenhagen: Hamlet's castle + a world-class modern-art museum on one coastal train. You chose the city instead; the 45-min train is there next time.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>The Forgotten Giants</h4><div class="mut">Thomas Dambo's six huge recycled-wood trolls hidden in woods around western Greater Copenhagen (Teddy Friendly, Sleep Louis, Hill Top Trine…). Each is an S-train + walk quest of 1–1.5h; the official map is on thomasdambo.com. A half-day for one or two — the classic "future trip" item. But Dambo's troll No. 50, Green George, is inside Christiania on your Day 2 — one giant you can actually visit.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Rubjerg Knude — the "buried castle"</h4><div class="mut">Not a castle: a lighthouse being swallowed by migrating sand dunes in far North Jutland, with a kaleidoscope staircase inside. ~5h from Copenhagen — a road-trip icon, not a train trip.</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Malmö (Sweden)</h4><div class="mut">35-min Øresund train: fika culture + Lilla Torg old square — it was the rain-swap that never got used. Passport required (ID checks at Hyllie).</div></div>
+    <div class="cov-card miss" data-c="dk"><div class="ctry">Denmark · Skipping</div><h4>Beyond the capital</h4><div class="mut">Roskilde (Viking Ship Museum + royal cathedral, 25 min), ARoS Aarhus (rainbow rooftop), Odense (H.C. Andersen's birthplace), Møns Klint chalk cliffs, Bornholm island, Skagen (two seas collide), Ribe Viking town — whose Wadden Sea "Black Sun" starling murmurations peak exactly in late Sept/early Oct. You'd have hit it.</div></div>
+
+    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Zakopane & Tatra hikes</h4><div class="mut">Morskie Oko + Czarny Staw + Wodogrzmoty waterfalls (Day 5), Rusinowa Polana sunrise-meadow option, Gubałówka, Krupówki, Termy Chochołowskie, Wielka Krokiew ski jump, Siklawica waterfall option, Dolina Kościeliska alternative.</div></div>
+    <div class="cov-card" data-c="pl"><div class="ctry">Poland · Going</div><h4>Krakow full spread</h4><div class="mut">Wawel, Old Town, Kazimierz + Father Bernatek bridge, Auschwitz (Day 8), Wieliczka as rain-swap — plus Zakrzówek lagoon, Kościuszko Mound, Nowa Huta or Tyniec options (Day 7).</div></div>
+    <div class="cov-card miss" data-c="pl"><div class="ctry">Poland · Skipping</div><h4>Warsaw, Gdansk, Białowieża</h4><div class="mut">All need 2–3 days each; wrong direction from Krakow. Dunajec River rafting (gorge border with Slovakia) — a summer classic, awkward by bus in late Sept.</div></div>
+
+    <div class="cov-card" data-c="sk"><div class="ctry">Slovakia · Going</div><h4>High Tatras day</h4><div class="mut">New direct cross-border bus: Belianska Cave, Ždiar folk village, Starý Smokovec, Skalnaté Pleso cable car (or Lomnický štít splurge). Day 6, Friday 25 Sep.</div></div>
+    <div class="cov-card miss" data-c="sk"><div class="ctry">Slovakia · Skipping</div><h4>Slovak Paradise, Levoča, Spiš, Bratislava</h4><div class="mut">Slovenský raj gorge-ladder hikes need an overnight in the east; Spiš Castle/Levoča are 2h+ from Poprad; Bratislava is off your Vienna line by 1h each way.</div></div>
+
+    <div class="cov-card" data-c="si"><div class="ctry">Slovenia · Going</div><h4>Julian Alps & Karst</h4><div class="mut">Bled + Vintgar, Bohinj + Mostnica Gorge & Slap Mostnica + Savica (Vogel cable car closed 21 Sep–end Nov), Postojna + Predjama (or wilder Škocjan), Velika Planina or Šmarna Gora sunrise, Ljubljana old town, Metelkova, Tivoli. Days 9–13.</div></div>
+    <div class="cov-card miss" data-c="si"><div class="ctry">Slovenia · Skipping</div><h4>Soča Valley & the coast</h4><div class="mut">Bovec/Kobarid emerald-river country is 3–4h each way by bus — a future trip with a car. Piran, Lake Jasna/Kranjska Gora (bus-able if you want one more swap), Logar Valley, Maribor.</div></div>
+
+    <div class="cov-card" data-c="hr"><div class="ctry">Croatia · Going</div><h4>Zagreb + Plitvice</h4><div class="mut">Upper Town, Dolac, funicular, noon cannon, Museum of Broken Relationships, Mirogoj, Rastoke watermill village en route, Plitvice full circuit, Samobor or Jarun options. Days 13–15.</div></div>
+    <div class="cov-card miss" data-c="hr"><div class="ctry">Croatia · Skipping</div><h4>The coast</h4><div class="mut">Rovinj, Zadar, Split, Dubrovnik — wrong season-crowd mix and 4h+ off your line; a separate trip. Krka NP (a Plitvice twin) skipped in favour of the original.</div></div>
+
+    <div class="cov-card" data-c="at"><div class="ctry">Austria · Going</div><h4>Vienna, properly</h4><div class="mut">Schönbrunn, Belvedere/Klimt, Prater + Zaha Hadid library, Café Sperl, a heuriger wine-tavern night (Sturm season!), Kahlenberg option. Days 16–18.</div></div>
+    <div class="cov-card miss" data-c="at"><div class="ctry">Austria · Skipping</div><h4>Salzburg, Hallstatt, Tyrol, Wachau</h4><div class="mut">All reachable from Vienna but each eats a full day-plus; with a Wed 7 Oct flight, none fit. Wachau (Danube valley, Melk Abbey) is the easiest future add-on from Vienna.</div></div>
+
+  </div>
+</section>
+
 <section id="guide">
   <div class="sec-label">The stories</div>
   <h2>Field guide — what you're actually looking at</h2>
-  <p class="lead">Commute-friendly: every card is collapsed by default, tap to read the story behind the place. Copenhagen gets the deepest cut (you're there now); the rest of the route follows.</p>
+  <p class="lead">Every card shows its hook line under the title — tap only when you want the full story, and photos load automatically at the top of each story when you're online (the text stands alone offline). Start with the cheat sheet below so you know which building is which. Copenhagen gets the deepest cut; the rest of the route follows.</p>
 
-  <h3 class="citylabel">Copenhagen — tap each card</h3>
+  <h3 class="citylabel">Copenhagen — start here</h3>
 
-  <details class="story"><summary><span class="num">1</span>Nyhavn<span class="k">canal</span></summary>
-    <div class="body"><p>Those cheerful gabled houses were once the roughest dockside in the Baltic — sailors, tattoo parlours and alehouses. The canal itself was dug 1670–73 largely by Swedish prisoners of war from Denmark's disastrous wars with Sweden. H.C. Andersen lived at three different Nyhavn addresses (nos. 20, 67 and 18), writing his first fairy tales steps from the water. The street only became the postcard in the 1970s–80s, when the city restored the facades; the colours come from a 1977 heritage palette. The wooden ships moored along the quay include real lightvessels that once guarded Danish sandbanks.</p>
+<details open class="story"><summary><span class="num">★</span>Which building is which — the cheat sheet<span class="k">orientation</span></summary>
+    <div class="body"><dl class="cheat">
+    <dt>Christiansborg (the islet, Slotsholmen) — where the tour boat turns</dt>
+    <dd>THE PARLIAMENT. The Folketing, the PM's office and the royal reception rooms are all inside — and the tower you climb Tuesday is its north tower. The building you're standing on when you go up it is literally the Danish government. Next to it: <b>Børsen</b>, the 1625 stock exchange with the dragon-tail spire (burned in April 2024, under restoration), and across the water the <b>Black Diamond</b>, the modern royal library.</dd>
+    <dt>Amalienborg (the octagonal square with four identical palaces)</dt>
+    <dd>WHERE THE KING LIVES. Frederik X's city residence (Moltke's Palace), the changing of the guard, the royal receptions. Behind it: <b>Marmorkirken = Marble Church = Frederik's Church</b> — three names, one dome.</dd>
+    <dt>Kongens Nytorv (the grand square with the equestrian statue)</dt>
+    <dd>The 1670 royal square, and the one you keep half-recognising: the big baroque palace on the west side is <b>Charlottenborg</b> — today the Kunsthal Charlottenborg contemporary art hall and the Royal Academy of Fine Arts (this is "the museum you couldn't place"). On the same square: <b>Magasin du Nord</b> (the landmark department store), <b>Hotel D'Angleterre</b> (the 1755 grand hotel), the gilded 1874 <b>Royal Theatre</b> (old stage) — with the glass-and-wood <b>Skuespilhuset</b> playhouse and the Opera across the water.</dd>
+    <dt>City Hall (Rådhuspladsen) and Tivoli</dt>
+    <dd>The city's own government — where the Lurblæserne stand — facing Tivoli's gates.</dd>
+    <dt>Nikolaj Kunsthal (the tower by the canal near Gammel Strand)</dt>
+    <dd>Contemporary art inside the old St. Nicholas church — the tower is the skyline marker. And the small yellow palace with the chariot frieze on the bridge to Slotsholmen is <b>Thorvaldsens Museum</b>, the Bertel Thorvaldsen sculpture collection.</dd>
+    <dt>The simple rule</dt>
+    <dd>Parliament = Slotsholmen. King = Amalienborg. City = City Hall. Old royal treasury = Rosenborg. All of it started with one bishop and one island: Absalon, Slotsholmen, 1167.</dd>
+    </dl>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Christiansborg_Palace">Christiansborg</a> · <a href="https://en.wikipedia.org/wiki/Amalienborg">Amalienborg</a> · <a href="https://en.wikipedia.org/wiki/Kunsthal_Charlottenborg">Charlottenborg</a> · <a href="https://en.wikipedia.org/wiki/Kongens_Nytorv">Kongens Nytorv</a></p></div>
+  </details>
+
+
+
+  <details class="story"><summary><span class="num">1</span>Nyhavn <span class="pron">nee-HOWN</span><span class="k">canal</span><span class="tease">The canal was dug by Swedish prisoners of war; Andersen lived at three addresses here.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Nyhavn" alt="" hidden><p>Those cheerful gabled houses were once the roughest dockside in the Baltic — sailors, tattoo parlours and alehouses. The canal itself was dug 1670–73 largely by Swedish prisoners of war from Denmark's disastrous wars with Sweden. H.C. Andersen lived at three different Nyhavn addresses (nos. 20, 67 and 18), writing his first fairy tales steps from the water. The street only became the postcard in the 1970s–80s, when the city restored the facades; the colours come from a 1977 heritage palette. The wooden ships moored along the quay include real lightvessels that once guarded Danish sandbanks.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Nyhavn">Nyhavn</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">2</span>Christiansborg<span class="k">the islet of power</span></summary>
-    <div class="body"><p>Slotsholmen is where Copenhagen begins: Bishop Absalon fortified this tiny islet around 1167, and the ruins of his castle still sit in the palace basement (you can visit them). The current palace is the <b>fifth castle on the same spot</b> — two burned down (1794, 1884), one was demolished. Today it holds the Danish Parliament, the Prime Minister's office and the royal reception rooms — government literally built on top of its own history. The free tower you're riding up was added 1907–28; on clear days you can see all the way to Sweden.</p>
+  <details class="story"><summary><span class="num">2</span>Christiansborg<span class="k">the islet of power</span><span class="tease">The fifth castle on the island where Copenhagen was born in Absalon's 1167 fortress — and it IS the parliament.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Christiansborg Palace" alt="" hidden><p>Slotsholmen is where Copenhagen begins: Bishop Absalon fortified this tiny islet around 1167, and the ruins of his castle still sit in the palace basement (you can visit them). The current palace is the <b>fifth castle on the same spot</b> — two burned down (1794, 1884), one was demolished. Today it holds the Danish Parliament, the Prime Minister's office and the royal reception rooms — government literally built on top of its own history. The free tower you're riding up was added 1907–28; on clear days you can see all the way to Sweden.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Christiansborg_Palace">Christiansborg Palace</a> · <a href="https://en.wikipedia.org/wiki/Absalon">Absalon</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">3</span>Rosenborg + King's Garden<span class="k">royal treasury</span></summary>
-    <div class="body"><p>Christian IV — the 6-foot-plus "Builder King" who stamped half of Copenhagen into existence (the Round Tower, the stock exchange with the dragon-tail spire, the Nyboder naval quarters) — built Rosenborg 1606–34 as a summer escape <i>outside</i> the walls. It ended up far too small and impractical for a king, which is exactly why it survives as a time capsule: each room is a century. In the basement: the Danish crown regalia, guarded by three life-size silver lions (deliberately awake, alert and asleep — a Renaissance symbol of watchfulness), and the collars of the Order of the Elephant, Denmark's ancient knightly order that outranks almost everything in Europe.</p>
+  <details class="story"><summary><span class="num">3</span>Rosenborg + King's Garden<span class="k">royal treasury</span><span class="tease">Christian IV's summer escape — three life-size silver lions guard the crown jewels.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Rosenborg Castle" alt="" hidden><p>Christian IV — the 6-foot-plus "Builder King" who stamped half of Copenhagen into existence (the Round Tower, the stock exchange with the dragon-tail spire, the Nyboder naval quarters) — built Rosenborg 1606–34 as a summer escape <i>outside</i> the walls. It ended up far too small and impractical for a king, which is exactly why it survives as a time capsule: each room is a century. In the basement: the Danish crown regalia, guarded by three life-size silver lions (deliberately awake, alert and asleep — a Renaissance symbol of watchfulness), and the collars of the Order of the Elephant, Denmark's ancient knightly order that outranks almost everything in Europe.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Rosenborg_Castle">Rosenborg Castle</a> · <a href="https://en.wikipedia.org/wiki/Christian_IV_of_Denmark">Christian IV</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">4</span>Rundetårn<span class="k">the ramp</span></summary>
-    <div class="body"><p>Europe's oldest working observatory (1642), also Christian IV's. Instead of stairs, a helix ramp corkscrews 7.5 turns upward — built so a horse could haul instruments (and books for the university library above) to the top. In 1716 Tsar Peter the Great rode up on horseback while his wife Catherine followed in a carriage, which the tower still brags about. At the centre of the ramp is a 25-m hollow core — drop a coin and it falls the height of the building into the latrine pit below.</p>
+  <details class="story"><summary><span class="num">4</span>Rundetårn <span class="pron">RON-eh-torn</span><span class="k">the ramp</span><span class="tease">Europe's oldest working observatory; the Tsar rode up its spiral ramp on horseback.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Rundetaarn" alt="" hidden><p>Europe's oldest working observatory (1642), also Christian IV's. Instead of stairs, a helix ramp corkscrews 7.5 turns upward — built so a horse could haul instruments (and books for the university library above) to the top. In 1716 Tsar Peter the Great rode up on horseback while his wife Catherine followed in a carriage, which the tower still brags about. At the centre of the ramp is a 25-m hollow core — drop a coin and it falls the height of the building into the latrine pit below.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Rundetaarn">Rundetaarn</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">5</span>Freetown Christiania<span class="k">since 1971</span></summary>
-    <div class="body"><p>In September 1971, activists cut the fence of an abandoned naval barracks and declared a free town for the homeless — 850 people moved into the first week. The sign at the gate reads <i>"You are now leaving the EU."</i> For 50+ years the state and the "Christianites" fought over it — while inside, ~1,000 residents ran their own workshops, own rules (hard drugs banned internally since 1984), own flag. The famous "no photos" Pusher Street was open cannabis trade, tolerated then cleared repeatedly. The story's latest chapter: in 2024 the residents' own foundation bought the land from the state for ~76M DKK — the squat became a legal, self-governing neighbourhood. Walk respectfully; it's a home, not a zoo.</p>
-    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Freetown_Christiania">Freetown Christiania</a></p></div>
+  <details class="story"><summary><span class="num">5</span>Freetown Christiania<span class="k">since 1971</span><span class="tease">1971 squatters, a "you are now leaving the EU" sign — and a troll by the lake.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Freetown Christiania" alt="" hidden>
+    <p><b>Why it exists.</b> Copenhagen 1971: a brutal housing shortage, and a group of locals protesting the lack of playgrounds on the Christianshavn side. On 26 September 1971 journalist <b>Jacob Ludvigsen</b> and others cut through the fence of the abandoned <b>Bådsmandsstræde naval barracks</b> — within days 700 people had crossed into the 34 hectares of ramparts and halls behind. Ludvigsen wrote a freetown manifesto; the state alternated between clearing attempts and shrugs, and in 1972 simply let it exist as a "social experiment" — one that never ended.</p>
+    <p><b>How it works.</b> ~1,000 residents, a common purse for rent/water/electricity paid collectively to the state, decisions by open-air meetings, no private cars, collective workshops (carpentry, blacksmith, bikes) — and a list of rules posted at every gate: no hard drugs (self-banned since 1984), no stealing, no weapons, no violence, no biker colours. The sign at the main entrance reads <i>"You are now leaving the EU."</i></p>
+    <p><b>What to look for inside.</b> Enter from Prinsessegade by the water: <b>Pusher Street</b> — walk slowly, never run (running panics people), never photograph; it was the open cannabis market until the residents bulldozed the stalls themselves in 2024 after a gang shooting. Then <b>Green George</b> (card 6) by the lake — <b>Stadsgraven</b>, the old moat, the calmest corner. Wander past the <b>self-built dream houses</b> along the water — no building codes, every house hand-made and most unbuildable anywhere else. <b>Loppen</b> (the flea-market-and-music venue), <b>Operaen</b> and the <b>Grey Hall</b> for concerts and events, <b>Nemoland</b> café by the entrance, and the <b>Grønne Genbrugshal</b> — the green recycling hall, pure Christiania: furniture, junk and treasure.</p>
+    <p><b>The latest chapter.</b> After 50 years of legal limbo, in 2024 the residents' own foundation bought the land from the state for ~76M DKK — the squat became a legal, self-governing neighbourhood that still makes its own rules. The community-run tours (see the Tours tab) are the best hour you can spend here.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Freetown_Christiania">Freetown Christiania</a> · <a href="https://www.visitcopenhagen.com/copenhagen/areas/neighborhoods/area-guide-christiania">visitcopenhagen — area guide</a> · <a href="https://www.thomasdambo.com/works/green-george">Green George</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">6</span>Superkilen<span class="k">60 countries in one park</span></summary>
-    <div class="body"><p>Nørrebro is officially the most diverse district in the country — residents trace roots to 150+ nations. For this park, BIG architects (plus artists Superflex and Topotek1) asked the neighbours to pick real objects from their home countries and shipped them in: a Moroccan fountain, a Japanese cherry tree, neon signage from Qatar, an octopus-shaped playground piece from Spain — over 100 objects from 60+ countries, no context labels on purpose. The pink "Red Square" zone is for sport and markets; the "Black Market" for chess and gossip. It's a very Danish answer to immigration: turn the whole debate into a public living room.</p>
+    <details class="story"><summary><span class="num">6</span>Green George — the troll inside Christiania<span class="k">Dambo No. 50</span><span class="tease">Dambo's troll No. 50, built from Christiania's own garbage — by the lake, no signs.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Freetown Christiania" alt="" hidden><p>Thomas Dambo's troll <b>No. 50</b>, built in 2019 during his Great Troll Festival — from scrap wood taken out of <b>Christiania's own garbage disposal</b>. He sits cross-legged by the lake on the eastern side of the freetown, holding petal-like pieces arranged like a book, beneath a mural reading <i>"The World Is in Our Hands"</i> (by Rasmus Balstrøm). There are no signs to him — you wander past the self-built houses until the giant appears between the trees. Same artist as the six Forgotten Giants you're skipping outside the city — this one you can actually visit.</p>
+    <p class="readlist">Read: <a href="https://www.thomasdambo.com/works/green-george">thomasdambo.com — Green George</a> · <a href="https://en.wikipedia.org/wiki/Freetown_Christiania">Christiania</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">7</span>Superkilen<span class="k">60 countries in one park</span><span class="tease">Over 100 real objects shipped in from residents' 60+ home countries.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Superkilen" alt="" hidden><p>Nørrebro is officially the most diverse district in the country — residents trace roots to 150+ nations. For this park, BIG architects (plus artists Superflex and Topotek1) asked the neighbours to pick real objects from their home countries and shipped them in: a Moroccan fountain, a Japanese cherry tree, neon signage from Qatar, an octopus-shaped playground piece from Spain — over 100 objects from 60+ countries, no context labels on purpose. The pink "Red Square" zone is for sport and markets; the "Black Market" for chess and gossip. It's a very Danish answer to immigration: turn the whole debate into a public living room.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Superkilen">Superkilen</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">7</span>Jægersborggade & Assistens<span class="k">the living + the dead</span></summary>
-    <div class="body"><p>This 200-metre street was run-down gang territory in the 90s; it's now the densest strip of ceramics studios, natural wine and third-wave coffee in the city — its Coffee Collective roastery is among the world's most awarded. At the end of your walk, Assistens Cemetery: opened 1760 as an overflow burial ground "assisting" the city churches, and now the strangest park in Europe — sunbathing Copenhageners between the graves of H.C. Andersen, Søren Kierkegaard and Niels Bohr. That cheerfulness about death is itself very Danish: no gothic gloom, just a well-used commons.</p>
+  <details class="story"><summary><span class="num">8</span>Jægersborggade & Assistens <span class="pron">YAI-ers-bor-ga-deh</span><span class="k">the living + the dead</span><span class="tease">Gang street turned ceramics-and-coffee strip; sunbathers among Kierkegaard's neighbours.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Assistens Cemetery (Copenhagen)" alt="" hidden><p>This 200-metre street was run-down gang territory in the 90s; it's now the densest strip of ceramics studios, natural wine and third-wave coffee in the city — its Coffee Collective roastery is among the world's most awarded. At the end of your walk, Assistens Cemetery: opened 1760 as an overflow burial ground "assisting" the city churches, and now the strangest park in Europe — sunbathing Copenhageners between the graves of H.C. Andersen, Søren Kierkegaard and Niels Bohr. That cheerfulness about death is itself very Danish: no gothic gloom, just a well-used commons.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Assistens_Cemetery_(Copenhagen)">Assistens Cemetery</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">8</span>Strøget<span class="k">the 1962 experiment</span></summary>
-    <div class="body"><p>The world's wave of pedestrian streets started here: in 1962 Copenhagen stripped this 1.1-km medieval street of traffic as a <i>temporary Christmas experiment</i> — shopkeepers screamed it would kill them; instead the street filled with life and the closure became permanent. It triggered Copenhagen's transformation into a walking-and-bikes city (and inspired everywhere from Munich to Melbourne). Danish urbanist Jan Gehl built his whole career studying what happened on this street.</p>
+  <details class="story"><summary><span class="num">9</span>Strøget <span class="pron">STRAW-eh</span><span class="k">the 1962 experiment</span><span class="tease">The 1962 "temporary" pedestrian experiment that never went back.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Strøget" alt="" hidden><p>The world's wave of pedestrian streets started here: in 1962 Copenhagen stripped this 1.1-km medieval street of traffic as a <i>temporary Christmas experiment</i> — shopkeepers screamed it would kill them; instead the street filled with life and the closure became permanent. It triggered Copenhagen's transformation into a walking-and-bikes city (and inspired everywhere from Munich to Melbourne). Danish urbanist Jan Gehl built his whole career studying what happened on this street.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Strøget">Strøget</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">9</span>Marble Church dome<span class="k">the 150-year ruin</span></summary>
-    <div class="body"><p>Frederik's Church was commissioned in 1749 by Frederik V in expensive Norwegian marble — and the money ran out barely five years in. The half-built dome stood as a fenced-off ruin for over a century while Copenhageners used it as a coal store and a place to dump snow. Only in 1894 did a banker finish it — in much cheaper Danish limestone (only the foundation is actually marble). The dome is one of Scandinavia's largest, modelled on St Peter's in Rome. Climb it today and you get the best skyline panorama of the marble-and-copper rooftops.</p>
+  <details class="story"><summary><span class="num">10</span>Marble Church dome<span class="k">the 150-year ruin</span><span class="tease">A 150-year marble ruin that ran out of money; finished in cheap limestone.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Frederik's Church" alt="" hidden><p>Frederik's Church was commissioned in 1749 by Frederik V in expensive Norwegian marble — and the money ran out barely five years in. The half-built dome stood as a fenced-off ruin for over a century while Copenhageners used it as a coal store and a place to dump snow. Only in 1894 did a banker finish it — in much cheaper Danish limestone (only the foundation is actually marble). The dome is one of Scandinavia's largest, modelled on St Peter's in Rome. Climb it today and you get the best skyline panorama of the marble-and-copper rooftops.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Frederik%27s_Church">Frederik's Church</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">10</span>CopenHill<span class="k">skiing on a power plant</span></summary>
-    <div class="body"><p>Amager Bakke burns ~400,000 tonnes of Copenhagen's waste a year and turns it into district heating and power for ~150,000 homes — enough to make the city's waste-to-landfill rate among the lowest on earth. Danish star architect Bjarke Ingels' pitch: if you must live next to a factory, make it a public mountain. So the roof is a ski slope (artificial, 3 pistes, 180 m drop), a hiking trail network, a café — and the facade carries one of the world's tallest artificial climbing walls. It opened 2020 and instantly became the global poster child for "cinfrastructure" that refuses to be ugly.</p>
+  <details class="story"><summary><span class="num">11</span>CopenHill<span class="k">skiing on a power plant</span><span class="tease">A waste-burning power plant you can ski on, by Denmark's star architect.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="CopenHill" alt="" hidden><p>Amager Bakke burns ~400,000 tonnes of Copenhagen's waste a year and turns it into district heating and power for ~150,000 homes — enough to make the city's waste-to-landfill rate among the lowest on earth. Danish star architect Bjarke Ingels' pitch: if you must live next to a factory, make it a public mountain. So the roof is a ski slope (artificial, 3 pistes, 180 m drop), a hiking trail network, a café — and the facade carries one of the world's tallest artificial climbing walls. It opened 2020 and instantly became the global poster child for "cinfrastructure" that refuses to be ugly.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/CopenHill">CopenHill</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">11</span>The harbour swim<span class="k">from sewer to lido</span></summary>
-    <div class="body"><p>Your cold-water jump is only possible because of a 20-year cleanup: until the 1990s Copenhagen's inner harbour was an industrial sewer — the water where La Banchina's jetty now is would have made you ill. A massive sewer-ring project diverted overflows, and by 2002 the city opened the Islands Brygge harbour bath — swimmable water in a capital city became the badge of the whole urban turnaround. La Banchina is the hippie-cousin version: a wooden jetty, a wood-fired sauna, and a wine licence. When you jump in, you're swimming in the city's proudest infrastructure achievement.</p>
+  <details class="story"><summary><span class="num">12</span>The harbour swim<span class="k">from sewer to lido</span><span class="tease">Swimmable only because a 20-year cleanup turned an industrial sewer into a lido.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Islands Brygge" alt="" hidden><p>Your cold-water jump is only possible because of a 20-year cleanup: until the 1990s Copenhagen's inner harbour was an industrial sewer — the water where La Banchina's jetty now is would have made you ill. A massive sewer-ring project diverted overflows, and by 2002 the city opened the Islands Brygge harbour bath — swimmable water in a capital city became the badge of the whole urban turnaround. La Banchina is the hippie-cousin version: a wooden jetty, a wood-fired sauna, and a wine licence. When you jump in, you're swimming in the city's proudest infrastructure achievement.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Islands_Brygge">Islands Brygge</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">12</span>Reffen & Refshaleøen<span class="k">from shipyard to food island</span></summary>
-    <div class="body"><p>Refshaleøen was the B&W shipyard from the 1840s — for a century one of Denmark's biggest industrial employers, until shipbuilding collapsed and the last ships launched in 1996. The island sat derelict until the 2010s, when it became the city's creative edge: Reffen's street-food stalls built from shipping containers (many run by first-generation immigrant chefs — the food is noticeably better than the tourist centre's), plus La Banchina, art studios and the Noma test kitchens. The whole island is a slow walk through post-industrial Copenhagen.</p>
+  <details class="story"><summary><span class="num">13</span>Reffen & Refshaleøen<span class="k">from shipyard to food island</span><span class="tease">The shipyard island that went bankrupt in 1996 and became the city's creative edge.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Refshaleøen" alt="" hidden><p>Refshaleøen was the B&W shipyard from the 1840s — for a century one of Denmark's biggest industrial employers, until shipbuilding collapsed and the last ships launched in 1996. The island sat derelict until the 2010s, when it became the city's creative edge: Reffen's street-food stalls built from shipping containers (many run by first-generation immigrant chefs — the food is noticeably better than the tourist centre's), plus La Banchina, art studios and the Noma test kitchens. The whole island is a slow walk through post-industrial Copenhagen.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Refshaleøen">Refshaleøen</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">13</span>Amalienborg & the monarchy<span class="k">oldest in Europe</span></summary>
-    <div class="body"><p>Four identical palaces around an octagonal square, built by noblemen in the 1750s — and the royal family simply moved in after Christiansborg burned in 1794, squatting ever since. The monarchy here is Europe's oldest continuous line, over 1,000 years from Gorm the Old to King Frederik X (crowned January 2024, after Margrethe II abdicated on live TV — a bicycle-helmet on the statue moment). The royal family famously cycles its children to school. The midday guard change you're skipping: two soldiers marching with a band — genuinely skippable.</p>
+  <details class="story"><summary><span class="num">14</span>Amalienborg & the monarchy<span class="k">oldest in Europe</span><span class="tease">Europe's oldest monarchy, squatting in four noblemen's palaces since 1794.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Amalienborg" alt="" hidden><p>Four identical palaces around an octagonal square, built by noblemen in the 1750s — and the royal family simply moved in after Christiansborg burned in 1794, squatting ever since. The monarchy here is Europe's oldest continuous line, over 1,000 years from Gorm the Old to King Frederik X (crowned January 2024, after Margrethe II abdicated on live TV — a bicycle-helmet on the statue moment). The royal family famously cycles its children to school. The midday guard change you're skipping: two soldiers marching with a band — genuinely skippable.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Amalienborg">Amalienborg</a></p></div>
+  </details>
+
+    <details class="story"><summary><span class="num">15</span>Gammel Strand & Magstræde <span class="pron">MOWS-try-eh</span><span class="k">the old city</span><span class="tease">The fish market that ran 500 years; a lane that survived both great fires.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Gammel Strand" alt="" hidden><p>Gammel Strand ("the old shore") was Copenhagen's fish market for 500 years — until 1958 the fishwives of Gammel Strand were a city institution, selling herring off tables along the canal when the water still lapped where the road now is. Magstræde nearby is one of the few streets that survived both the 1728 and 1795 city fires — its crooked 17th-century houses with iron wall anchors are what pre-fire Copenhagen actually looked like; the rest of the "old town" is rebuilt after the fires. Walking the two back-to-back is the closest you get to the medieval city.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Gammel_Strand">Gammel Strand</a> · <a href="https://en.wikipedia.org/wiki/Magstr%C3%A6de">Magstræde</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">16</span>Lurblæserne & Regnbuepladsen <span class="pron">LOOR-bless-er-neh</span><span class="k">bronze horns</span><span class="tease">Bronze men playing a 3,000-year-old horn — the song is never finished.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Lurblæserne" alt="" hidden><p>The two bronze figures blowing long curved horns by City Hall are the <b>lurblæserne</b> — playing the <i>lur</i>, a Bronze Age horn, over 3,000 years old as an instrument, whose original versions are Denmark's most famous archaeological finds. The 1913 statue is Copenhagen's good-luck landmark: the horn-blowers face each other and if they ever finish the song... they never have. Behind them, Regnbuepladsen — Rainbow Square — was renamed in 2014 for the rainbow flag; it's the city's LGBT gathering point, directly facing City Hall, a deliberate bit of symbolism.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Lurbl%C3%A6serne">Lurblæserne</a></p></div>
   </details>
 
   <h3 class="citylabel">The rest of the route — quick stories</h3>
 
-  <details class="story"><summary><span class="num">14</span>Morskie Oko, Poland<span class="k">the Eye of the Sea</span></summary>
-    <div class="body"><p>A glacial cirque lake 1,395 m up, the largest in the Tatras at up to 50 m deep — named "Eye of the Sea" by highlanders for the sea-blue of its water. The lake belongs to a family of Alpine lakes with a violent past: the valley was private land until 1930, and the mountain refuge here has burned down and been rebuilt four times. Late September is the sweet spot: after-summer quiet, first golden larches. The waterfalls you pass at km 3 — Wodogrzmoty, "the waters' thunder" — already appear in 19th-century Polish romantic poetry.</p>
+  <details class="story"><summary><span class="num">17</span>Morskie Oko, Poland <span class="pron">MOOR-skee EH-koh</span><span class="k">the Eye of the Sea</span><span class="tease">The "Eye of the Sea" — the Tatras' biggest lake, named for its sea-blue water.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Morskie Oko" alt="" hidden><p>A glacial cirque lake 1,395 m up, the largest in the Tatras at up to 50 m deep — named "Eye of the Sea" by highlanders for the sea-blue of its water. The lake belongs to a family of Alpine lakes with a violent past: the valley was private land until 1930, and the mountain refuge here has burned down and been rebuilt four times. Late September is the sweet spot: after-summer quiet, first golden larches. The waterfalls you pass at km 3 — Wodogrzmoty, "the waters' thunder" — already appear in 19th-century Polish romantic poetry.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Morskie_Oko">Morskie Oko</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">15</span>Zakopane & the Górale<span class="k">highland culture</span></summary>
-    <div class="body"><p>The Górale ("highlanders") are shepherds whose culture straddles the Polish–Slovak border — same wooden architecture, same sheep, same distinctive dialect with archaic Polish; the border itself (drawn 1918) cut through a single people. Oscypek, the smoked sheep cheese you'll eat on Krupówki, is so region-specific it's EU-law protected (like Champagne). Krupówki itself is the town's 120-year-old promenade — once where lung patients "took the mountain air" in Europe's first tuberculosis resort, now the kitsch heart of the Polish mountains.</p>
+  <details class="story"><summary><span class="num">18</span>Zakopane & the Górale <span class="pron">goo-RAH-leh</span><span class="k">highland culture</span><span class="tease">A border that cut one shepherd culture in two; the cheese is protected like Champagne.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Zakopane" alt="" hidden><p>The Górale ("highlanders") are shepherds whose culture straddles the Polish–Slovak border — same wooden architecture, same sheep, same distinctive dialect with archaic Polish; the border itself (drawn 1918) cut through a single people. Oscypek, the smoked sheep cheese you'll eat on Krupówki, is so region-specific it's EU-law protected (like Champagne). Krupówki itself is the town's 120-year-old promenade — once where lung patients "took the mountain air" in Europe's first tuberculosis resort, now the kitsch heart of the Polish mountains.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Gorals">Górale</a> · <a href="https://en.wikipedia.org/wiki/Oscypek">Oscypek</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">16</span>Wawel, Krakow<span class="k">dragon hill</span></summary>
-    <div class="body"><p>A limestone bluff with a legend under it: the Wawel Dragon, whose cave (Smocza Jama) you can still walk into at the riverbank. On top: the castle where Polish kings were crowned for 500 years until the capital moved to Warsaw in 1596, and the cathedral that holds their tombs. Krakow's eerie intactness is itself the story: it was the seat of Hans Frank's Nazi General Government and survived WWII almost untouched while Warsaw — in open rebellion — was erased street by street. That's why the Old Town you walk is genuinely medieval, not rebuilt.</p>
+  <details class="story"><summary><span class="num">19</span>Wawel, Krakow<span class="k">dragon hill</span><span class="tease">The dragon's hill; Poland's coronation castle — and it survived the war intact.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Wawel" alt="" hidden><p>A limestone bluff with a legend under it: the Wawel Dragon, whose cave (Smocza Jama) you can still walk into at the riverbank. On top: the castle where Polish kings were crowned for 500 years until the capital moved to Warsaw in 1596, and the cathedral that holds their tombs. Krakow's eerie intactness is itself the story: it was the seat of Hans Frank's Nazi General Government and survived WWII almost untouched while Warsaw — in open rebellion — was erased street by street. That's why the Old Town you walk is genuinely medieval, not rebuilt.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Wawel">Wawel</a> · <a href="https://en.wikipedia.org/wiki/Kraków">Kraków</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">17</span>Auschwitz<span class="k">context before you go</span></summary>
-    <div class="body"><p>The complex of 40+ camps was the largest killing centre in history — roughly 1.1 million murdered, around 90% of them Jews, alongside Poles, Roma, Soviet POWs and others. The scale is the point: a purpose-built industrial system, not a chaotic crime. Walking it is heavy and should be. Two practical notes: the visit is self-explanatory with the pass, but the educator-guided tour is worth it; and January 27 — the date the Red Army reached the camp in 1945 — is now International Holocaust Remembrance Day worldwide because of this place.</p>
+  <details class="story"><summary><span class="num">20</span>Auschwitz<span class="k">context before you go</span><span class="tease">The largest killing centre in history — context to hold before you walk it.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Auschwitz" alt="" hidden><p>The complex of 40+ camps was the largest killing centre in history — roughly 1.1 million murdered, around 90% of them Jews, alongside Poles, Roma, Soviet POWs and others. The scale is the point: a purpose-built industrial system, not a chaotic crime. Walking it is heavy and should be. Two practical notes: the visit is self-explanatory with the pass, but the educator-guided tour is worth it; and January 27 — the date the Red Army reached the camp in 1945 — is now International Holocaust Remembrance Day worldwide because of this place.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Auschwitz">Auschwitz</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">18</span>Kazimierz<span class="k">the Jewish quarter</span></summary>
-    <div class="body"><p>Jews were invited to Krakow by royal decree in the 14th century, and from 1495 lived in Kazimierz — for 400 years a self-governing town-within-a-town, a centre of European Jewish scholarship. By 1939 Krakow had ~64,000 Jews, a quarter of the city; the ghetto the Nazis created was actually across the river in Podgórze (the empty "Heroes' Square" chairs you'll pass near the Bernatek bridge are its memorial). After the war and 40 years of communism, the quarter was derelict; Schindler's List filmed here in 1993, and the revival since — cafés, synagogues, festivals — is one of Europe's great neighbourhood comebacks.</p>
+  <details class="story"><summary><span class="num">21</span>Kazimierz<span class="k">the Jewish quarter</span><span class="tease">A Jewish town-within-a-town from 1495; resurrected by film after decades derelict.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Kazimierz" alt="" hidden><p>Jews were invited to Krakow by royal decree in the 14th century, and from 1495 lived in Kazimierz — for 400 years a self-governing town-within-a-town, a centre of European Jewish scholarship. By 1939 Krakow had ~64,000 Jews, a quarter of the city; the ghetto the Nazis created was actually across the river in Podgórze (the empty "Heroes' Square" chairs you'll pass near the Bernatek bridge are its memorial). After the war and 40 years of communism, the quarter was derelict; Schindler's List filmed here in 1993, and the revival since — cafés, synagogues, festivals — is one of Europe's great neighbourhood comebacks.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Kazimierz">Kazimierz</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">19</span>Lake Bled, Slovenia<span class="k">99 steps of luck</span></summary>
-    <div class="body"><p>The lake is glacial, the island is Slovenia's only true island, and the castle on the cliff has watched it for over 1,000 years — but Bled's real business is the church of St Mary on the island, with its famous local ritual: a groom must carry his bride up all <b>99 steps</b> while the bell-ringer keeps the bells going, and if they make it without stopping, luck is guaranteed. (The bell itself: granted-wishes legend from a widow's gift in the 15th century.) Tito made Bled his summer residence; world leaders got rowed to dinner on the island in the 1950s.</p>
+  <details class="story"><summary><span class="num">22</span>Lake Bled, Slovenia<span class="k">99 steps of luck</span><span class="tease">Slovenia's only island; the groom carries the bride up 99 steps for luck.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Lake Bled" alt="" hidden><p>The lake is glacial, the island is Slovenia's only true island, and the castle on the cliff has watched it for over 1,000 years — but Bled's real business is the church of St Mary on the island, with its famous local ritual: a groom must carry his bride up all <b>99 steps</b> while the bell-ringer keeps the bells going, and if they make it without stopping, luck is guaranteed. (The bell itself: granted-wishes legend from a widow's gift in the 15th century.) Tito made Bled his summer residence; world leaders got rowed to dinner on the island in the 1950s.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Lake_Bled">Lake Bled</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">20</span>Postojna & Škocjan caves<span class="k">dragons below</span></summary>
-    <div class="body"><p>Postojna has been a tourist attraction since 1819 — Europe's first cave with a railway inside (1872, originally push-carts). Its celebrity is the <i>proteus</i>, the blind pink cave salamander that locals once believed were baby dragons washing out of the underworld; it can live over 100 years and go a decade without food. Škocjan, the UNESCO pick, is the wilder cousin: an underground canyon with a river you cross on a bridge 50 storeys above the water — the Martel Chamber is among the largest underground spaces in Europe. Whatever you do: take a layer, it's 10°C below year-round.</p>
+  <details class="story"><summary><span class="num">23</span>Postojna & Škocjan caves <span class="pron">SHKOCH-yahn</span><span class="k">dragons below</span><span class="tease">Europe's first cave railway and "baby dragons" that live 100 years.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Postojna Cave" alt="" hidden><p>Postojna has been a tourist attraction since 1819 — Europe's first cave with a railway inside (1872, originally push-carts). Its celebrity is the <i>proteus</i>, the blind pink cave salamander that locals once believed were baby dragons washing out of the underworld; it can live over 100 years and go a decade without food. Škocjan, the UNESCO pick, is the wilder cousin: an underground canyon with a river you cross on a bridge 50 storeys above the water — the Martel Chamber is among the largest underground spaces in Europe. Whatever you do: take a layer, it's 10°C below year-round.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Postojna_Cave">Postojna</a> · <a href="https://en.wikipedia.org/wiki/%C5%A0kocjan_Caves">Škocjan</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">21</span>Plitvice, Croatia<span class="k">living dams</span></summary>
-    <div class="body"><p>Sixteen lakes stepping down 134 m — the magic is the <i>travertine</i>: the waterfalls build themselves, as dissolved limestone precipitates on mosses and grows barriers up to a centimetre a year, constantly re-terraforming the lakes (the water colour's famous shifts — jade, turquoise, grey — are calcium and micro-organisms doing light tricks). The park is also a war landmark: "Bloody Easter" at Plitvice, March/April 1991, saw the first fatality of Croatia's independence war — the park sat on the front line and only fully reopened in 1998.</p>
+  <details class="story"><summary><span class="num">24</span>Plitvice, Croatia <span class="pron">PLIT-vit-seh</span><span class="k">living dams</span><span class="tease">Waterfalls that build themselves — a centimetre of living stone a year.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Plitvice Lakes National Park" alt="" hidden><p>Sixteen lakes stepping down 134 m — the magic is the <i>travertine</i>: the waterfalls build themselves, as dissolved limestone precipitates on mosses and grows barriers up to a centimetre a year, constantly re-terraforming the lakes (the water colour's famous shifts — jade, turquoise, grey — are calcium and micro-organisms doing light tricks). The park is also a war landmark: "Bloody Easter" at Plitvice, March/April 1991, saw the first fatality of Croatia's independence war — the park sat on the front line and only fully reopened in 1998.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Plitvice_Lakes_National_Park">Plitvice</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">22</span>Zagreb's Upper Town<span class="k">two hills + a cannon</span></summary>
-    <div class="body"><p>Zagreb grew as two rival medieval settlements — Kaptol (the bishop's, with the cathedral) and Gradec (the merchants', granted royal free-city rights in 1242) — that hated each other for centuries before merging. The Lotrščak tower cannon that fires at noon has boomed since 1877, originally to mark the closing of the city gates — nobody is sure why noon instead of closing time; the city just likes it. The funicular you'll ride is 66 m long and claims to be the world's shortest public one-track in the world, running since 1893.</p>
+  <details class="story"><summary><span class="num">25</span>Zagreb's Upper Town <span class="pron">ZAH-greb</span><span class="k">two hills + a cannon</span><span class="tease">Two rival medieval towns that hated each other, plus a noon cannon nobody explains.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Zagreb" alt="" hidden><p>Zagreb grew as two rival medieval settlements — Kaptol (the bishop's, with the cathedral) and Gradec (the merchants', granted royal free-city rights in 1242) — that hated each other for centuries before merging. The Lotrščak tower cannon that fires at noon has boomed since 1877, originally to mark the closing of the city gates — nobody is sure why noon instead of closing time; the city just likes it. The funicular you'll ride is 66 m long and claims to be the world's shortest public one-track in the world, running since 1893.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Zagreb">Zagreb</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">23</span>Schönbrunn, Vienna<span class="k">1,441 rooms</span></summary>
-    <div class="body"><p>The Habsburg summer palace, built to out-Versailles Versailles (1,441 rooms; the plan called for more, money said no). Mozart, aged six, played for Maria Theresa here in 1762 and, court gossip claims, jumped onto her lap afterwards. Napoleon used it twice as his headquarters — his son, the "Duke of Reichstadt," grew up and died here. Today's draws: the "Great Gallery" of mirrors where Kennedy met Khrushchev in 1961, and the world's <b>oldest zoo</b> (1752), still on site. Your full Palace Ticket walks the state rooms; the free gardens were opened to the public by Maria Theresa's decree.</p>
+  <details class="story"><summary><span class="num">26</span>Schönbrunn, Vienna <span class="pron">SHURN-brun</span><span class="k">1,441 rooms</span><span class="tease">1,441 rooms; Mozart at six; Napoleon's son grew up here.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Schönbrunn Palace" alt="" hidden><p>The Habsburg summer palace, built to out-Versailles Versailles (1,441 rooms; the plan called for more, money said no). Mozart, aged six, played for Maria Theresa here in 1762 and, court gossip claims, jumped onto her lap afterwards. Napoleon used it twice as his headquarters — his son, the "Duke of Reichstadt," grew up and died here. Today's draws: the "Great Gallery" of mirrors where Kennedy met Khrushchev in 1961, and the world's <b>oldest zoo</b> (1752), still on site. Your full Palace Ticket walks the state rooms; the free gardens were opened to the public by Maria Theresa's decree.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Schönbrunn_Palace">Schönbrunn</a></p></div>
   </details>
 
-  <details class="story"><summary><span class="num">24</span>Viennese coffee houses<span class="k">UNESCO living rooms</span></summary>
-    <div class="body"><p>"You are not paying for the coffee, you are renting the time" — the classic defence of a €5 Melange. The institution: marble tables, newspapers on wooden sticks, mirrored walls, waiters in bow ties, and absolutely no pressure to leave — the price of the first cup buys your seat for the afternoon. It's UNESCO intangible heritage since 2011. Café Sperl, your Tuesday cake stop, is 1880-vintage and film-famous: the phone-booth scene in <i>Before Sunrise</i> was shot there. Order a Melange (coffee + steamed milk) and any cake; the Sachertorte-vs-Demel original-recipe court battle ran from 1954 to 1963.</p>
+  <details class="story"><summary><span class="num">27</span>Viennese coffee houses<span class="k">UNESCO living rooms</span><span class="tease">You rent the time, not the coffee — UNESCO heritage since 2011.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Viennese coffee house" alt="" hidden><p>"You are not paying for the coffee, you are renting the time" — the classic defence of a €5 Melange. The institution: marble tables, newspapers on wooden sticks, mirrored walls, waiters in bow ties, and absolutely no pressure to leave — the price of the first cup buys your seat for the afternoon. It's UNESCO intangible heritage since 2011. Café Sperl, your Tuesday cake stop, is 1880-vintage and film-famous: the phone-booth scene in <i>Before Sunrise</i> was shot there. Order a Melange (coffee + steamed milk) and any cake; the Sachertorte-vs-Demel original-recipe court battle ran from 1954 to 1963.</p>
     <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Viennese_coffee_house">Viennese coffee house</a> · <a href="https://en.wikipedia.org/wiki/Wiener_Riesenrad">The Prater wheel</a></p></div>
   </details>
+  <details class="story"><summary><span class="num">28</span>The hejnal — the bugle call that stops mid-note<span class="pron">HY-nowl</span><span class="k">Krakow</span><span class="tease">Every hour, a fireman plays a 700-year-old alarm from St Mary's tower — and the tune is never finished.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="St. Mary's Basilica, Kraków" alt="" hidden><p>On the hour, a fireman opens the window of St Mary's tallest tower and plays the <i>hejnał</i> — and the call breaks off, abruptly, mid-phrase. It commemorates (so the story goes) the 13th-century watchman who spotted the Mongol advance in 1241 and kept playing to warn the city as an arrow pierced his throat. The unfinished call has gone out nationwide on Polish radio every noon since 1927 — stand in the Rynek on the hour, look up. Inside the church: the largest Gothic wooden altarpiece in the world, carved by Veit Stoss over twelve years (1477–89) — the single greatest object in Krakow.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Hejna%C5%82_mariacki">The hejnał</a> · <a href="https://en.wikipedia.org/wiki/Veit_Stoss_Altarpiece">The Stoss altarpiece</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">29</span>Nowa Huta — the communist showpiece<span class="k">Krakow</span><span class="tease">Stalin's "ideal city", built to outshine royal Catholic Krakow — and the tours are run by people who grew up there.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Nowa Huta" alt="" hidden><p>In 1949 the communists broke ground on a brand-new steel city beside Krakow — wide boulevards, heroic squares, blocks for 100,000 workers, and pointedly no church. Nowa Huta ("New Steelworks") was designed as socialist man's answer to medieval, Catholic, royal Krakow; instead, the workers it imported fought for decades to build a church (the Ark, consecrated 1977 with the future Pope's help) and made the district a birthplace of Solidarity. The Lenin statue came down in 1989; the milk bars and monumental geometry remain. The tram ride out is part of the exhibit.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Nowa_Huta">Nowa Huta</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">30</span>Plečnik's Ljubljana & the dragon<span class="k">Slovenia</span><span class="tease">One architect rebuilt the whole capital after the 1895 quake — and Jason of the Argonauts slew the dragon downtown.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Triple Bridge" alt="" hidden><p>Full story in Countries → Slovenia; the short version: after the 1895 earthquake flattened Ljubljana, <b>Jože Plečnik</b> spent 1921–1957 treating the rebuild as one lifetime project — Triple Bridge, market colonnades, university library, embankments. Walk the river loop and you're inside one man's sketchbook. The dragon on the 1901 bridge is the city's crest: legend says Jason (of Argonauts and Golden Fleece fame) fled up these rivers after the heist and killed the beast in the marsh where Ljubljana now stands.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Jo%C5%BEe_Ple%C4%8Dnik">Plečnik</a> · <a href="https://en.wikipedia.org/wiki/Dragon_Bridge">The Dragon Bridge</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">31</span>Metelkova — Ljubljana's Christiania<span class="pron">meh-TEL-kova</span><span class="k">Slovenia</span><span class="tease">A squat army barracks turned art city — the direct cousin of the freetown you just walked in Copenhagen.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Metelkova" alt="" hidden><p>When the Yugoslav army left Ljubljana in 1991, the city announced the old barracks would be demolished. In September 1993 artists moved in and refused to leave — today <b>Metelkova</b> is seven buildings of studios, clubs, galleries and sculptures, painted on every surface, self-governed, part-funded by the city it once fought. It is the Balkans' answer to Christiania: smaller, more artistic, less fraught — and a two-minute walk from your arrival-day bus station. The contrast with the polished old town ten minutes away is the whole point.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Metelkova">Metelkova</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">32</span>Klimt's Kiss & the Belvedere<span class="k">Vienna</span><span class="tease">The gold-on-gold icon of 1908 — and the palace that bought it before it was finished.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="The Kiss (Klimt)" alt="" hidden><p><i>The Kiss</i> (1908) — the gold-leaf couple on the flowered cliff — is the emblem of Viennese modernism, painted after Klimt (a goldsmith's son) saw the Byzantine mosaics of Ravenna and decided painting should shine like metal. The Austrian state bought it in 1908 <b>before it was finished</b>, for a record price; it has never left the country. It hangs in the Upper Belvedere — Prince Eugene of Savoy's summer palace; the man who broke Ottoman power and got this garden palace as his trophy. The building alone is half the exhibit.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/The_Kiss_(Klimt)">The Kiss</a> · <a href="https://en.wikipedia.org/wiki/Belvedere,_Vienna">The Belvedere</a></p></div>
+  </details>
+
+  <details class="story"><summary><span class="num">33</span>Rastoke — the village the water built<span class="pron">RAHS-to-keh</span><span class="k">Croatia</span><span class="tease">A watermill hamlet where the river splits into waterfalls — little Plitvice before Plitvice.</span></summary>
+    <div class="body">
+      <img class="storyimg" data-wiki="Slunj" alt="" hidden><p>Your Sunday bus to Plitvice stops at <b>Rastoke</b>, where the Slunjčica river fans over travertine shelves and drops into the Korana in dozens of small cascades — the same living-stone geology as Plitvice at 1% of the crowds. Mills have worked these falls since the 1600s; the houses are built literally on top of the waterfalls, their walls parting the river. Half an hour with a coffee here is the perfect warm-up for the lakes.</p>
+    <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Slunj">Slunj & Rastoke</a></p></div>
+  </details>
+
+  <h3 class="citylabel">Say it like a local</h3>
+  <div>
+    <span class="pron-pill"><b>Nyhavn</b> nee-HOWN</span><span class="pron-pill"><b>Strøget</b> STRAW-eh</span><span class="pron-pill"><b>Rundetårn</b> RON-eh-torn</span><span class="pron-pill"><b>Kongens Nytorv</b> KONG-ens NEW-torv</span><span class="pron-pill"><b>Amalienborg</b> ah-MAH-len-bor</span><span class="pron-pill"><b>Højbro</b> HOY-bro</span><span class="pron-pill"><b>Magstræde</b> MOWS-try-eh</span><span class="pron-pill"><b>Lurblæserne</b> LOOR-bless-er-neh</span><span class="pron-pill"><b>Øresund</b> UHR-eh-soon</span><span class="pron-pill"><b>Zakopane</b> zah-ko-PAH-neh</span><span class="pron-pill"><b>Krupówki</b> kroo-POOF-kee</span><span class="pron-pill"><b>Gubałówka</b> goo-ba-WOOF-ka</span><span class="pron-pill"><b>Morskie Oko</b> MOOR-skee EH-koh</span><span class="pron-pill"><b>Kościuszko</b> kosh-CHOOSH-koh</span><span class="pron-pill"><b>Ždiar</b> ZHDEE-arsh</span><span class="pron-pill"><b>Belianska jaskyňa</b> bel-YAHN-ska YAS-kin-ya</span><span class="pron-pill"><b>Starý Smokovec</b> STAR-ee SMO-ko-vets</span><span class="pron-pill"><b>Ljubljana</b> lyoo-BLYAH-nah</span><span class="pron-pill"><b>Vintgar</b> VEENT-gar</span><span class="pron-pill"><b>Bohinj</b> BOH-hin</span><span class="pron-pill"><b>Škocjan</b> SHKOCH-yahn</span><span class="pron-pill"><b>Šmarna Gora</b> SHMAR-na GO-ra</span><span class="pron-pill"><b>Plitvice</b> PLIT-vit-seh</span><span class="pron-pill"><b>Zagreb</b> ZAH-greb</span><span class="pron-pill"><b>Rastoke</b> RAHS-to-keh</span><span class="pron-pill"><b>Schönbrunn</b> SHURN-brun</span><span class="pron-pill"><b>heuriger</b> HOY-ri-ger</span><span class="pron-pill"><b>Prater</b> PRAH-ter</span><span class="pron-pill"><b>Melange</b> may-LAHNGSH</span>
+  </div>
 </section>
 
 <section id="hikes">
@@ -763,7 +910,7 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
 <section id="food">
   <div class="sec-label">Vegetarian</div>
   <h2>The food guide</h2>
-  <p class="lead">All fully vegetarian or vegan (dairy/eggs fine). Closure days already routed around in the itinerary.</p>
+  <p class="lead">All fully vegetarian or vegan (dairy/eggs fine). Food is deliberately <b>not</b> a priority on this trip — this tab is the full shortlist; the day cards only point at what's in the area.</p>
   <details open><summary><span class="dot"></span>Copenhagen<span class="tag">3 days</span></summary>
     <div class="body"><div class="tblwrap"><table>
       <thead><tr><th>Place</th><th>Where / when</th><th>Price</th><th>Why</th></tr></thead>
@@ -932,7 +1079,7 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
   <p class="lead">Free-walking-tour economics: the guide works for tips (budget €10–15 per person — pay more if it was great, less if it wasn't). They're the fastest way to convert a city into a story, and shoulder-season has space if you book 24–48h ahead. Where a tour overlaps something already in your plan (Auschwitz, Schönbrunn), skip it — your entries are already covered.</p>
 
   <details open><summary><span class="dot"></span>Copenhagen<span class="tag">Mon–Tue</span></summary>
-    <div class="body"><p>The classic is the <b>free walking tour of the city centre</b> — daily, ~2.5h, starting by the City Hall (Rådhuspladsen), covering Strøget, the old squares, Nyhavn and the waterfront; tip-based, no booking needed, just show up 10 min early (verify today's start time — some seasons run 2 departures a day). You've already built a solid self-guided day, so if one tour only: <b>the Christiania tour run by the community's own guides</b> — a resident walks you through the history and the politics, which turns a "weird neighbourhood" into the most interesting social experiment in Europe. Book at the Info Café inside Christiania on arrival, ~100–150 DKK, ~1h. Alternative rainy-day pick: a canal tour is your indoor-outdoor hybrid (covered boats, 135–169 DKK).</p></div>
+    <div class="body"><p><b>You're booked: the Comedy Walking Tour</b> (guruwalk) — meets at the Bishop Absalon statue, Højbro Plads; the morning slot ends on Amalienborg Slotsplads for the 12:00 guard change. Tip ~100–150 DKK. It covers Nikolaj Kunsthal, Strøget, Magasin, Kongens Nytorv, the Royal Theatre, Nyhavn, Amalienborg and Marmorkirken — i.e. nine of the seventeen items on your missed-list, with jokes. If you want a second one: <b>the Christiania tour run by the community's own guides</b> — book at the Info Café inside Christiania, ~100–150 DKK, ~1h; a resident walks you through the history and politics of Europe's oddest social experiment.</p></div>
   </details>
   <details><summary><span class="dot"></span>Krakow<span class="tag">Sat 26 + Sun 27</span></summary>
     <div class="body"><p>Krakow is one of Europe's best free-tour cities. <b>Walkative!</b> runs daily tip-based tours: the <i>Old Town & Wawel</i> route (~2h, morning) and the <i>Jewish Quarter</i> route (~2.5h, afternoon) — doing both on your Saturday covers everything in this planner plus stories you can't get from a card. Show up at the fountain on the main square (St. Mary's end) or check the exact meeting point online. If you want one paid tour instead: a <b>Nowa Huta communism tour</b> (~90–150 PLN, 2–3h) with a local guide who grew up there is the standout — the district doesn't explain itself to a self-guided visitor.</p></div>
@@ -963,7 +1110,25 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Infrastructure.</b> Driverless 24/7 metro; the Øresund and Great Belt bridges tied the country (and Sweden) together; roughly half of electricity from wind. You're never more than ~50 km from the sea.</p>
       <p><b>Famous Danes:</b> Hans Christian Andersen (fairy tales), Søren Kierkegaard (existentialism), Niels Bohr (atomic model), Karen Blixen (<i>Out of Africa</i>), Jørn Utzon (Sydney Opera House), Arne Jacobsen (his Egg chair sits in the Radisson by the station), Lars von Trier, Mads Mikkelsen, Viggo Mortensen, Caroline Wozniacki, Michael Laudrup & Peter Schmeichel.</p>
       <p><b>Government.</b> Constitutional monarchy — King Frederik X since January 2024. A single-chamber parliament (Folketing, 179 seats including Greenland and the Faroes), Prime Minister Mette Frederiksen (Social Democrats). Proportional representation means coalition is the norm, not the exception.</p>
-      <details open><summary><b>Beyond the capital — the Denmark you're missing</b></summary>
+      <details><summary><b>The empire nobody told you about</b> — how Sweden, Norway, Iceland and Greenland were all Danish</summary>
+      <div class="body"><p><b>The Kalmar Union (1397–1523).</b> Queen <b>Margrethe I</b> — called the most powerful woman Europe had produced — stitched Denmark, Norway and Sweden into a single crown (with her grand-nephew as figurehead king) to dominate Baltic trade and hold back the German Hanseatic League. It held for 126 years until the Swedes, tired of Danish wars and Danish taxes, broke out under Gustav Vasa in 1523. Sweden has been the neighbour-rival ever since.</p>
+      <p><b>Denmark–Norway (1523–1814).</b> What the union left was still enormous: Denmark plus Norway plus <b>Iceland, Greenland and the Faroe Islands</b> — and for stretches India ports, the Nicobars, the Gold Coast and the Caribbean. Then Sweden took revenge by land: in the 1658 <b>Treaty of Roskilde</b> Denmark lost Skåne, Blekinge and Halland — the entire southern-Swedish slice around <b>Malmö and Lund had been core Danish territory for 600 years</b>. (Your Malmö "skip" is really a family reunion — the half-timbered towns across the sound are the architecture you're walking in Copenhagen.)</p>
+      <p><b>1814, the great carve-up.</b> Denmark backed Napoleon; the price at the Treaty of Kiel was <b>Norway itself, handed to Sweden</b> — but crucially the old Norwegian Atlantic colonies (<b>Iceland, Greenland, Faroes</b>) stayed with Copenhagen. Iceland got home rule in 1918, declared a republic <b>while Denmark itself was under German occupation (1944)</b> — the quietest empire exit ever. Greenland and the Faroes remain in the Danish realm today ("the Unity of the Realm"), self-governing, with the king as head of state and two Folketing seats each — which is why the queen on your Amalienborg coins has a claim to territory three times Denmark's size.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Kalmar_Union">Kalmar Union</a> · <a href="https://en.wikipedia.org/wiki/Denmark%E2%80%93Norway">Denmark–Norway</a> · <a href="https://en.wikipedia.org/wiki/Treaty_of_Roskilde">Treaty of Roskilde</a> · <a href="https://en.wikipedia.org/wiki/Treaty_of_Kiel">Treaty of Kiel</a> · <a href="https://en.wikipedia.org/wiki/Iceland">Iceland</a></p></div></details>
+      <details><summary><b>The monarchy — 1,000 years, with scandals</b> — abdication on live TV, the prince who refused the grave, the stripped titles</summary>
+      <div class="body"><p><b>The line.</b> Gorm the Old to Frederik X: over 1,000 years, the <b>oldest continuous monarchy in Europe</b> — 54 kings and queens, one family. Margrethe II reigned 52 years (1972–2024): chain-smoking, four languages, a trained archaeologist who dug in Italy — and a professional illustrator: she drew the Danish <i>Lord of the Rings</i> edition under a pseudonym, and Tolkien himself liked her work so much it was used in the British Folio Society edition.</p>
+      <p><b>The exit nobody expected.</b> On 31 December 2023, mid New Year's speech, she announced she would abdicate — "the time has come". Two weeks later she signed on live TV, walked out of Christiansborg, and her son became Frederik X before a snow-covered Amalienborg crowd. He'd met his wife Mary, an Australian marketing consultant, at the <b>Slip Inn pub in Sydney during the 2000 Olympics</b>.</p>
+      <p><b>The scandals.</b> <b>Prince Henrik</b>, the French count she married, spent 50 years publicly furious that he was never made king consort — "my wife's husband", he called himself; in 2002 he walked out of a reception when the seat of honour went to his son instead of him, and in his last years <b>he refused to be buried beside Margrethe in Roskilde Cathedral</b> — and wasn't. <b>2022:</b> Margrethe stripped the four royal titles of her son Joachim's children — "future-proofing" said the palace, a public family wound said their parents, who gave tearful interviews from Paris. <b>Autumn 2023:</b> paparazzi photos of then-Crown-Prince Frederik on a Madrid evening with Mexican socialite Genoveva Casanova; she called the speculation "malicious", the palace stayed silent — and weeks later, Margrethe abdicated. Draw your own lines; the tabloids certainly did.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Margrethe_II">Margrethe II</a> · <a href="https://en.wikipedia.org/wiki/Frederik_X">Frederik X</a> · <a href="https://en.wikipedia.org/wiki/Henrik,_Prince_Consort_of_Denmark">Prince Henrik</a></p></div></details>
+      <details><summary><b>Absalon, the great fires, and 1807</b> — why the "medieval" old town isn't medieval</summary>
+      <div class="body"><p><b>The founder.</b> Absalon (~1128–1201), warrior-bishop and right hand of King Valdemar the Great, was given the herring-trading village on the sound and built his fortress on the little island of Slotsholmen in <b>1167</b> — Copenhagen literally means "merchants' harbour". The 1902 equestrian statue your comedy tour starts under is <b>Vilhelm Bissen</b>'s bronze (gift of a bank director), plinth by Martin Nyrop who designed City Hall; Absalon faces Christiansborg where his castle stood, head turned toward City Hall, with a plinth frieze of the fish that funded everything.</p>
+      <p><b>The fires.</b> The city you're walking is mostly <b>19th-century</b>. The Great Fire of <b>1728</b> burned a quarter of Copenhagen — including the medieval quarter, the university and its library. The fire of <b>1795</b> took another swath — Højbro Plads, where your tour starts, was carved out as a firebreak after it. And in <b>1807</b> the Royal Navy bombarded Copenhagen for three nights with Congreve rockets — one of the first terror bombardments of a European civilian city — to steal the entire Danish fleet before Napoleon could take it; the city surrendered, and Denmark retaliated by joining Napoleon, which is how it lost Norway in 1814. Which is why Magstræde, a lane that survived it all, is precious.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Equestrian_statue_of_Absalon">The Absalon statue</a> · <a href="https://en.wikipedia.org/wiki/Copenhagen_Fire_of_1728">The 1728 fire</a> · <a href="https://en.wikipedia.org/wiki/Battle_of_Copenhagen_(1807)">The 1807 bombardment</a> · <a href="https://en.wikipedia.org/wiki/Absalon">Absalon</a></p></div></details>
+      <details><summary><b>The India connection</b> — 225 years of Danish colonies: Tranquebar and Serampore</summary>
+      <div class="body"><p>Denmark ran colonies <b>on Indian soil</b> for longer than the British ran railways. In <b>1620</b>, a Danish East India Company treaty with Raghunatha Nayak of Thanjavur gave Denmark the fishing town of <b>Tranquebar (Tharangambadi)</b> on the Tamil Nadu coast — Fort Dansborg still stands there today, one of the few surviving Danish fortresses anywhere. In <b>1706</b> the Danish king sent the first Protestant missionaries to India: Bartholomäus Ziegenbalg translated the New Testament into Tamil and ran what became the <b>first Tamil-language printing press in Asia</b> — under the Danish flag, in Tranquebar.</p>
+      <p>Up north, the Danes took <b>Serampore</b> near Kolkata in 1755 — renamed <b>Frederiksnagore</b>. When the British East India Company banned missionary printing in Bengal, William Carey — the "father of Bengali prose printing" — printed under <b>the Danish king's charter</b> instead; Serampore College (1818) still teaches there today. In 1845 Denmark sold both Tranquebar and Serampore to Britain, and in 1868 gave up the Nicobar Islands ("the Frederiksøerne"). Next time you're in Tamil Nadu or Bengal, there's a Danish colonial footprint to walk.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Danish_India">Danish India</a> · <a href="https://en.wikipedia.org/wiki/Tharangambadi">Tranquebar / Tharangambadi</a> · <a href="https://en.wikipedia.org/wiki/Serampore">Serampore</a> · <a href="https://en.wikipedia.org/wiki/Danish_East_India_Company">Danish East India Company</a></p></div></details>
+      <details><summary><b>Beyond the capital — the Denmark you're missing</b> — Jutland's wandering lighthouse, the Viking ship graveyard, the Black Sun you're two weeks early for</summary>
       <div class="body">
         <p><b>Zealand, an hour away.</b> Roskilde is the big one: the <b>Viking Ship Museum</b> is built directly over the mud where five 11th-century warships were found — deliberately scuttled in the fjord as a naval blockade ~1070, and the museum's boatyard builds full-size Viking replicas with period tools (in summer you can sail one). Next door, the red-brick cathedral is the burial church of 40 Danish kings and queens — a millennium of monarchy in one nave. Closer to the airport, <b>Dragør</b> is a preserved herring-fishing town of yellow houses that most tourists drive past.</p>
         <p><b>Møns Klint.</b> The white cliffs — 128 m of chalk laid down in a 70-million-year-old tropical sea, full of fossilized urchins. Denmark's most dramatic geology, on an island with dark-sky status.</p>
@@ -986,7 +1151,11 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Infrastructure.</b> Dense, cheap rail network (your SKA1 airport train and Krakow–Zakopane buses live on it); the złoty, not the euro.</p>
       <p><b>Famous Poles:</b> Copernicus, Chopin, Marie Skłodowska-Curie, Pope John Paul II, Lech Wałęsa, Wisława Szymborska & Czesław Miłosz (Nobel poets), Krzysztof Kieślowski (<i>Dekalog</i>), Roman Polański, Robert Lewandowski, Iga Świątek.</p>
       <p><b>Government.</b> Parliamentary republic: Sejm (460) + Senate (100). President Karol Nawrocki (2025); Prime Minister Donald Tusk.</p>
-      <details><summary><b>Deeper cut — Solidarity and 1989</b></summary>
+      <details><summary><b>A country that vanished for 123 years</b> — golden age, partitions, rebirth, occupation</summary>
+      <div class="body"><p><b>The golden age.</b> In 1385 Poland married Lithuania (the Jagiellonian union) and for two centuries the combined state was the <b>largest in Europe</b> — Krakow its radiant capital. Copernicus studied at the Jagiellonian University (founded 1364, Central Europe's second-oldest); the Renaissance courtyard you'll stand in at Wawel is that era's wealth in stone.</p>
+      <p><b>The vanishing.</b> 1795: Russia, Prussia and Austria partitioned Poland out of existence — no Polish state for <b>123 years</b>, the language kept alive in churches and kitchens. Krakow itself was a quaint "Free City" under Austrian watch (1815–46), one reason its medieval fabric survived untouched. Reborn 1918 under Piłsudski; destroyed again 1939–45: dual Nazi-Soviet occupation, six million dead, Warsaw razed street by street — while Krakow, seat of the Nazi General Government, was deliberately spared as an administrative showcase. You'll feel that survival in every street of the Old Town you walk on Saturday.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/History_of_Poland">History of Poland</a> · <a href="https://en.wikipedia.org/wiki/Partitions_of_Poland">The partitions</a> · <a href="https://en.wikipedia.org/wiki/Free_City_of_Krak%C3%B3w">The Free City of Kraków</a> · <a href="https://en.wikipedia.org/wiki/Jagiellonian_University">Jagiellonian University</a></p></div></details>
+      <details><summary><b>Deeper cut — Solidarity and 1989</b> — the shipyard union that cracked the Iron Curtain</summary>
       <div class="body"><p>The Iron Curtain cracked in a Gdańsk shipyard: in August 1980, strikes led by electrician Lech Wałęsa forced the communist regime to legalize <b>Solidarity</b> — the first independent trade union in the Soviet bloc, 10 million members within a year. Martial law crushed it in December 1981 (Wałęsa under house arrest, tanks in the streets), but it survived underground for the decade — and in 1989, the roundtable talks between Solidarity and the government negotiated a semi-free election in which Solidarity won <i>every single seat it could contest</i>. Within months, Poland had a non-communist PM; within the year, the Berlin Wall fell; within two, the USSR was gone. Historians argue the 1980s all started here — on your route, the Krakow connection is that John Paul II, Krakow's own cardinal, was elected pope in 1978, and his 1979 homecoming mass (millions strong) is widely called the moment Poles stopped being afraid.</p>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Solidarity">Solidarity</a> · <a href="https://en.wikipedia.org/wiki/1989_Polish_roundtable">The 1989 Roundtable</a> · <a href="https://www.krakow-info.com">krakow-info.com</a></p></div></details>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/History_of_Poland">History of Poland</a> · <a href="https://en.wikipedia.org/wiki/Kraków">Kraków</a></p>
@@ -1001,7 +1170,12 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Fun facts.</b> One of the world's highest castle densities per capita. The High Tatras squeeze full alpine drama — 25 peaks over 2,500 m — into a ridge you can cycle across in a day. Andy Warhol's parents emigrated from the village of Miková. Lomnický štít (the €89 summit) hosts a solar observatory at the top.</p>
       <p><b>Famous Slovaks:</b> Milan Štefánik (astronomer-statesman), Ľudovít Štúr (codified the Slovak language), Peter Sagan (cycling), Zdeno Chára & Pavol Demitra (hockey), Juraj Herz (director of <i>The Cremator</i>).</p>
       <p><b>Government.</b> Parliamentary republic; 150-seat National Council; President Peter Pellegrini; Prime Minister Robert Fico.</p>
-      <details><summary><b>Deeper cut — the Velvet Divorce</b></summary>
+      <details><summary><b>A nation without a state for a thousand years</b> — Great Moravia, Hungarian rule, and the mini-Alps</summary>
+      <div class="body"><p><b>Where Slavic writing was born.</b> In 863 the Byzantine brothers Cyril and Methodius arrived in <b>Great Moravia</b> — Slovakia's first state — and invented the <b>Glagolitic alphabet</b> to write Old Church Slavonic: the ancestor of the script half of Europe still uses. It is the proudest paragraph in Slovak history, and it happened in the region you're riding through on Friday.</p>
+      <p><b>A thousand years as Hungary's north.</b> From around 1000 Slovakia had no state of its own — ruled from Budapest; the Slovak language survived in villages while nobles spoke Hungarian and towns spoke German. The modern nation was rebuilt by 19th-century codifiers and poets, and got its first state only inside Czechoslovakia in 1918. Then the wartime puppet republic, the 1944 anti-Nazi <b>Slovak National Uprising</b>, four decades of communism, and the 1993 Velvet Divorce — the calmest divorce in European history.</p>
+      <p><b>The Tatras.</b> The smallest true alpine range in the world: <b>25 peaks over 2,500 m inside an area you can drive across in an hour</b> — a compressed Chamonix, with chamois and marmots on the cliffs. The vintage <b>Tatra electric railway</b> (1908) you'll ride between Smokovec and Tatranská Lomnica was built for Bohemian holiday-makers and still runs on the same charm.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Great_Moravia">Great Moravia</a> · <a href="https://en.wikipedia.org/wiki/Cyril_and_Methodius">Cyril & Methodius</a> · <a href="https://en.wikipedia.org/wiki/History_of_Slovakia">History of Slovakia</a> · <a href="https://en.wikipedia.org/wiki/High_Tatras">The High Tatras</a></p></div></details>
+      <details><summary><b>Deeper cut — the Velvet Divorce</b> — the only country that split by agreement</summary>
       <div class="body"><p>Czechoslovakia split at midnight on 1 January 1993, and it may be the only country in history to dissolve by agreement. After 1989, the Czech lands (industrial, richer, 2/3 of the population) and Slovakia (rural, heavier per-capita subsidies) wanted increasingly different speeds; the two governments — led by Václav Klaus and Vladimír Mečiar — negotiated everything from the currency to border posts in six months of "hyphen wars" and quiet deals. There was no referendum, polls showed most citizens against, and yet: no violence, both flags kept their own, and today Slovaks and Czechs need visas for each other's capitals about as much as Scots and English do. The High Tatras you're riding through on Friday were the summer resort of the whole federation — the cable cars you'll ride were built for Bohemian factory workers' union holidays.</p>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Dissolution_of_Czechoslovakia">Dissolution of Czechoslovakia</a> · <a href="https://en.wikipedia.org/wiki/High_Tatras">High Tatras</a></p></div></details>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Slovakia">Slovakia</a> · <a href="https://en.wikipedia.org/wiki/History_of_Slovakia">History of Slovakia</a></p>
@@ -1012,7 +1186,7 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
     <summary><span class="dot"></span>Slovenia<span class="tag">Ljubljana base</span></summary>
     <div class="body">
       <p><b>History.</b> Among the earliest Slavic states (7th-century Carantania), then a thousand years under Habsburg rule — which is why Ljubljana feels Mitteleuropa, all coffee houses and Secession façades. Yugoslavia from 1918 (kingdom, then Tito's federation); WWII saw fierce partisan resistance. Independence on 25 June 1991 after a ten-day war — the shortest and least bloody of the Yugoslav break-ups. EU/NATO 2004; euro 2007, ahead of every other 2004 entrant.</p>
-      <details open><summary><b>The Yugoslavia story — how Slovenia was born</b></summary>
+      <details><summary><b>The Yugoslavia story — how Slovenia was born</b> — Tito's third way, the 1990 referendum, the ten-day war</summary>
       <div class="body">
         <p><b>One state, six republics, three religions, two alphabets.</b> After WWI the victorious South Slavs merged into the Kingdom of Serbs, Croats and Slovenes (1918, renamed Yugoslavia — "the land of the southern Slavs" — in 1929). From the start it was a forced marriage: a Serbian king, a Serb-dominated army, and economies pointing in different directions. A Serb nationalist shot the king in Marseille in 1934; the country fell apart in ten days in April 1941, when the Axis invaded.</p>
         <p><b>The war.</b> Slovenia was carved three ways — annexed to Nazi Germany, Fascist Italy and Hungary. Two resistance movements fought each other as much as the occupiers: Tito's communist Partisans and the anti-communist Home Guard. Slovenia lost roughly 7–8% of its population — among the highest rates in occupied Europe — and Tito's Partisans emerged with the strongest hand, giving Yugoslavia something unique: it <i>liberated itself</i>, largely without the Red Army. That fact shaped everything after.</p>
@@ -1026,6 +1200,10 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Fun facts.</b> ~60% forest. More than 10,000 mapped caves (Postojna and the UNESCO Škocjan gorge are your Thursday options). Triglav, the highest mountain, is on the national coat of arms — a country whose flag features its summit. Per capita, arguably Europe's best sports nation right now.</p>
       <p><b>Famous Slovenians:</b> Jože Plečnik, France Prešeren (poet; the anthem), Slavoj Žižek (philosopher), Tadej Pogačar & Primož Roglič (Tour de France winners), Luka Dončić (NBA), Melania Trump (born Sevnica), Boris Pahor (<i>Necropolis</i>).</p>
       <p><b>Government.</b> Parliamentary republic; 90-seat National Assembly; President Nataša Pirc Musar; Prime Minister Robert Golob.</p>
+      <details><summary><b>Ljubljana — the city one architect built</b> — and why the dragon is on the bridge</summary>
+      <div class="body"><p><b>The earthquake that made the city.</b> In 1895 Ljubljana was flattened by a quake, and its rebuilding collided with one man's obsession: <b>Jože Plečnik</b>, a local who had already rebuilt Prague Castle for the Czech president. From 1921 he treated his hometown as a single project — the <b>Triple Bridge</b> (pedestrian bridges added beside the old one), the riverside market colonnades, the National and University Library, the embankments. No other European capital bears one architect's fingerprint so completely; locals say "Plečnik's Ljubljana" the way Parisians say "Haussmann's Paris".</p>
+      <p><b>The dragon.</b> The city's symbol is the dragon on the 1901 bridge, and the legend runs back to <b>Jason and the Argonauts</b>: after stealing the Golden Fleece, Jason fled up the Danube and its tributaries and slew a dragon in the Ljubljana marshes — then (the story goes) founded the city on that spot. The dragon is also said to wag its tail when a virgin crosses the bridge. Don't wait around.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Jo%C5%BEe_Ple%C4%8Dnik">Jože Plečnik</a> · <a href="https://en.wikipedia.org/wiki/Ljubljana">Ljubljana</a> · <a href="https://en.wikipedia.org/wiki/Triple_Bridge">The Triple Bridge</a></p></div></details>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Slovenia">Slovenia</a> · <a href="https://en.wikipedia.org/wiki/Jože_Plečnik">Jože Plečnik</a> · <a href="https://www.slovenia.info">slovenia.info</a></p>
     </div>
   </details>
@@ -1038,7 +1216,12 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Fun facts.</b> Tesla was born at Smiljan (in today's Croatia). The fountain pen patent went to Zagreb's Slavoljub Penkala. Rimac's Nevera electric hypercar is engineered outside Zagreb. Game of Thrones made Dubrovnik a household name.</p>
       <p><b>Famous Croatians:</b> Nikola Tesla, Ruđer Bošković (18th-c. polymath), Ivan Meštrović (sculptor), Franjo Tuđman (first president), Goran Ivanišević (Wimbledon 2001), Luka Modrić (2018 Ballon d'Or), Janica Kostelić, Davor Šuker, Miroslav Krleža (writer).</p>
       <p><b>Government.</b> Parliamentary republic; 151-seat Sabor; President Zoran Milanović; Prime Minister Andrej Plenković.</p>
-      <details><summary><b>Deeper cut — the Homeland War (1991–95)</b></summary>
+      <details><summary><b>Between empires</b> — Hungary, the Habsburgs, and the frontier that shaped everything</summary>
+      <div class="body"><p><b>A crown shared since 1102.</b> Croatia entered personal union with Hungary in the 12th century, then chose the Habsburgs in 1527 as the Ottoman tide rolled to its borders. For 300 years the <b>Military Frontier</b> — a militarized strip facing the Ottomans, settled by refugees given land for soldiering — ran through Croatian land; that fence-and-quarrel logic echoed horribly in the 1990s, and its memory is the subtext of many a Balkan conversation you'll overhear.</p>
+      <p><b>Zagreb the Central-European city.</b> Your days here are firmly Mitteleuropa: a Habsburg lower town of Secession façades and coffee houses. The 19th-century <b>Illyrian movement</b>, started in Zagreb by Ljudevit Gaj, standardized the language and invented South-Slavic identity — the seed of both Yugoslavias. Zagreb versus the coast (Austro-Hungarian versus Mediterranean) is still the country's defining tension.</p>
+      <p><b>Croatia gave the world:</b> the <b>necktie</b> — French "cravate" comes from the knotted neckwear of Croatian light cavalry that Paris copied in the 1630s; <b>Nikola Tesla</b>, born at Smiljan on today's Croatian territory; and the <b>mechanical pencil</b> — Zagreb's Eduard Penkala patented it in 1906, and it still carries his name across Europe.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Illyrian_movement">The Illyrian movement</a> · <a href="https://en.wikipedia.org/wiki/Military_Frontier">The Military Frontier</a> · <a href="https://en.wikipedia.org/wiki/History_of_Croatia">History of Croatia</a> · <a href="https://en.wikipedia.org/wiki/Necktie">The necktie's Croatian origin</a></p></div></details>
+      <details><summary><b>Deeper cut — the Homeland War (1991–95)</b> — Vukovar, Dubrovnik, and why Plitvice was the first flashpoint</summary>
       <div class="body"><p>When Croatia declared independence in June 1991, its Serb minority (backed by Belgrade) rebelled and seized a third of the country; the Yugoslav army supplied the firepower. The war's defining wound was <b>Vukovar</b> — a Danube city that held out under siege for 87 days in 1991, was flattened when it fell, and whose survivors were taken to a massacre at a nearby farm. Dubrovnik, the "pearl of the Adriatic," was shelled from the hills — its UNESCO old town repairs still visible as newer roof tiles. Plitvice (your Sunday) was literally the first flashpoint: the "Bloody Easter" shootout in April 1991, the war's first death. The war ended in 1995 with the Croatian offensives and the Dayton agreement; the last occupied territory re-integrated in 1998. What you'll notice: Zagreb feels Central European and untouched — the war happened in a Croatia most tourists never see. Your Sunday bus will pass some of it.</p>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Croatian_War_of_Independence">Croatian War of Independence</a> · <a href="https://en.wikipedia.org/wiki/Siege_of_Vukovar">Siege of Vukovar</a></p></div></details>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Croatia">Croatia</a> · <a href="https://en.wikipedia.org/wiki/History_of_Croatia">History of Croatia</a></p>
@@ -1053,7 +1236,12 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
       <p><b>Fun facts.</b> Vienna repeatedly ranks the world's most liveable city. The croissant descends from the Viennese kipferl. Red Bull, Swarovski and Porsche are Austrian. Freud's couch is still in the Berggasse museum. <i>The Third Man</i> (1949) made your Prater ferris wheel a film star.</p>
       <p><b>Famous Austrians:</b> Mozart, Haydn, Schubert, Johann Strauss II, Beethoven (Viennese by adoption), Gustav Klimt (your Belvedere Tuesday), Gustav Mahler, Sigmund Freud, Ludwig Wittgenstein, Empress Sisi, Arnold Schwarzenegger, Hedy Lamarr.</p>
       <p><b>Government.</b> Federal parliamentary republic; President Alexander Van der Bellen; Chancellor Christian Stocker (since 2025, heading the first ÖVP–SPÖ–NEOS coalition).</p>
-      <details><summary><b>Deeper cut — the empire, the Anschluss, the amnesia</b></summary>
+      <details><summary><b>The empire that ran half of Europe</b> — the Habsburgs, from a Swiss castle to world war</summary>
+      <div class="body"><p><b>Marry, don't fight.</b> The Habsburgs started as minor Swiss lords ("let others wage war; you, happy Austria, marry" was the family motto) and married their way into running much of Europe for 640 years. By the 1500s one Habsburg emperor ruled Spain, the Americas, the Low Countries — and this: the capital of it all is the city you're walking. The 1683 Ottoman siege — broken by the largest cavalry charge in history — allegedly left sacks of coffee in the retreating camp; the Viennese learned to brew it, and the coffee house was born (the legend is contested; the coffee is not).</p>
+      <p><b>Maria Theresa and the city of Mozart.</b> The empress with 16 children (one became Marie Antoinette) made Schönbrunn her summer seat and turned Vienna into the music capital of Europe — Mozart, Haydn, later Schubert and the Strauss dynasty. Her state rooms are your Tuesday tour.</p>
+      <p><b>The end.</b> The empire that couldn't reform fast enough: 1866 lost to Prussia, 1867 split into Austria-Hungary, 1914 — a Serbian teenager in Sarajevo shot the Habsburg heir and the whole structure detonated into WWI. What remained was a small republic nobody wanted; then Anschluss, war, and 1945–55 <b>Vienna occupied and split into four sectors like Berlin</b> — the exact city of The Third Man, your ferris-wheel evening's film.</p>
+      <p class="readlist">Read: <a href="https://en.wikipedia.org/wiki/Habsburg_monarchy">The Habsburg monarchy</a> · <a href="https://en.wikipedia.org/wiki/Siege_of_Vienna">The 1683 siege</a> · <a href="https://en.wikipedia.org/wiki/Maria_Theresa">Maria Theresa</a> · <a href="https://en.wikipedia.org/wiki/Austro-Hungarian_Compromise_of_1867">The 1867 Compromise</a></p></div></details>
+      <details><summary><b>Deeper cut — the empire, the Anschluss, the amnesia</b> — how Vienna became the world's neutral ground</summary>
       <div class="body"><p>Austria spent 640 years being "the empire" and then, abruptly, a small Alpine republic of 7 million that nobody — least of all Austrians — quite knew how to be. After 1918 the state literally called itself "German-Austria" and wanted to join Germany; the Allies forbade it, and Hitler finished the job anyway in March 1938 — the Anschluss was met by ecstatic crowds on Vienna's Heldenplatz, and Austrians were disproportionately represented in the SS and in the Holocaust's administration. Post-war Austria rebuilt its identity as "<b>Hitler's first victim</b>" — a framing the Allies wrote into the 1955 State Treaty as the price of independence. The reckoning only came in 1986–91, when the UN Secretary-General candidacy of wartime intelligence officer Kurt Waldheim forced the country to look at its files. Modern Austria's neutrality (also 1955) is why Vienna — the former imperial capital of espionage — hosts the UN, OPEC and OSCE: the world's neutral ground. Your heuriger night is a 500-year-old tradition invented by imperial decree so that winemakers could sell their own young wine tax-free.</p>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Anschluss">The Anschluss</a> · <a href="https://en.wikipedia.org/wiki/Waldheim_affair">The Waldheim affair</a> · <a href="https://en.wikipedia.org/wiki/Austrian_State_Treaty">The 1955 State Treaty</a></p></div></details>
       <p class="readlist">Read more: <a href="https://en.wikipedia.org/wiki/Austria">Austria</a> · <a href="https://en.wikipedia.org/wiki/Habsburg_monarchy">The Habsburgs</a></p>
@@ -1134,6 +1322,40 @@ section h3.citylabel{font-size:1.15rem;margin:22px 0 10px;padding-bottom:6px;bor
   if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){
     navigator.serviceWorker.register('sw.js').catch(function(){});
   }
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('notesbox'), s=document.getElementById('notes-status');
+  if(!b)return;
+  var K='europe-trip-notes-v6';
+  b.value=localStorage.getItem(K)||'';
+  if(b.value)s.textContent='Loaded from this device ✓';
+  var t;
+  b.addEventListener('input',function(){
+    clearTimeout(t);
+    t=setTimeout(function(){
+      try{localStorage.setItem(K,b.value);s.textContent='Saved on this device ✓ ' + new Date().toLocaleTimeString();}catch(e){s.textContent='Could not save: ' + e.message;}
+    },400);
+  });
+})();
+</script>
+<script>
+(function(){
+  var done={};
+  function load(img){
+    var t=img.getAttribute('data-wiki'); if(!t||done[t])return; done[t]=1;
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t)).then(function(r){return r.json()}).then(function(d){
+      var src=d&&d.thumbnail&&d.thumbnail.source;
+      if(src){img.src=src;img.hidden=false;img.alt=t;img.style.opacity=1;}
+    }).catch(function(){});
+  }
+  document.querySelectorAll('img.storyimg').forEach(function(img){
+    img.style.opacity=.3;img.style.transition='opacity .4s';
+    var det=img.closest('details');
+    if(det&&det.open){load(img);}
+    else if(det){det.addEventListener('toggle',function(){if(det.open)load(img);});}
+  });
 })();
 </script>
 <button id="backtop" aria-label="Back to top">↑</button>
